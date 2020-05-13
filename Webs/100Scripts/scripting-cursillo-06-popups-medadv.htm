@@ -1,0 +1,207 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish51464172{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish51464172{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip51464172{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad51464172"></div>
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<TITLE>Web del Canal #100scripts - Curso de Scripting - Lección 6: Los popups avanzados</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="75%" border="0">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Popups 
+                Avanzados <br>
+                </u></b></font><font size="3" face="Arial"><strong><br>
+                </strong></font></p>
+              <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2" face="Arial">Los 
+                popups encierran una serie de posibilidades que simple vista parecen 
+                realmente tontas, en las que se pueden hacer muchos efectos que 
+                sorprenden a veces (aparici&oacute;n de elementos en determinadas 
+                condiciones). Tambien puedes variar el orden (debido al prefijo 
+                menu de los remotes). Los menus que aparecen y desaparecen se 
+                conocen vulgarmente como <i>menus dinamicos</i> (o popups dinamicos 
+                si te gusta mezclar el ingl&eacute;s :-P). Los definidos con el 
+                prefijo menu (el SSC de SomaTic es un buen ejemplo) no se reducen 
+                unicamente a los tradicioneales menubar, channel... etc, sino 
+                que tambien se usan para definir men&uacute;s en ventanas personalizadas 
+                (que es la siguiente leccion).</font></p>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comencemos 
+                con los <b>men&uacute;s din&aacute;micos</b>, estos <i>son construidos 
+                con el identificador $iif o con un alias en forma de identificador</i> 
+                y son realmente pr&aacute;cticos (a la par que muy est&eacute;ticos, 
+                &iquest;como vas a quitarle op a alguien si no lo tienes? :-P). 
+                Estos aparecen y desaparecen si se sumplen o no unas condiciones 
+                que nosotros previamente habremos definido, para que lo entiendas 
+                aqu&iacute; tienes un ejemplo que corresponder&iacute;a a un menu 
+                de la lista de nicks (nicklist):</font></p>
+              <table width="100%" border="0" bgcolor="#CCCCCC">
+                <tr> 
+                  <td><font size="2" face="Arial"><b><i>$iif($me isop $chan,Control)</i></b></font></td>
+                </tr>
+                <tr> 
+                  <td><font size="2" face="Arial"><b>.Op:mode # +ooo $$1 $2-</b></font></td>
+                </tr>
+                <tr> 
+                  <td height="17"><b><font size="2" face="Arial">.DeOp:mode # 
+                    -ooo $$1 $2-</font></b></td>
+                </tr>
+                <tr> 
+                  <td><b><font face="Arial" size="2">-</font></b></td>
+                </tr>
+                <tr> 
+                  <td><b><font face="Arial" size="2"><i>$iif(CHaN ison $chan,CHaN)</i></font></b></td>
+                </tr>
+                <tr> 
+                  <td><b><font face="Arial" size="2">.Op:msg chan op # $$1 $2-</font></b></td>
+                </tr>
+                <tr> 
+                  <td><b><font face="Arial" size="2">.DeOp:msg chan deop # $$1 
+                    $2-</font></b></td>
+                </tr>
+                <tr> 
+                  <td><font face="Arial" size="2"><b>-</b></font></td>
+                </tr>
+                <tr> 
+                  <td><font face="Arial" size="2"><b>$pepe:/me saluda a $$1 y 
+                    le da la bienvenida a #100scripts</b></font></td>
+                </tr>
+              </table>
+              <p align="left"><font face="Arial" size="2">Y el alias $pepe contendr&aacute; 
+                (debes ponerlo en los aliases si vas a pegar el ejemplo y el anterior 
+                en la seccion nicklist de los popups):</font></p>
+              <table width="100%" border="0" bgcolor="#CCCCCC">
+                <tr>
+                  <td><font face="Arial" size="2"><b>pepe if (($me == Locorl) 
+                    &amp;&amp; ($me isop $chan) &amp;&amp; (hispano.org isin $server)) 
+                    return Saludo</b></font></td>
+                </tr>
+              </table>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como 
+                todo lo que se pone en este &quot;curso&quot; (te recuerdo que 
+                es una versi&oacute;n alternativa a la ayuda del mIRC con unos 
+                cuantos consejos y trucos) ahora viene la explicaci&oacute;n. 
+                el <i><b>$iif </b></i>es un identificador reciente que tiene una 
+                funci&oacute;n parecida al if (y funciona casi igual solo que 
+                devuelve un verdadero y uno falso si no se cumple [en este caso 
+                no devuelve nada]), en ambos se cumplen y exponen condiciones 
+                distintas, en el primer $iif que he usado se le dice al mIRC que 
+                muestre el menu y sus submenus solo si soy op, en el segundo le 
+                dice al mIRC que solo muestre el control de chan solo si chan 
+                est&aacute; en el canal, el tercer elemento es el menu usando 
+                el alias $pepe y solo aparecer&aacute; cuando se cumplan todas 
+                las condiciones definidas en $pepe.</font></p>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sobre 
+                los <b>men&uacute;s definidos con el prefijo &quot;menu&quot; 
+                en los remotes</b>, se contruyen de igual manera que los normales, 
+                solo tienes que indicar a que pertenecen, en estos influye el 
+                orden en el que est&eacute; cargado el archivo (aparecer&aacute;n 
+                en una posici&oacute;n o en otra dependiendo del orden en que 
+                se hayan cargado por el usuario los archivos). Tambien tienen 
+                juego aqui como menus din&aacute;micos (bastante m&aacute;s), 
+                bien, aqu&iacute; tienes un ejemplo de lo que te estoy diciendo:</font></p>
+              <table width="100%" border="0">
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>menu menubar, status {</b></font></td>
+                </tr>
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>$iif($menu == status,prueba):echo 
+                    -a El menu actual es $menu</b></font></td>
+                </tr>
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>$iif($menu == menubar,prueba):echo 
+                    -a La barra de menus me llam&oacute;</b></font></td>
+                </tr>
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>$iif($menu == status,lusers):lusers</b></font></td>
+                </tr>
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>$iif($menu == menubar,Id. 
+                    NiCK):msg nick@deep.space identify identificame </b></font></td>
+                </tr>
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>-</b></font></td>
+                </tr>
+                <tr bgcolor="#CCCCCC"> 
+                  <td><font size="2" face="Arial"><b>}</b></font></td>
+                </tr>
+              </table>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pega 
+                eso en los remotes y observa lo que sucede cuando pulsas la barra 
+                de menus del menubar y cuando sacas el menu del status :-). Se 
+                definen 2 menus para que veas que no es obligatorio que cada uno 
+                vaya separado cada uno, si te interesa diferenciarlo puedes hacerlo 
+                usando el identificador $menu y el $iif. En lo referente al orden 
+                debes experimentarlo tu definiendo varios menus en diferentes 
+                archivos del remote y cambiando su orden (en el editor del mIRC 
+                file/order)</font></p>
+              <p align="left"><font face="Arial" size="2">Despues de todo este 
+                gran rollo, considera por finalizado este cap&iacute;tulo, si 
+                no entiendes algo pregunta en el canal o a mi directamente mediante 
+                el correo del canal :-)</font></p>
+            </div>
+            <p><font size="2" face="Arial"><b>&lt;</b> <a href="scripting-cursillo-00-indice.html" target="_self">Volver 
+              al indice de contenidos</a> <b>||</b> Siguiente: <a href="scripting-cursillo-07-customwindows-medadv.htm" target="_self">Las 
+              ventanas personalizadas</a><b>&gt;</b></font> 
+            <p>&nbsp; 
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish51464172" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=51464172&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

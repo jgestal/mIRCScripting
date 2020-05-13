@@ -1,0 +1,794 @@
+Conferenciante: Jimmy_RAY (y Dranor en la última parte)
+Moderador: NoTsCaPe
+
+Session Start: Sun Apr 29 00:35:29 2001
+*** Now talking in #SCRiPTiNG
+<Jimmy_RAY> weno parece que no biene nadie más, 80 no ta mal :)
+-CHaN:#SCRiPTiNG- Dranor hace OP a Dranor.
+<Jimmy_RAY> voi a dar una charla sobre cómo empezar con ésto del scripting... pero ésta charla no es solamente para la gente que no tiene ni idea de scripting
+<Dranor> anda
+<Jimmy_RAY> sino también para los demás porque también daré unos consejos
+<Jimmy_RAY> para evitar algunos errores usuales que mucha gente comete
+<Jimmy_RAY> el moderador de la charla será NoTsCaPe
+<NoTsCaPe> true, true
+<Jimmy_RAY> si teneis alguna duda, en el turno de preguntas debeis pedirle turno a él y él os dará voz
+<Jimmy_RAY> para que hableis y pregunteis lo que querais
+<Jimmy_RAY> bueno, empecemos
+<Jimmy_RAY> por alias
+<Jimmy_RAY> para ir a la pantalla para escribirlos basta con poner ALT A
+<Jimmy_RAY> así a grandes rasgos hay dos tipos de alias
+<Jimmy_RAY> 1- los que ejecutan comandos sin más
+<Jimmy_RAY> 2- los que retornan un valor
+<Jimmy_RAY> empecemos por los primeros
+<Jimmy_RAY> con un ejemplo sencillo
+<Jimmy_RAY> poner ésto en alias
+<Jimmy_RAY> colorea {
+<Jimmy_RAY> var %i 1
+<Jimmy_RAY> while ($nick($chan,%i)) {
+<Jimmy_RAY> cline 4 $chan $nick($chan,%i)
+<Jimmy_RAY> inc %i
+<Jimmy_RAY> }
+<Jimmy_RAY> }
+<Jimmy_RAY> ahora si poneis /colorea en un canal
+<Jimmy_RAY> coloreareis todos los nicks de la nick list de rojo
+<Jimmy_RAY> de paso con ese alias sencillo explico variables locales y bucles
+<Jimmy_RAY> tb identificadores
+<Jimmy_RAY> con var %i 1
+<Jimmy_RAY> creamos una variable local %i a la que le damos valor 1 y que usaremos como contador
+<Jimmy_RAY> ahora usamos el while
+<Jimmy_RAY> a los que sepan programación el c
+<Jimmy_RAY> el while les será conocido
+<Jimmy_RAY> while ($nick($chan,%i))
+<Jimmy_RAY> quiere decir que mientras se cumpla la condición entre paréntesis
+<Jimmy_RAY> repita los comandos que estén entre { }
+<Jimmy_RAY> $nick($chan,%i)
+<Jimmy_RAY> me devuelve el nick de la %i posición en la nick list
+<Jimmy_RAY> por ejemplo...
+<Jimmy_RAY> si poneis aquí y ahora como ejemplo
+<Jimmy_RAY> //echo -a $nick($chan,1)
+<Jimmy_RAY> vereis que devuelve Jimmy_RAY ;)
+<Jimmy_RAY> el motivo de poner 2 // es que el mIRC interprete los identificadores
+<Jimmy_RAY> las palabras precedidas por $ se llaman identificadores
+<Jimmy_RAY> incremento luego %i en uno
+<Jimmy_RAY> con el comando inc %i
+<Jimmy_RAY> para que pase al repetirse el while no haga lo mismo
+<Jimmy_RAY> pq si hiciera lo mismo el mIRC se me quedaría colgado :)
+<Jimmy_RAY> sería un bucle sin fín
+<Jimmy_RAY> y así pasaría al siguiente nick
+<Jimmy_RAY> cuando %i sea mayor que la cantidad de nicks del canal pues el bucle pararía ya que $nick($chan,%i) devolvería 0
+<Jimmy_RAY> y al devolver 0 el while se detiene
+<Jimmy_RAY> pero los bucles ya los explicaré algo mejor un poco más adelante :)
+<Jimmy_RAY> ahora vamos con el segundo grupo de identificadores
+<Jimmy_RAY> digo... de alias
+<Jimmy_RAY> que son los identificadores
+<Jimmy_RAY> cómo crearte tú un identificador, que es una función que retorna un valor
+<Jimmy_RAY> para retornar un valor
+<Jimmy_RAY> usamos el comando "return"
+<Jimmy_RAY> la verdad me gusta más poner ejemplos y luego sobre el ejemplo
+<Jimmy_RAY> explicar lo que he echo
+<Jimmy_RAY> porque se aprende mejor
+<Jimmy_RAY> bueno una corrección sobre lo anterior
+<Jimmy_RAY> puede que devuelva 0, $null, o no devuelva nada, en los tres casos el while se detiene
+<Jimmy_RAY> sigamos
+<Jimmy_RAY> copiar ésto en alias
+<Jimmy_RAY> elnick {
+<Jimmy_RAY> if ($1 == $me) return eres tu
+<Jimmy_RAY> else return no eres tu :P
+<Jimmy_RAY> }
+<Jimmy_RAY> ahora escribid en cualquier ventana
+<Jimmy_RAY> //Echo -a $elnick(vuestronick)
+<Jimmy_RAY> y
+<Jimmy_RAY> //Echo -a $elnick(cualquier palabra)
+<Jimmy_RAY> ésto es un ejemplo muy sencillo
+<Jimmy_RAY> pero...
+<Jimmy_RAY> sirve para cualquier cosa
+<Jimmy_RAY> me explico...
+<Jimmy_RAY> es muy usado en el scripting... para no tener que repetir una función miles de veces
+<Jimmy_RAY> acorta mucho el código
+<Jimmy_RAY> y es muy importante que se domine bien
+<Jimmy_RAY> pasemos a los popups
+<Dranor> er..
+<Dranor> jimmy
+<Jimmy_RAY> dime Dranor
+<Dranor> un apunte
+<Dranor> a ver
+<Dranor> muchas veces he visto gente que pegaba su codigo
+<Dranor> y es una mania bastante extendida
+<Dranor> la de poner las barras de comando (/)
+<Jimmy_RAY> ah si...
+<Dranor> en cualquier parte del mIRC (alias, popups, remote) no son necesarias
+<Jimmy_RAY> voi a comentar al final todas esas manías
+<Dranor> es mas, a veces entorpeceran al parser
+<Dranor> ah ok
+<Jimmy_RAY> los halt, los goto, timers y demás
+<Dranor> NoTsCaPe2, pabajo pues
+<Jimmy_RAY> tnx por el comentario Dranor :)
+<Jimmy_RAY> los que quieran comentar algo... ya saben, query NoTsCaPe y a pedir turno jeje
+<Jimmy_RAY> iabmos con los popups
+<Jimmy_RAY> para editar popups sólo hace falta pulsar el ALT + P
+<Jimmy_RAY> y os aparece la ventanita dónde teneis que escribir lo que yo os diré jejeje
+<Jimmy_RAY> ahora en view (un menú de los de arriba) seleccionad Channel
+<Jimmy_RAY> si teneis el mIRC en español lo mismo pero traducido
+<Jimmy_RAY> sigamos x)
+<Jimmy_RAY> lo de jimmy_gay ya ta mu visto,
+<Jimmy_RAY> sigamos
+<Jimmy_RAY> escribid en popups en la primera linea
+<Jimmy_RAY> un ejemplo sencillo
+<Jimmy_RAY> decir hola:say hola
+-CHaN:#SCRiPTiNG- Dranor hace OP a Dranor.
+<Jimmy_RAY> con eso mandarías un mensaje al canal que fuera hola
+<Jimmy_RAY> se escribe el nombre del menu primero
+<Jimmy_RAY> como veis
+<Jimmy_RAY> menu:comandos
+<Jimmy_RAY> se puede usar { }
+<Jimmy_RAY> para poner varios comandos
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> saludar al canal: {
+<Jimmy_RAY> say hola
+<Jimmy_RAY> say me alegro de estar denuevo con vosotros
+<Jimmy_RAY> }
+<Jimmy_RAY> ahora pasemos a algo más interesante
+<Jimmy_RAY> los popúps condicionales
+<Jimmy_RAY> me explico.... que salgan si eres op
+<Jimmy_RAY> y si no lo eres que se escondan
+<Jimmy_RAY> para ello tengo que explicaros el identificador $iif tb muy interesante y conviene saber usar muy bien
+<Jimmy_RAY> veamos
+<Jimmy_RAY> $iif(condición,valor1,valor2)
+<Jimmy_RAY> en el caso de que se cumpla la condición
+<Jimmy_RAY> devolverá el valor 1
+<Jimmy_RAY> y si no se cumple devolverá el valor 2
+<Jimmy_RAY> mmmm la segunda condición
+<Jimmy_RAY> es voluntaria
+<Jimmy_RAY> digo...
+<Jimmy_RAY> el segundo valor
+<Jimmy_RAY> es voluntario
+<Jimmy_RAY> por ejemplo podemos usar $iif(condición,valor1)
+<Jimmy_RAY> y prescindir del valor 2
+<Jimmy_RAY> en el caso de que la condición no se cumpla
+<Jimmy_RAY> no devolverá ningún valor
+<Jimmy_RAY> y ésto para qué me sirve en popups?
+<Jimmy_RAY> pues para mucho
+<Jimmy_RAY> por ejemplo pongamos en los popups de nicklist
+<Jimmy_RAY> $iif($me isop $chan,dar op):mode $chan o $$1
+<Jimmy_RAY> la opción "dar op"
+<Jimmy_RAY> sólamente aparecerá en los canales donde tengamos op -> condición: $me isop $chan
+<Jimmy_RAY> un ejemplo usando los dos valores puede ser en en notify
+<Jimmy_RAY> poner también en el popup de nicklist
+<Jimmy_RAY> $iif($notify($$1),Borrar del notify,Añadir al notify): {
+<Jimmy_RAY> if ($notify($$1)) notify $$1 $?="Comentario opcional"
+<Cor|eoNe> perdona Jimmy_RAY
+<Jimmy_RAY> else notify -r $$1
+<Jimmy_RAY> }
+<Jimmy_RAY> con eso podríamos añadir personas o borrarlas según estuvieran o no
+(corregido el fallo que tenía en la charla y me aviso E
+<Cor|eoNe> solo decir una cosa, para la gente que lo esté haciendo, todo lo que haces
+<Jimmy_RAY> Cor|eoNe dime
+<Cor|eoNe> <Jimmy_RAY> $iif($me isop $chan,dar op):mode $chan o $$1
+<Cor|eoNe> ahi, es +o
+<Cor|eoNe> pequeño error ;)
+<Jimmy_RAY> no hace falta
+<Cor|eoNe> no?
+<Jimmy_RAY> no es un error Cor|eoNe
+<Jimmy_RAY> pruebalo en cualquier canal
+<Jimmy_RAY> ya verás como /mode #canal o nick
+<Cor|eoNe> ah, es verdad
+<Cor|eoNe> sorry ;))
+<NoTsCaPe> ya aprendimos todos que ciertas cosas en scripting sobran :)
+<Jimmy_RAY> es lo mismo que /mode #canal +o nick
+<Cor|eoNe> sip sip, ya me di cuenta, perdón
+<Jimmy_RAY> sigamos
+<Jimmy_RAY> para meter la rayita en el popup sería poner un -
+<Jimmy_RAY> para hacer subniveles en arbol con .
+<Jimmy_RAY> dime [SaRRiO]
+<[SaRRiO]> jimmy, disculpa, desde que version esta eso del " o " ?
+<[SaRRiO]> que no me suena de na xD
+<Jimmy_RAY> [SaRRiO] es el servidor quien te lo interpreta... no es el mIRC
+<Jimmy_RAY> el servidor es positivo
+<[SaRRiO]> aps
+<Jimmy_RAY> mientras no le indiques lo contrario
+<Jimmy_RAY> es siempre +
+<Jimmy_RAY> :)
+<[SaRRiO]> y tb sucede lo mismo con el modo v ?
+<Jimmy_RAY> si tambien
+<Jimmy_RAY> y con el ban
+<[SaRRiO]> oks, gracias
+<Jimmy_RAY> usermodes tb... etc
+<Jimmy_RAY> veamos
+<Jimmy_RAY> un popup
+<Jimmy_RAY> en channel o query me da =
+<Jimmy_RAY> menu1
+<Jimmy_RAY> .menu2
+<Jimmy_RAY> ..menu3:say lala
+<Jimmy_RAY> ..-
+<Jimmy_RAY> ,,menu4:say holaaa
+<Jimmy_RAY> si pegais eso entendereis cómo hacer los popups en arbol
+<Jimmy_RAY> como es una chorrada
+<Jimmy_RAY> sobre entiendo que con el ejemplo queda explicado
+<Jimmy_RAY> antes de empezar
+<Jimmy_RAY> ups
+<Jimmy_RAY> el menu 4 es con puntos tb
+<Jimmy_RAY> pero ando un poco ciego
+<Jimmy_RAY> :)
+<Jimmy_RAY> perdon por el fallo
+<Jimmy_RAY> ahora queria hacer una tanda de preguntas
+<Jimmy_RAY> sobre lo ya explicado
+<Jimmy_RAY> antes de seguir con extructuras condicionales, eventos remotos, variables y pequeños consejos de cómo hacer un buen código
+<LLgado> jimy
+<LLgado> una preguna
+<LLgado> ta
+<Jimmy_RAY> los que tengais alguna duda, algo que decir query NoTsCaPe
+<Jimmy_RAY> dime LLgado
+<LLgado> acabo de leer que el mirc 5.9 AVISA y ADVIERTE de que ¿muy? proximamente
+<LLgado> algunos comandos no serán soportados
+<LLgado> yh advierte a los scripters que vayan actgualizando instrucciones viejas por las nuevas
+<LLgado> suponqie que lo que nos dices es básico y que sirve para de ahora en adelante
+<LLgado> ¿es así, o es posible que algo de lo que nos digas no sirva "mañana"?
+<LLgado> (fin)
+*** milkybar is now known as Jimmy_RAY
+<LLgado> juas, me lo he cargao :-)
+<NoTsCaPe> lol
+<LLgado> ¿hasta donde leiste?
+-> *chan* op #SCRiPTiNG Jimmy_RAY
+<NoTsCaPe> pequeña interrupción que confiamos que se subsane en el menor tiempo posible
+-CHaN:#SCRiPTiNG- Jimmy_RAY hace OP a Jimmy_RAY.
+<Jimmy_RAY> re
+<Jimmy_RAY> leí todo
+<Jimmy_RAY> tengo ésto para logear :P
+<Jimmy_RAY> el lopez me paso una cosa que me casco el mIRC jejeje
+<LLgado> ya, el eval, supongo
+<Jimmy_RAY> veamos...
+<Jimmy_RAY> lo que estoy diciendo como básico
+<Jimmy_RAY> supongo que no será quitado para versiones posteriores
+<Jimmy_RAY> ya que khalad lo que quiere es que el mIRC sea compatible con los scripts
+<Jimmy_RAY> si cambia algunas expresiones no creo que sean esas, ya que son usadas por mucha gente
+<Jimmy_RAY> y causaría un gran problema a los scripters
+<LLgado> ajá, bueno, es cuestión de mirar el help y comparar, gracias
+<{BSoD}> Buenas jimmy
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> el mIRC mantiene el on 1:queryopen
+<Jimmy_RAY> y el on 1:open:?:
+<Jimmy_RAY> y son dos eventos =les
+<Jimmy_RAY> dime {BSoD}
+<{BSoD}> lo de los popups condicionales no me ha acabao d quedar claro, que pasaria si la condición no se cumpliese?
+<Jimmy_RAY> si la condición no se cumpliese
+<Jimmy_RAY> el menú quedaría escondido
+<Jimmy_RAY> y no se vería
+<Jimmy_RAY> sería por ejemplo
+<Jimmy_RAY> el menu de dar op en el canal
+<Jimmy_RAY> en el caso de que no tengas op
+<{BSoD}> entonces para que sirve el segundo valor?
+<{BSoD}> en caso de que lo haya
+<Jimmy_RAY> el segundo valor es para en el caso de que la condición no se cumpla
+<{BSoD}> aha
+<Jimmy_RAY> por ejemplo lo del notify
+<RyDeN> asias NoTsCaPe
+<{BSoD}> thx
+<Jimmy_RAY> añadir al notify si no está en el notify
+<Jimmy_RAY> y quitarlo si está
+<Jimmy_RAY> dime RyDeN
+<RyDeN> Jimmy_RAY aver
+<RyDeN> en los popups
+<RyDeN> cuando pones
+<RyDeN> menu1
+<RyDeN> .menu2
+<RyDeN> ..menu3:say hola
+<RyDeN> puede ser
+<RyDeN> menu1
+<RyDeN> .menu2:say rejolas
+<RyDeN> ..menu3:say adios
+<RyDeN> por ejemplo?
+<Jimmy_RAY> no...
+<RyDeN> a vaia
+<Jimmy_RAY> pq el submenu menu2:say rejolas
+<Jimmy_RAY> lleba implícito un comando
+<RyDeN> aja
+<RyDeN> asias
+<RyDeN> -down NoTsCaPe
+<aRMi> asias
+<Jimmy_RAY> dime aRMi
+<aRMi> wenas noches
+<aRMi> mi pregunta es referente a las variables
+<aRMi> e visto 3 maneras, para fijarlas
+<aRMi> una la de set %var elvalor
+<aRMi> dos, var %x = elvalor
+<aRMi> y tres, %x=elvalor
+<aRMi> kuando debo usar una y no otra?
+<aRMi> y ke diferencia hay?
+<Jimmy_RAY> veamos...
+<Jimmy_RAY> sólo hay dos tipos de variables
+<Jimmy_RAY> variables locales y variables generales
+<Jimmy_RAY> las variables locales son las que puedes usar dentro de un alias (en más lugares, pero por poner un ejemplo)
+<aRMi> aha
+<Jimmy_RAY> se declaran con la sentencia
+<Jimmy_RAY> var %nombre valor
+<Jimmy_RAY> al acabar de ejecutarse el alias se destruyen
+<Jimmy_RAY> son más rápidas que las generales
+<Jimmy_RAY> no aparecen en el apartado Variables
+<Jimmy_RAY> en el editor del mIRC
+<aRMi> tonces no hace falta usar el unset
+<aRMi> no?
+<Jimmy_RAY> y por eso yo recomiendo siempre que se pueda el usar variables locales
+<Jimmy_RAY> no, no hay porqué unsetearlas
+<Jimmy_RAY> además tienen otra gran ventaja
+<aRMi> aha, tonces
+<Jimmy_RAY> por ejemplo tienes dos $identificadores
+<aRMi> tambien kon estas lokales, puedo usar las kompuestas?
+<Jimmy_RAY> en los dos usas de contador %i
+<Jimmy_RAY> no dará problemas, en cambio al ser generales sí
+<Jimmy_RAY> aRMi cómo las compuestas?
+<aRMi> aha
+<aRMi> weno, kompuestas me refiero a las %var [ $+ [ %inc ] ]
+<aRMi> si tambien sirven
+<aRMi> solo las uso en set %var...
+<Jimmy_RAY> supongo que sí... la verdad esque nunca las probé
+<Jimmy_RAY> pero supongo que si las declaras var %var ""
+<Jimmy_RAY> pues supongo que podrás usarlas
+<Jimmy_RAY> y ahora el otro tipo las variables generales
+<aRMi> ahamz
+<Jimmy_RAY> son las que aparecen en la sección de variables del mIRC
+<Jimmy_RAY> cuantas menos aparezcan mejor
+<Jimmy_RAY> un buen código usa pocas variables
+<aRMi> aja
+<Jimmy_RAY> o las que usa las usa locales
+<aRMi> pues nada mas. muchas gracias
+<aRMi> :)
+<aRMi> ans noches
+<Jimmy_RAY> de nada :)
+<EsE|FuLJi> jimmy
+<EsE|FuLJi> una cosa
+<Jimmy_RAY> un segundo que voi a explicar éste tipo de variables
+<EsE|FuLJi> lao ke pusiste antes
+<Jimmy_RAY> y así me queda dicho 
+<EsE|FuLJi> okasz
+<Jimmy_RAY> las variables generales puedes fijarlas de varias maneras
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> set %variable valor
+<Jimmy_RAY> puedes darles un tiempo de validez... (variables temporales) 
+<Jimmy_RAY> que al cabo de un tiempo se destruyan
+<Jimmy_RAY> por ejemplo set -u60 %variable lalalala
+<Jimmy_RAY> al cabo de 60 segundos la variable se destruirá
+<Jimmy_RAY> otra forma de darle valor a una variable es por ej
+<Jimmy_RAY> %i = 1
+<Jimmy_RAY> sería también una variable general
+<Jimmy_RAY> listo :)
+<Jimmy_RAY> dime EsE|FuLJi
+<EsE|FuLJi> a ver
+<EsE|FuLJi> el popup
+<EsE|FuLJi> ke pusiste de ejemplo antes
+<EsE|FuLJi> de anhadir y kitar del notify
+<EsE|FuLJi> sabes?
+<Jimmy_RAY> sip
+<EsE|FuLJi> pues era pa decirte
+<EsE|FuLJi> ke esta al reves
+<EsE|FuLJi> ke ala gente
+<EsE|FuLJi> ke ahi en el notify
+<EsE|FuLJi> te pone anhadir
+<EsE|FuLJi> y ala ke no esta borrar
+<Jimmy_RAY> si tienes razón
+<Jimmy_RAY> me confundí
+<EsE|FuLJi> :_)
+<Jimmy_RAY> $iif($notify($$1),Borrar del notify,Añadir al notify): {
+<Jimmy_RAY> if ($notify($$1)) notify -r $$1 
+<Jimmy_RAY> else notify $$1 $?="Comentario opcional"
+<Jimmy_RAY> }
+<EsE|FuLJi> aiosz
+<EsE|FuLJi> galiza ceibe!!!
+<Jimmy_RAY> tnx por la aclaración :)
+<unF> hola jim :)
+<Jimmy_RAY> dime unF
+<EsE|FuLJi> de nada
+<unF> esto.. era para decir q una variable local también se puede declarar de la siguiente manera:
+<unF> set -u0 %variable
+<unF> no?
+<unF> :)
+<Jimmy_RAY> mmmm 
+<Jimmy_RAY> puedes tb set -u %variable
+<Jimmy_RAY> sí, se destruye al acabar el alias
+<Jimmy_RAY> pero... no toi seguro de que sea local, habría que mirarlo
+<Jimmy_RAY> aunque bueno, con saber una forma es suficiente
+<unF> a qué te refieres exactamente con lo de "variable "local""=
+<unF> ?
+<Jimmy_RAY> que es una variable
+<Jimmy_RAY> que sólo afecta a ese alias (función o lo que sea)
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> tener dos alias relacionados
+<Jimmy_RAY> y que los dos usen como contador %i
+<unF> entiendo, ok gracias
+<Jimmy_RAY> con variables generales causarían conflicto
+<Jimmy_RAY> con locales no
+<No|LiMiT> BuenaZZz
+<Jimmy_RAY> dime No|LiMiT
+<unF> que puedes usar la misma variable en 2 rutinas a la vez digamos.. no?
+<Jimmy_RAY> si
+<Jimmy_RAY> exacto
+<unF> ok ok, es todo, gracias
+<unF> NoTsCaPe ahora sí :P
+<No|LiMiT> keria saber komo se utilizan los timers, por ejemplo en un autojoin
+<No|LiMiT> para no generar lagg al conectar
+<Jimmy_RAY> lag lag no generas... lo que pasa esque lo que te suele llegar es más info del server por los /names del canal
+<Jimmy_RAY> al cabo de un rato ya vuelves a estar como al principio
+<Jimmy_RAY> mmm
+<No|LiMiT> Target change too fast ...
+<No|LiMiT> x´DDD
+<Jimmy_RAY> No|LiMiT a mi por entrar en los 9 canales en los que entro, hacerle un /who a esos 9 canales, abrirle el query a un par de chicas y a unos amigos que veo en la nick list
+<Jimmy_RAY> no me pone target change to fase
+<Jimmy_RAY> eso suele ser más bien devido a saludos de entrada
+<Jimmy_RAY> debido
+<Jimmy_RAY> dime EsE|FuLJi
+<EsE|FuLJi> ke la correcion
+<EsE|FuLJi> ke iciste
+<EsE|FuLJi> la pusiste
+<EsE|FuLJi> igual ke antes
+<EsE|FuLJi> x´D
+<EsE|FuLJi> lo del notify
+<Jimmy_RAY> EsE|FuLJi no
+<Jimmy_RAY> if ($notify($$1)) notify -r $$1 
+<Jimmy_RAY> si $$1 está en el notify
+<Jimmy_RAY> que lo quite
+<Jimmy_RAY> y si no está que lo añada
+<EsE|FuLJi> okasz
+<Jimmy_RAY> $iif($notify($$1),Añadir al notify,Borrar del notify): {
+<Jimmy_RAY> puse mal ésto si...
+<Jimmy_RAY> está cambiado
+<Jimmy_RAY> ais que problemas con el $iif xD
+<^SkeeteR^> hola jimmy_ray, yo casi no se nada de script por eso necesito ayuda sobre algo
+<Jimmy_RAY> $iif($notify($$1),Borrar del notify,Añadir al notify): { <- corregido
+<Jimmy_RAY> ^SkeeteR^ ahora son comentarios y dudas sobre la charla
+<^SkeeteR^>  mira,necesito ayuda, algo asi como un seen que reaccione con el comando .seen y que el bot diga las veces que el user especifico ha entrado al canal
+<Jimmy_RAY> ^SkeeteR^ dudas de ese tipo en otro momento plz, que no tiene nada que ver con la charla
+<Jimmy_RAY> sigamos
+<NoTsCaPe> creo que no hay mas preguntas por el momento
+<Jimmy_RAY> bienvenidos al apasionante mundo de los eventos remotos
+<Jimmy_RAY> xD
+<Jimmy_RAY> ejemplo sencillo
+<Jimmy_RAY> on 1:join:#: { .notice $nick Hola $nick bienvenido a $chan }
+<Jimmy_RAY> eso si lo poneis en remotes
+<Jimmy_RAY> a cualquier persona que entre en cualquier canal en el que esteis le mandareis ese mensaje
+<Jimmy_RAY> $nick es el nick que entra, $chan es el canal
+<Jimmy_RAY> casi todos los eventos son
+<Jimmy_RAY> on evento:parametros: { comandos }
+<Jimmy_RAY> aunque voi a explicar ésto un poco por encima
+<Jimmy_RAY> pq somatic hizo un manual sobre ésto bastante completito en www.ayuda-irc.net
+<Jimmy_RAY> defecto de la anterior frase....
+<Jimmy_RAY>  on 1:join:#: { .notice $nick Hola $nick bienvenido a $chan }
+<Jimmy_RAY> que también nos manda el notice a nosotros
+<Jimmy_RAY> por lo que podemos optar por poner
+<Jimmy_RAY> on 1:JOIN:#: { .notice $nick hola $nick welcome to $chan }
+<Jimmy_RAY> ups
+<Jimmy_RAY> on 1!:JOIN:#: { .notice $nick hola $nick welcome to $chan }
+<Jimmy_RAY> vereis que éste tiene un ! detrás del 1
+<Jimmy_RAY> el 1 es el nivel del usuario
+<Jimmy_RAY> el 1 se supone que se refiere a cualquier usuario
+<Jimmy_RAY> podrías poner un on 5:join:#:  y sólo sería con usuarios de nivel 5
+<Jimmy_RAY> para añadir usuarios se usa /Auser <level> nick/mask
+<Jimmy_RAY> por ej /auser 5 Spirou
+<Jimmy_RAY> le daría nivel 5 a spirou y tendría accesso a todos los niveles 5 e inferiores a 5
+<Jimmy_RAY> para borrarlo /ruser 5 Spirou
+<Jimmy_RAY> y para listar a los del nivel 5... 
+<Jimmy_RAY> un sec que me olvidé
+<Jimmy_RAY> xD
+<Jimmy_RAY> bueno es lo mismo, sale en el mIRC.hlp
+<Jimmy_RAY> como todo jeje :)
+<Jimmy_RAY> yo la verdad no uso usuarios de los del mIRC
+<Jimmy_RAY> me creo un .ini aparte con los usuarios
+<Jimmy_RAY> pero weno para gustos colores
+<Jimmy_RAY> un identificador para el level del usuario es $level
+<Jimmy_RAY> $level(nick/mask)
+<Jimmy_RAY> devuelve el nivel del nick/mask
+<Jimmy_RAY> los niveles pueden ser letras
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> /auser deudores Spirou
+<Jimmy_RAY> le daríamos a spirou el nivel deudores
+<Jimmy_RAY> y podríamos hacer algo tipo
+<Jimmy_RAY> on deudores:join:#: { .notice $nick eh paga lo que me debes }
+<Jimmy_RAY> o si lo preferís
+<Jimmy_RAY> on 1:join:#: {
+<Jimmy_RAY> if ($level($nick) == deudores) .notice $nick eh paga lo que debes
+<Jimmy_RAY> }
+<Jimmy_RAY> los demás eventos son parecidos...
+<Jimmy_RAY> no voi a mencionarlos todos pq me empiezan a doler los dedos
+<Jimmy_RAY> es más, no voi a mencionar ninguno más
+<Jimmy_RAY> mmmm
+<Jimmy_RAY> teneis tb on @1:join
+<Jimmy_RAY> para cuando sois ops
+<Jimmy_RAY> y algunos parámetros más
+<Jimmy_RAY> aunque yo casi nunca los uso
+<Jimmy_RAY> sólamente el @ y el !
+<Jimmy_RAY> alguna duda con lo dicho?
+<Jimmy_RAY> dime {BSoD}
+<{BSoD}> hola jimmy
+<{BSoD}> eske me dijeron que tb se podia poner ^1:join:etc
+<{BSoD}> por ejemplo
+<{BSoD}> poero no se pa k sirve l ^
+<{BSoD}> pero no se pa k sirve el ^
+<Jimmy_RAY> veamos el ^
+<Jimmy_RAY> lo uso para parar el mensaje del mIRC 
+<Jimmy_RAY> la verdad no se si tiene otro valor
+<Jimmy_RAY> yo solo lo uso para ese
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> si quieres cambiar el mensaje al entrar alguien
+<Jimmy_RAY> tendrías que poner
+<Jimmy_RAY> on ^*:JOIN:#: { echo -t $chan Entra >> $nick | haltdef }
+<Jimmy_RAY> y no aparecería el por defecto del mIRC
+<{BSoD}> y el haltdef? k es?
+<Jimmy_RAY> eso es útil para themes
+<Jimmy_RAY> haltdef es un comando que sirve para parar el "default" del mIRC
+<Jimmy_RAY> el mensaje por defecto
+<Jimmy_RAY> para que no te salgan los dos mensajes
+<{BSoD}> ok
+<Jimmy_RAY> el de tu evento y el que pone el mIRC
+<{BSoD}> capicci
+<Jimmy_RAY> :)
+<{BSoD}> thx
+<Jimmy_RAY> dnd
+* NoTsCaPe recuerda que para realizar una pregunta / o dar opinion podeis hacerme un query y pedir voz
+<Jimmy_RAY> alguna duda más o sigo ahora con mmm expresiones condicionales... luego con consejos para un buen código
+<NoTsCaPe> parece que puedes seguir
+<Jimmy_RAY> ok
+<Jimmy_RAY> una expresión condicional
+<Jimmy_RAY> es dónde se evaluan dos términos o uno y un operador
+<Jimmy_RAY> veamos... por ejemplo
+<Jimmy_RAY> algo tipo
+<Jimmy_RAY> if (condicion) { comandos }
+<Jimmy_RAY> elseif (condición) { comandos }
+<Jimmy_RAY> else { comandos }
+<Jimmy_RAY> se pueden usar varios if y varios elseif
+<Jimmy_RAY> pero sólo un else
+<Jimmy_RAY> por ejemplo
+<Jimmy_RAY> a ver qué se me ocurre
+<Jimmy_RAY> mmmm
+<Jimmy_RAY> un alias sencillo
+<Jimmy_RAY> escribid en alias
+<Jimmy_RAY> elmodo {
+<Jimmy_RAY> if ($1 isop $2) return operador
+<Jimmy_RAY> elseif ($1 isvo $2) return voz
+<Jimmy_RAY> else return normal
+<Jimmy_RAY> }
+<Jimmy_RAY> ahora poneis //Echo -a $elmodo(un nick del canal)
+<Jimmy_RAY> os devolverá cosas diferentes sea el nick operador, voz o normal
+<Jimmy_RAY> el isop, isvo, son unos parámetros de comparación
+<Jimmy_RAY> bienen en el mIRC.hlp o en cualquier manual así que no voi a decir otros como ischan, iswm...
+<Jimmy_RAY> podeis mirarlos, lo único que quiero dar con la charla es la idea fundamental
+<Jimmy_RAY> alguna duda?
+<Jimmy_RAY> o pasamos a según para mi
+<Jimmy_RAY> la parte de la charla más interesante para todos
+<RyDeN> asias
+<RyDeN> aver
+<Jimmy_RAY> dime RyDeN
+<RyDeN> pregunto
+<RyDeN> si para los nicks ke tengan op
+<RyDeN> es $opnick
+<RyDeN> y pa los ke tengan voz es $vnick
+<RyDeN> pa los ke no tieenn nada?
+<Jimmy_RAY> mmm sería //echo -a $elmodo(unnick,elcanal)
+<Jimmy_RAY> me equívoqué antes
+<Jimmy_RAY> RyDeN eso es sólo en los eventos de op, deop, voice y devoice
+<Jimmy_RAY> sería if ($nick !isop $chan) && ($nick !isvo $chan)
+<RyDeN> aja
+<Jimmy_RAY> el ! niega la comparación
+<RyDeN> graicas
+<Jimmy_RAY> isop: es operador
+<Jimmy_RAY> !isop: no es operador
+<RyDeN> NoTsCaPe mi kerido bot
+<RyDeN> bajame
+<Jimmy_RAY> bueno la mejor parte en 5 min
+<Jimmy_RAY> me voi a pillar algo a la nevera
+*** Jimmy_RAY sets mode: -m
+(un rato después...)
+*** Jimmy_RAY sets mode: +m
+<Dranor> canales queria decir
+<Jimmy_RAY> bueno vamos a seguir con las manías que tiene mucha gente al scriptear
+* NoTsCaPe recuerda que para realizar una pregunta / o dar opinion podeis hacerme un query y pedir voz
+<Jimmy_RAY> en la que Dranor también está interesado
+<Dranor> yoyoyoy
+<Jimmy_RAY> porque son cosas que nunca nos cansamos de repetir
+<Jimmy_RAY> jejeje
+<Dranor> quiero decir la primera y mas exasperante de todas
+<Jimmy_RAY> adelante
+<Dranor> declaracion desmedida de variables
+<Dranor> por que usar %canal = $chan
+<Dranor> y luego hacer if (%canal == #canal) ?
+<Dranor> eso lo he visto muchas veces en eventos
+<Dranor> $chan nunca va a cambiar en el evento que estás procesando
+<Dranor> así que nunca vas a necesitar el apoyo de una variable
+<Jimmy_RAY> también el abuso de variables
+<Jimmy_RAY> porqué tener la configuración en 500 variables?
+<Jimmy_RAY> pudiendola tener más ordenada en un .ini
+<Jimmy_RAY> y usar el $readini y writeini para leer y escribir
+<Dranor> aparte que haces un /unsetall y adios script
+<Jimmy_RAY> lo mejor es usar las variables cuanto menos mejor
+<Jimmy_RAY> y siempre que se pueda usar variables locales
+<Jimmy_RAY> dinos d0wHc3r
+<d0wHc3r> a ver...
+<d0wHc3r> para borrar una linia de un ini?
+<Jimmy_RAY> remini
+<d0wHc3r> la tienes ke sustituir kon un writeini o hay algun komando?
+<Jimmy_RAY> /remini
+<d0wHc3r> remini no borra apartados?
+<Dranor> borra elementos exactos
+<Dranor> si se lo indicas claro
+<d0wHc3r> me puedes poner un ejemplo
+<Jimmy_RAY> por ej
+<Jimmy_RAY> en un .ini que tengas
+<Dranor> remini algo.ini seccion elemento
+<Jimmy_RAY> [general]
+<d0wHc3r> mmm.....
+<Jimmy_RAY> lala=feo
+<d0wHc3r> ok
+<Jimmy_RAY> /remini archivo.ini general lala
+<d0wHc3r> i en un txt komo lo haces?
+<Jimmy_RAY> mmm en un .txt sería más complicado
+<Dranor> lo que pasa es que hay que ser cuidadoso con el remini
+<d0wHc3r> general?
+<Jimmy_RAY> tendrías que usar el $read -l
+<Jimmy_RAY> si, d0wHc3r, los .ini tienen apartados
+<Jimmy_RAY> y dentro de ellos elementos
+<d0wHc3r> Jimmy_RAY ya
+<Jimmy_RAY> bueno sigamos
+<Jimmy_RAY> otra cosa de la cual la gente abusa
+<Jimmy_RAY> y es el causante de la mayoría de fallos
+<Jimmy_RAY> es el comando "halt"
+<Jimmy_RAY> en un alias en vez de un "halt", puedes usar un "return" para salir de él
+<Jimmy_RAY> halt es un comando que le dice al mIRC que no siga leyendo el script
+<Jimmy_RAY> por lo que si pones un halt en un evento del primer archivo cargado como remoto
+<Jimmy_RAY> el mIRC lo leerá y dejará de seguir leyendo los demás archivos...
+<Jimmy_RAY> por lo que si tienes otro mismo evento en otro remote
+<Dranor> en los remotes el uso indiscriminado del halt puede inutilizar cualquier addon
+<Jimmy_RAY> el mIRC no lo ejecutará
+<Jimmy_RAY> un script sin halt se puede hacer tranquilamente
+<Jimmy_RAY> para parar el mensaje del mIRC en los eventos
+<Jimmy_RAY> se puede usar el comando /haltdef
+<Jimmy_RAY> que quita el mensaje pero que no para al mIRC de leer el script
+<Jimmy_RAY> y como decía Dranor, sería bueno para así no inutilizar addOns
+<Jimmy_RAY> Otro tema... varios eventos iguales en un mismo remoto
+<Jimmy_RAY> si pones en un archivo de remote
+<Jimmy_RAY> varios eventos iguales
+<Jimmy_RAY> causarán conflictos entre ellos...
+<Jimmy_RAY> lo mejor es poner todo en un evento o si no ponerlos en remotes distintos
+<Jimmy_RAY> el caso del on 1:input
+<Jimmy_RAY> en el que muchos quereis colorear el xD y el OK y cosas de esas
+<Jimmy_RAY> y a parte teneis otro on 1:input para el nick completion
+<Jimmy_RAY> es lógico que no os funcione
+<Jimmy_RAY> o que repitais las frases
+<Jimmy_RAY> el on 1:input teneis que hacerlo todo en 1
+<Jimmy_RAY> otra cosa...
+<Jimmy_RAY> Timers en eventos o raws...
+<Jimmy_RAY> ni se os ocurra poner un timer
+<Jimmy_RAY> en el raw de away por ejemplo
+<Jimmy_RAY> o en cualquier información que pueda mandar un usuario desde fuera
+<Jimmy_RAY> ya que ese fue el fallo del xcript y por el cual se podían ejecutar comandos remotamente
+<Dranor> como ciertos *cough* *cough* scripters
+<Jimmy_RAY> por lo que debeis tener mucho cuidado al usar timers
+<Dranor> si usais el 5.9 (teneis valor para ello) el echo -m
+<Dranor> hace que no se evaluen los contenidos del texto
+<Dranor> de todas formas abusar de los timers no es bueno
+<Jimmy_RAY> ralentiza mucho el script
+<Jimmy_RAY> otro problema...
+<Jimmy_RAY> la no utilización del $colour
+<Jimmy_RAY> el $colour es un identificador que te devuelve el color de el fondo, del texto de la info etc...
+<Jimmy_RAY> teneis que pensar
+<Jimmy_RAY> que no todos tienen los mismos colores en el mIRC
+<Jimmy_RAY> que vosotros
+<Jimmy_RAY> por lo que si creais un addOn y mostrais texto, que se vea o no depende del color de fondo que tenga el usuario
+<Jimmy_RAY> por lo que es siempre bueno usar $colour para hacerlo universal
+<Dranor> otra mania bastante habitual
+<Dranor> es a la hora de reemplazar el texto de los cambios de nick/quits
+<Dranor> que siempre hacen echo #
+<Dranor> cuando no son eventos que dependen de canales
+<Dranor> se debe usar $comchan para mostrarlo correctamente o de lo contrario os saldra en el status
+<Jimmy_RAY> Otra cosa...
+<Jimmy_RAY> si tais haciendo un addOn...
+<Jimmy_RAY> usar siempre $scriptdir (esto dedicado al hPm jejeje)
+<Jimmy_RAY> en vez del $mircdir
+<Jimmy_RAY> os dará menos problemas porque hay muchos usuarios que sabe dios dónde instalan las cosas
+<Jimmy_RAY> y cómo las instalan
+<Jimmy_RAY> otro consejo es
+<Jimmy_RAY> usar siempre que se pueda los identificadores del mIRC
+<Jimmy_RAY> antes de crearos vosotros unos
+<Jimmy_RAY> intentar buscar la forma de hacerlos con los del mIRC
+<Jimmy_RAY> ya que al ser un programa ganareis velocidad
+<Jimmy_RAY> dinos global_v
+<global_v> vamos a ver
+<global_v> es una pregunta
+<global_v> más que nada, de experiencia y gusto
+<global_v> pos es sobre el uso de copy, remove, mkdir
+<global_v> en el uso de addons
+<global_v> si creeis que a la gente le importa o no que se les coloquen los addons donde el autor quiera
+<global_v> o es un abuso por arte del autor
+<Jimmy_RAY> lo que digo...
+<Jimmy_RAY> esque hay mucho manazas
+<Jimmy_RAY> que les dices que lo copie a la carpeta del mIRC
+<Jimmy_RAY> y te lo planta en el escritorio por ejemplo
+<Jimmy_RAY> y te lo carga desde el mIRC
+<Jimmy_RAY> tu a lo mejor haces referencia a archivos que no existen, con $Scriptdir te ahorras ese problema
+<global_v> he ahí su utilidad, y por eso lo decia...
+<Jimmy_RAY> sip
+<global_v> usease, que un "install" nunca biene mal, no?
+<Jimmy_RAY> en .zip es como se suelen distribuir
+<global_v> hummm, decía en el código del addon
+<global_v> no se si me entiendes...
+<Jimmy_RAY> ésto me recuerda una cosa... pero Dranor sabe más del tema que habia escrito un tutorial de consejos de cómo empaquetar un script
+<Jimmy_RAY> que el addOn cree directorios on 1:load?
+<global_v> caro
+<Jimmy_RAY> es una solución
+<global_v> gracias, nada más
+<Jimmy_RAY> dime GermaNNNN
+<GermaNNNN> bueno a ver si me explico
+<GermaNNNN> es sobre recursos
+<GermaNNNN> del ordenador
+<GermaNNNN> o sea
+<Dranor> <Jimmy_RAY> ésto me recuerda una cosa... pero Dranor sabe más del tema que habia escrito un tutorial de consejos de cómo empaquetar un script <- en la web de 100scripts hay algo sí :D
+<GermaNNNN> el tamaño que se debe usar como maximo/minimo/medio en un archivo ini...
+<Jimmy_RAY> :)
+<GermaNNNN> a ver si hay alguna "medida" o formula para saberlo
+<GermaNNNN> porque claro
+<GermaNNNN> si estoy montandolo en 1 pepinazo
+<GermaNNNN> y se lo paso a juancito que usa algo mas lento, no se si sera eficaz
+<GermaNNNN> pregunte bien ?
+<GermaNNNN> o no hay ninguna medida ?
+<Jimmy_RAY> el leer en un .ini no suele ser lento
+<Jimmy_RAY> puedes guardar datos en ini de más de 50kb
+<Jimmy_RAY> por ejemplo para el !seen log o el nick anterior
+<Jimmy_RAY> sin problemas
+<Dranor> a partir de los 60 y pico
+<Dranor> es cuando tienes problemas
+<Dranor> sino que se lo digan a morph
+<GermaNNNN> si, para ficheros tipo para el seen si, pero y los de remotes ? aliases ... ?
+<GermaNNNN> o sea
+<GermaNNNN> lo qyue sera cargado en la ram
+<Jimmy_RAY> GermaNNNN cuanto más pequeños sean los archivos
+<Jimmy_RAY> menos recursos consumen
+<Jimmy_RAY> pero más tardan en cargar al inicio
+<GermaNNNN> o sea mejor 10 de 10kb que 2 de 50kb ?
+<GermaNNNN> ah ¿solo se cargan al inicio ?
+<GermaNNNN> no se recorren como haciendo 1 ciclo ?
+<Jimmy_RAY> si y quedan cargados
+<Jimmy_RAY> no... quedan cargados en la memoria
+* NoTsCaPe no puede con el culo y se va a la cama, nuevo moderador = Dranor
+<Jimmy_RAY> la verdá esque la charla de éste trozo la damos Dranor y yo por igual así que si teneis dudas... avisadnos a cualquiera de los dos
+<GermaNNNN> y sobre aquello Jimmy_RAY ? sobre mejor 10 de 10kb que 2 de 50kb ? 
+<Jimmy_RAY> esque...
+<Jimmy_RAY> el mirc a partir de 30 kb
+<Jimmy_RAY> el editor no te deja seguir escribiendo
+<Jimmy_RAY> por ejemplo el zIRC
+<Jimmy_RAY> es un script que tiene todo en un archivo
+<Jimmy_RAY> y bueno es lento
+<Jimmy_RAY> sería más rápido si lo dividiera en varios
+<GermaNNNN> aha
+<Dranor> pero es una medida bastante borde para evitar mirones
+<GermaNNNN> o sea que -30
+<hPm> dimelo a mi que me pase una tarde cortando files, xD
+<Dranor> xDDD
+<Jimmy_RAY> jajajaja
+<GermaNNNN> bueno o sea que no me rallo mas con los tamaños, porque carga al inicio
+<GermaNNNN> vale tnx 
+<Dranor> socorrooooooo
+<Jimmy_RAY> GermaNNNN en resumen
+<Jimmy_RAY> cuantos mas archivos haya
+<Jimmy_RAY> más los tarda en cargar
+<Jimmy_RAY> al principio pero luego consumirá menos recursos
+<Jimmy_RAY> bueno si no hay más preguntas
+<Jimmy_RAY> damos la charla por finalizada
+<Jimmy_RAY> :)
+<GermaNNNN> venga znk
+<Jimmy_RAY> tnx a NoTsCaFe y Dranor
+<Dranor> cuando distribuyais un script
+<Dranor> procurad que se note lo menos posible
+<Dranor> el que habeis estado usandolo
+<Dranor> es decir, nada de dejar configuraciones vuestras etc etc
+<Dranor> ale
+<Dranor> por mi parte termine
+<Jimmy_RAY> y otra cosa...
+<Jimmy_RAY> un script bueno... no es el que más ocupe
+<Jimmy_RAY> un script bueno no debe pasar de 1mb
+<Jimmy_RAY> hay casos donde que pase de un mega
+<Jimmy_RAY> está justificado
+<Dranor> el airc ocupa la nada despreciable cifra de 612kb :P
+<Jimmy_RAY> como puede ser el phanatic
+<Jimmy_RAY> que es un gran script
+<Jimmy_RAY> pero por lo menos... que quepa en un disquete (1.3mb)
+<Jimmy_RAY> bueno doy por finalizada la charla.... mañana la podreis bajar de una web y tal
+<Jimmy_RAY> tnx a los que asistieron
+<Jimmy_RAY> y perdon a los que les di dolor de cabeza
+<Jimmy_RAY> :)
+Session Close: Sun Apr 29 03:03:37 2001

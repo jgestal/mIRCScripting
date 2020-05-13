@@ -1,0 +1,10 @@
+Para configurar el script usa el panel de control. 
+Para nuevas actualizaciones visita http://backbeat.da.ru
+¿Sabías que está permitida la modificación del script para uso personal? Eso sí, no lo modifiques para su distribución ni copies código
+Puedes cambiar el reply del CTCP Version para simular que estás con linux o con cualquier otro programa
+Usa el panel de control para configurar el script
+¿Sabías qué aún no hay muchos tips porque no sé qué ponerles? :P
+Puedes configurar tus nicks registrados para su autoidentificación automática.
+Configura las protecciones de canal para evitar usuarios molestos.
+Si quieres jugar al Snake de los nokia teclea /Snake.
+Lee las noticias de vez en cuando para enterarte de si hay alguna versión nueva a la que tienes o algún parche.

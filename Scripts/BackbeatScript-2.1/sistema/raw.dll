@@ -1,0 +1,80 @@
+;------------------------------WHOIS---------------------------------;
+raw 311:*: { st.sp | echo -s $c10(Whois) $+ 0,10 a $2 $+ $chr(160) 
+  wput $sbn(Direccion:) $3 $+ @ $+ $4 
+  wput $sbn(Nombre:) $6- 
+  if ($pais($4) != $null) wput $sbn(Pais:) $pais($4)
+halt }
+raw 319:*: { wput $sbn(Canales:) $3- 
+  if (($comchan($2,0) != 0) && ($2 != $me)) { wput $sbn(Canales Comunes:) $wcanales.comunes($2) }
+  halt
+}
+
+raw 441:*: halt
+raw 312:*: { wputh $sbn(Servidor:) $3 $sbn(Información:) $4- }
+raw 317:*: { wputh $sbn(Idle:) $duration($3) $sbn(Conectado desde:) $asctime($4) }
+raw 301:*: { wputh $sbn(Away:) $3- }
+raw 307:*: { wputh $sbn(Nick:) Está registrado y protegido. }
+raw 310:*: { wputh $sbn(4Operador:) De los servicios de red.  }
+raw 313:*: { wputh $sbn(4IRCOP)  }
+raw 318:*: { echo -s $c10(Whois) $+ 0,10Fin del Whois $+ $chr(160) | st.sp | halt }
+raw 332:*: { echo $2 $c3(Topic) $3- | halt }
+raw 333:*: { echo $2 $c3(Topic) Puesto por $sbn($3) en el dia $sbn($date($4)) | halt }
+alias wput { echo -s $c10(Whois) $1- }
+alias wputh { echo -s $c10(Whois) $1- | halt }
+alias wcanales.comunes {
+  unset %i %tmp.cchans.* | :ini | inc %i 
+  if ($comchan($1,%i) != $null) {
+    set %tmp.cchans.2 %tmp.cchans.1
+    set %tmp.cchans.1 %tmp.cchans.2 $comchan($1,%i)
+  goto ini }
+return %tmp.cchans.1 }
+alias pais { if ($right($1,3) == .es) return España.
+  if ($right($1,3) == .fr) return Francia.
+  if ($right($1,3) == .it) return Italia.
+  if ($right($1,7) == .com.cl) return Chile.
+  if ($right($1,3) == .pe) return Peru.
+  if ($right($1,3) == .br) return Brasil.
+  if ($right($1,7) == .com.ar) return Argentina.
+  if ($right($1,7) == .net.mx) return Mexico.
+  if ($right($1,3) == .uk) return Inglaterra.
+  if ($right($1,7) == .com.co) return Colombia.
+  if ($right($1,7) == .net.do) return República Dominicana.
+  if ($right($1,3) == .au) return Australia.
+  if ($right($1,3) == .jp) return Japón. 
+}
+;------------------------------WHO&Names---------------------------------;
+raw 352:*: { echo -s $c1(IAL) $sbn($2) $3- | halt }
+raw 315:*: { echo -s $c1(IAL) $+ 0,1Recarga de IAL en $2 Completada $+ $chr(160) | st.sp | halt }
+raw 353:*: { echo -s $c14(Names) $sbn($3) $4- | halt }
+raw 366:*: { echo -s $c14(Fin de la lista de Names) $+ 0,140 $sbn($2) $+ $chr(160) | halt }
+;-----------------------Modos del canal----------------------------;
+raw 324:*: { if ($3 != $null) { echo -s $timestamp $sbn(Modos de) $sbn($2) $+ : $3 $+ . } }
+raw 329:*: { echo -s $timestamp $sbn(Fecha de creación) $sbn(de) $sbn($2) $+ : $asctime($3) $+ . | st.sp | halt }
+;-------------------------MOTD------------------------;
+raw 375:*: { echo -s $c7(MOTD Mensaje del día) | halt }
+raw 372:*: { echo -s $c7(MOTD) $3- | halt }
+raw 376:*: { echo -s $c7(MOTD Fin del Mensaje del día) | halt }
+
+
+
+$c7(MOTD)
+;-------------------banlist------------------;
+#banlst on
+raw 368:*: { if (%command.ban == 1) { banlist.vent $2 | halt } }
+.disable #banlst
+#banlst end
+raw 368:*: { halt }
+raw 367:*: { halt }
+;-----------------------Varios----------------------------;
+raw 999:*: { echo -s $c4(Error) Comando no válido. | halt }
+raw 405:*: { echo -s $c4(Error) No puedes entrar en $sbn($2) por estar en demasiados canales. | halt }
+raw 474:*: { echo -s $c4(Error) No puedes entrar en $sbn($2) por estar baneado. | halt }
+
+raw 381:*: { echo -s $c4(IRCOP) Ahora eres Operador del IRC. | halt }
+raw 464:*:  { echo -s $c4(Error) Fallo en la identificación como Operador de IRC. | halt }
+raw 401:*:  { echo -s $c4(Error) $sbn($2) No se ha encontrado nick o canal.  | halt }
+raw 421:*:  { echo -s $c4(Error) Comando desconocido $sbn($2) $+ .   | halt }
+raw 475:*:  { echo -s $c4(Error) No puedes entrar en $sbn($2) porque tiene clave.  | halt }
+raw 472:*:  { echo -s $c4(Error) $sbn($2) es un modo irreconocible.  | halt }
+raw 473:*:  { echo -s $c4(Error) No puedes entrar en $sbn($2) por ser para solo invitados.  | halt }
+raw 341:*: { echo -s $c10(Invitación) Invitas a $sbn($2) a entrar en $sbn($3) | halt }

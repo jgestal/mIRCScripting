@@ -1,0 +1,293 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish4148e9bd{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish4148e9bd{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip4148e9bd{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad4148e9bd"></div>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web del canal #100scripts - Scripting - Trucos y Soluciones</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="600" border="0">
+  <tr> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Scripting</u></b></font> 
+              </p>
+            </div>
+            <p align="left"><font face="Arial" color="#000000" size="3"><b>&nbsp;&nbsp;&nbsp;&nbsp;Trucos 
+              y soluciones - Por Locorl</b></font></p>
+            <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;Bien, el final 
+              de esta sección es resolver ciertas dudas sobre como se hace tal 
+              o cual &quot;chorrada&quot; o como apañar ciertos fallos del mirc 
+              que nos impiden hacer nuestro script con toda libertad, muchos de 
+              estos fallos se corrigen añadiendo una línea más a nuestros remotes 
+              o alias correspondientes. Vayamos al asunto y empezaremos con los 
+              trucos y luego parchearemos el mirc... Si alguien se siente ofendido 
+              o indirectamente aludido por cualquier broma ironía o sarcasmo es 
+              su problema.</font></p>
+            <table width="60%" border="0" align="center" cellpadding="2">
+              <tr align="center" bgcolor="#CCCCCC"> 
+                <td width="50%"> 
+                  <div align="center"><b><font face="Arial" size="2"><a href="scripting-trucos.html#trucos">Trucos</a></font></b></div>
+                </td>
+                <td width="50%"><b><font face="Arial" size="2"><a href="scripting-trucos.html#parches">Parches</a></font></b></td>
+              </tr>
+              <tr align="center"> 
+                <td width="50%"> 
+                  <div align="center"><font face="Arial" size="2">Titlebar animado</font></div>
+                </td>
+                <td width="50%"><font face="Arial" size="2">$sdir en 5.4</font></td>
+              </tr>
+              <tr align="center"> 
+                <td width="50%"> 
+                  <div align="center"><font face="Arial" size="2">Eventos on ^1</font></div>
+                </td>
+                <td width="50%"><font face="Arial" size="2">Drawtext en 5.41</font></td>
+              </tr>
+              <tr align="center"> 
+                <td width="50%"> 
+                  <div align="center"><font face="Arial" size="2">Uso de determinados 
+                    identificadores en dialogs</font></div>
+                </td>
+                <td width="50%">&nbsp;</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <table border="0" width="100%" cellpadding="2" align="center">
+              <tr bgcolor="#006666"> 
+                <td width="95%"><font color="#FFFFFF" face="Arial" size="2"><big><strong><em><a name="trucos"></a></em><b><font size="3">Trucos</font></b></strong></big></font></td>
+              </tr>
+              <tr> 
+                <td width="95%"> 
+                  <p>&nbsp;</p>
+                  <p><font color="#000000" face="Arial" size="2"><strong>Titlebar 
+                    animado</strong></font></p>
+                  <p><font face="Arial" size="2">Esto no tiene gran complicación 
+                    una vez sabemos como trabaja, a muchos les hace gracia que 
+                    la barra de titulos del mirc se mueva y diga un monton de 
+                    chorraditas (yo tengo uno y cada vez lo uso menos). </font> 
+                  </p>
+                  <p><font face="Arial" size="2">Ahora la teoria. Hay dos tipos: 
+                    Las que se actualizan con frecuencia Las barras de titulos 
+                    que se mueven (por ejemplo la del dog o la del orbital o la 
+                    de otros muchos que usan esto ;-P) usan un timer (empieza 
+                    a buscar por la ayuda del mirc si no sabes que es...) y un 
+                    simple alias que utiliza el comando titlebar y las barras 
+                    que se animan al conectar (lease la del Scriptter PRO, o también 
+                    la de mi script ;-P). En ambos casos no tiene gran complicación, 
+                    siendo el más facil de entender su funcionamiento el que se 
+                    anima al conectar, puesto que usa un archivo de texto para 
+                    realizarlo todo... ahora mismo te lo explico.</font></p>
+                  <p align="center"><font face="Arial" size="2"><u>Animar el titlebar 
+                    con un archivo de texto</u></font></p>
+                  <p><font face="Arial" size="2">Este método no es precisamente 
+                    para hacerlo de una forma indefinida, es más bien para usarlo 
+                    al inicio de conexión o cada x tiempo (siendo espacios de 
+                    tiempo bastante largos). Esto es porque se usa el comando 
+                    play y si por ejemplo quisieramos poner un ascii en un canal 
+                    no podriamos porque lo añadiría a la &quot;cola&quot;. El 
+                    funcionamiento es bien sencillo, aqui tienes un ejemplo de 
+                    lo que podria ir en el archivo de texto:</font></p>
+                  <blockquote> 
+                    <p><font face="Arial" size="2"><em>titlebar h<br>
+                      titlebar ho<br>
+                      titlebar hol<br>
+                      titlebar hola<br>
+                      titlebar hola,<br>
+                      titlebar hola, b<br>
+                      titlebar hola, bi<br>
+                      titlebar hola, bie<br>
+                      titlebar hola, bien<br>
+                      titlebar hola, bienv<br>
+                      titlebar hola, bienve<br>
+                      titlebar hola, bienven<br>
+                      titlebar hola, bienveni<br>
+                      titlebar hola, bienvenid<br>
+                      titlebar hola, bienvenido</em></font></p>
+                  </blockquote>
+                  <p><font face="Arial" size="2">Ejemplo algo tonto... pero lo 
+                    que me interesa es demostrarte como se hace la animación usando 
+                    un archivo de texto y el comando play, puedes copiar el ejemplo 
+                    en un archivo de texto (ejemplo.txt por ejemplo y valga la 
+                    redundancia) y poner en la ventana del status (o cualquier 
+                    otra...): <br>
+                    <font color="#990000">play -c $me ejemplo.txt 100</font> (si 
+                    te parece demasiador rápido 100 milisegundos puedes ponerle 
+                    más) y así veremos como se mueve el titlebar, la verdad es 
+                    que hay en algunos script algunos muy curiosos, todo depende 
+                    de tu imaginación y creatividad :-D</font></p>
+                  <p align="center"><font face="Arial" size="2"><br>
+                    <u>Titlebar animado (en estado puro?)</u></font></p>
+                  <p><font face="Arial" size="2">La verdad es que no se me ocurría 
+                    que nombre ponerle a algo tan sencillo pero algo misterioso... 
+                    no tiene grandes misterios, cuando se entiende su funcionamiento 
+                    hasta nos hace gracia que no lo entendiésemos. Los mecanismos 
+                    sobre los que nos vamos a vamos a guiar son un alias con tel 
+                    comando titlebar y un timer, esto se hace así porque los timers 
+                    no son capaces de evaluar identificadores (hasta la 5.4... 
+                    pero eso es otro tema). Ponerte un ejemplo con esto es más 
+                    sencillo... sigue estos pasos para hacer la prueba:</font></p>
+                  <p><font face="Arial" size="2">1.- Crear un alias (con cualquier 
+                    nombre... en nuestro caso será tactualiza) conteniendo en 
+                    el algu identifcador que cambie continuamente (el $time por 
+                    ejemplo)<br>
+                    2.- Nuestro alias deberia quedar asi: <font color="#990000">tactualiza 
+                    /titlebar Son las $time</font><br>
+                    3.- Y en cualquier lugar donde podamos teclear al comando 
+                    (da igual status, que canal, que cualquier otra cosa) ponemos: 
+                    <font color="#990000">/timer 0 1 /tactualiza</font><br>
+                    4.- Y con esto verás como en tel titlebar te aparece la hora 
+                    segundo a segundo ;-) </font> 
+                </td>
+              </tr>
+              <tr> 
+                <td width="95%"> 
+                  <p>&nbsp;</p>
+                  <p><font color="#000000" face="Arial" size="2"><strong><b>Eventos 
+                    on ^1: (reemplazo de texto original del mirc) en varios canales</b></strong></font></p>
+                  <p><font face="Arial" size="2">Esto está destinado a gente con 
+                    un nivel ligeramente avanzado... (manejo del if-then-else). 
+                    Como bien habrás comprobado al mIRC no le cuela que en los 
+                    mensajes de quit y nick le pongas un <em>echo $chan</em>, 
+                    puesto que no es capaz de identificar el canal en el que sucede 
+                    (el servidor no lo manda a un canal lo manda a todos los presentes 
+                    en ese canal, que es bien distinto) en estos casos lo que 
+                    puedes hacer es usar el $comchan y a dar vueltecitas con el 
+                    (si no sabes de que va mira en la ayuda del mirc)</font></p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="95%"> 
+                  <p>&nbsp;</p>
+                  <p><font color="#000000" face="Arial" size="2"><b>Uso de identifcadores 
+                    del tipo $dir, $file, $$?.... en dialogs</b></font></p>
+                  <p><font face="Arial" size="2">Esto no tiene mayor problema 
+                    que usar un timer y un alias para fijar una variable o rellenar 
+                    el contenido de otra id, pongamos por ejemplo que queremos 
+                    fijar el directorio de inicio del fserver, pues m&aacute;s 
+                    o menos ser&iacute;a usando un dialog de este tipo (doy por 
+                    supuesto que ser&iacute;a infinitamente m&aacute;s extenso), 
+                    todo el codigo que voy a poner a continuci&oacute;nb pertenece 
+                    a los remotes:</font></p>
+                  <p><font face="Arial" size="2">dialog test {<br>
+                    &nbsp;&nbsp;&nbsp;size -1 -1 200 200<br>
+                    &nbsp;&nbsp;&nbsp;button &quot;OK&quot;,1,20 180 80 20,ok<br>
+                    &nbsp;&nbsp;&nbsp;button &quot;Directorio&quot;,2,120 180 
+                    80 20,default<br>
+                    &nbsp;&nbsp;&nbsp;edit &quot;&quot;,3,100 100 200 20,autohs<br>
+                    }</font></p>
+                  <p><font face="Arial" size="2">on *:DIALOG:sclick:2:/timer 1 
+                    0 /marcalo</font></p>
+                  <p><font face="Arial" size="2">alias marcalo did -a test 3 $sdir=&quot;Directorio 
+                    del fserver?&quot;</font></p>
+                  <p><font face="Arial" size="2">alias test dialog -m test test</font></p>
+                  <p><font face="Arial" size="2">Es muy sencillo? Si no te lo 
+                    parece ah&iacute; va la explicaci&oacute;n. Ocurre que el 
+                    control de los dialogs se atiene a un evento (on dialog) y 
+                    en los eventoes no se pueden usar identificadores que pidan 
+                    la intervenci&oacute;n del usuario, por eso se usa el timer 
+                    con 0 segundos de retraso, que quiere decir que ejcute el 
+                    comando o alias tan pronto como sea posible,</font></p>
+                  <p><font face="Arial" size="2">Espero haber ayudado en algo, 
+                    tambi&eacute;n espero remozar el curso de scripting e incluir 
+                    todas las novedades a partir del 5.3 (el que hay se qued&oacute; 
+                    en el 5.1x)</font></p>
+                </td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <table border="0" width="100%" align="center" cellpadding="2">
+              <tr bgcolor="#006666"> 
+                <td width="100%"><font face="Arial" size="2"><big><font face="Arial" size="2" color="#FFFFFF"><em><strong><a name="parches"></a></strong></em></font><font color="#FFFFFF" size="3"><strong>Parches...</strong></font></big></font></td>
+              </tr>
+              <tr> 
+                <td width="100%"> 
+                  <p>&nbsp;</p>
+                  <p><font color="#000000" face="Arial" size="2"><strong><b>El 
+                    $sdir no funciona correctamente en el mIRC 5.4</b></strong></font></p>
+                  <p><font face="Arial" size="2">Algunos se habrán encontrado 
+                    que con el mIRC 5.4 el $sdir llevaba un acompañate no deseado 
+                    (por ejemplo cuando ejecutamos el winamp desde el mIRC por 
+                    algún motivo el $sdir devuelve el ultimo archivo enviado al 
+                    winamp), la solución a esto es añadir un <font color="#990000">set 
+                    %variable $nofile(%variable)</font> y con esto ya no nos pasará 
+                    más</font> </p>
+                </td>
+              </tr>
+              <tr> 
+                <td width="100%"> 
+                  <p>&nbsp;</p>
+                  <p><font color="#000000" face="Arial" size="2"><strong>Funcionamiento 
+                    incompleto del drawtext en el mIRC 5.41</strong></font></p>
+                  <p><font face="Arial" size="2">Muchos&nbsp; se habrán encontrado 
+                    con la poco grata sorpresa de que el drawtext no funciona 
+                    en el 5.41, no es cierto del todo, funciona pero con una excepción 
+                    y es que hay que indicarle el alto y ancho del texto (-c). 
+                    También circula por ahi un parche para eso, yo la verdad no 
+                    entiendo el por qué de ese parche (si lo comprendo, pero habiendo 
+                    una solución tan práctica no comprendo la exitencia de tal 
+                    parche)</font></p>
+                </td>
+              </tr>
+            </table>
+            <p align="center"><a href="scripting.html"><img src="img/atras.gif" width="29" height="29" alt="Atr&aacute;s" border="0"></a></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish4148e9bd" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=4148e9bd&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

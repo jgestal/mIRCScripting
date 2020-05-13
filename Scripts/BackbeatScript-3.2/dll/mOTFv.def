@@ -1,0 +1,14 @@
+;// ****************************************************************** //
+;// *			 mIRC On-The-Fly Version Modifier v2.01			     * //
+;// *																 * //
+;// *			Copyright ©2000 danielson@centurytel.net			 * //
+;// *				    All Rights Reserved							 * //
+;// ****************************************************************** //
+
+LIBRARY mOTFv
+EXPORTS
+Load
+Mark
+Unload
+SetVersion
+DLLInfo

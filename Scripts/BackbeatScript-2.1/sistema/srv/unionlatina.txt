@@ -1,0 +1,7 @@
+dragonet.unionlatina.org 6667
+telebase.unionlatina.org 6667
+comunet.unionlatina.org 6667
+madrid.unionlatina.org 6667
+lander.unionlatina.org 6667
+interlink.unionlatina.org 6667
+irc.unionlatina.org 6667

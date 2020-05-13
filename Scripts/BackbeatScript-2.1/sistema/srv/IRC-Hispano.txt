@@ -1,0 +1,13 @@
+libres.irc-hispano.org 6666 6667
+irc.irc-hispano.org 6666 6667
+andromeda.irc-hispano.org 6667
+viento2.irc-hispano.org 6667
+bigbang.irc-hispano.org 6667
+cometa.irc-hispano.org 6666 6667
+europa.irc-hispano.org 6667
+pulsar.irc-hispano.org 6667
+atreides.irc-hispano.org 6666 6667
+irc.corevia.com 6666 6667 6969
+io.irc-hispano.org 6666 6667
+carme.irc-hispano.org 6667
+vega.irc-hispano.org 6667

@@ -1,0 +1,21 @@
+Addon: Snake 1.0
+Author: Jimmy_RAY
+email: jimmy@welt.es
+url: http://jimmyray.da.ru
+
+
+[English version]
+
+to load type: /load -rs path\snake.mrc 
+or //load -rs " $+ $findfile(C:\,snake.mrc,1) $+ " (with 2 //)
+
+Snake needs mIRC 5.8 to work properly
+
+[Versión española]
+
+para cargar el addOn escribe: //load -rs rutadelarchivo\snake.mrc
+o //load -rs " $+ $findfile(C:\,snake.mrc,1) $+ " (con 2 //)
+
+Necesita al menos mIRC 5.8 para funcionar correctamente
+
+

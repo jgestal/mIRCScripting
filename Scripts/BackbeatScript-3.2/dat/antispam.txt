@@ -1,0 +1,11 @@
+*script*http*
+*entr*#*
+*potencia*para*
+*www.ircap.*
+*www.relativo.com*
+*http://www.viapolis.com*
+*pagina.de*
+*come.to/*
+*www.lavanguardia.es*
+*www.irc-hispano.org*
+*x*cript*

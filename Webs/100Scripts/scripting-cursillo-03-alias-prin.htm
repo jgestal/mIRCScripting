@@ -1,0 +1,180 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish39601175{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish39601175{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip39601175{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad39601175"></div>
+ 
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Curso de Scripting '99 - Los alias sencillos</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="600" border="0">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Creaci&oacute;n 
+                de aliases sencillos<br>
+                </u></b></font><font size="3" face="Arial"><strong><br>
+                </strong></font></p>
+              <div align="left"> 
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2" face="Arial">Los 
+                  alias son una parte importante de un script, pueden hacer algo 
+                  tan sencillo como juntar 2 comandos en uno o con la pericia 
+                  adecuada nos pueden dar datos de cualquier cosa, se hacen alias 
+                  de todos los tipos, algunos mueven un script entero, otros solo 
+                  son una funci&oacute;n concreta que se realiza pocas veces pero 
+                  que resulta tedioso repetir el c&oacute;digo</font></p>
+                <p><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pero 
+                  no nos extendamos en describir las funciones de un alias, en 
+                  este cap&iacute;tulo solo vamos a ver c&oacute;mo crear un alias, 
+                  qu&eacute; son los identificadores propios y aplicaciones pr&aacute;cticas 
+                  de los mismos, aunque la extensi&oacute;n m&aacute;s importante 
+                  estar&aacute; en el pr&oacute;ximo cap&iacute;tulo con las comparaciones 
+                  (if-then-else)</font></p>
+                <p align="center"><font face="Arial" size="2"><i><b>El principio 
+                  de todo, nuestro primer alias</b></i> </font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Empecemos, 
+                  un alias sencillo ser&iacute;a el alias <b>op, </b>que viene 
+                  definido por defecto en el mIRC que se distribuye oficialmente, 
+                  veamoslo entonces:</font></p>
+                <p align="center"><font face="Arial" size="2"><i><b>op mode # 
+                  +ooo $$1 $2-</b></i></font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ahora 
+                  las explicaciones del alias, si has leido otro curso de scripting 
+                  te fijar&aacute;s que ponen la barra de comando ( <b>/ </b>). 
+                  La barra de comando NO es necesaria en una definici&oacute;n 
+                  de alias o dentro de un remote, &uacute;nicamente lo que hacen 
+                  es molestar al mIRC puesto que internamente tiene que quitar 
+                  la barra y seguir procesando (punto 1). <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y sigamos con el alias en si, 
+                  se usa el comando mode, la almohadilla (<b>#</b>) de canal el 
+                  mIRC lo interpreta como el canal activo en el momento de realizar 
+                  esa acci&oacute;n, el <b> $$1</b> indica al mIRC que si no existe 
+                  un primer par&aacute;metro que no haga nada y por ultimo el 
+                  <b>$2-</b> indica al mIRC que se de op a los siguientes que 
+                  quepan dentro del mode (en este caso solo caben 2 m&aacute;s) 
+                  [Punto 2]</font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pero 
+                  el cometido de los alias no es el de hacer de mero atajo solo, 
+                  por ejemplo, podemos &nbsp;hacer varias acciones de una sentada 
+                  sin necesidad de cansarnos (t&iacute;pico en m&iacute; :-), 
+                  por ejemplo, podemos hacer un alias que nos permita patear y 
+                  banear a alguien.<br>
+                  Por ejemplo, vamos a crear el alias kb y su fin va a ser el 
+                  de patear y banear a alguien (claro que para eso hemos de ser 
+                  ops ;-P) </font></p>
+                <p align="center"><font face="Arial" size="2"><b>kb { ban $$1 
+                  2 | kick # $$1 $2- }</b> </font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El 
+                  comando <b>ban</b> es un comando inderno del mIRC, hay un apartado 
+                  en este cursillo que explica cada uno de los comandos internos 
+                  del mIRC</font></p>
+                <p align="center"><font face="Arial" size="2"><i><b>Y ahora... 
+                  apretemos un poco el nivel... identificadores propios!</b></i></font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demos 
+                  m&aacute;s vueltas de tuerca a los alias... si alguna vez has 
+                  destripado un script con mucho c&oacute;digo entre sus tripas 
+                  seguramente habr&aacute;s encontrado identificadores (identifiers 
+                  para quienes se creen puristas y/o dem&aacute;s fauna de anglicistas) 
+                  que no existen a simple vista... (por ejemplo: $porcien) y en 
+                  cierto modo s&iacute; que existen, solo que son un alias muy 
+                  especiales</font></p>
+                <p><font face="Arial" size="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veamos 
+                  un ejemplo pr&aacute;ctico con el alias prueba, que nos devolver&aacute; 
+                  la palabra que pongamos dentro de $prueba coloreada en rojo.</font></p>
+                <p align="center"><font face="Arial" size="2"><b>prueba return 
+                  4 $+ $1 $+ </b></font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font size="2" face="Arial">Y 
+                  nos saldria de: <i>Mira, esto $prueba(es) una prueba de un $prueba(alias)</i> 
+                  nos devolver&iacute;a: <i>Mira, esto <font color="#FF0000">es</font> 
+                  una prueba de un <font color="#FF0000">alias</font></i></font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pero 
+                  no se limita solamente a eso, puedes probar con este ejmplo:</font></p>
+                <p align="center"><font face="Arial" size="2"><b>orden return 
+                  $calc($calc($1 + $3) * $2)</b></font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puede 
+                  que no te diga nada esto, pero no es lo mismo <i>$orden(2,3,1)</i> 
+                  que devolver&iacute;a 9 que <i>$orden(2,1,3)</i> que devolver&iacute;a 
+                  12, si te fijas es importante que cada elemento del identificador 
+                  est&eacute; separado por comas, ahora te lo demuestro:</font></p>
+                <p align="center"><font face="Arial" size="2"><b>miraorden return 
+                  Primero: $1 Segundo: $2 Todos: $1-</b></font></p>
+                <p align="left"><font face="Arial" size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$miraorden(hola 
+                  fijate en esto, genial eh?)</i> nos devolver&aacute;: <i>Primero: 
+                  hola fijate en esto Segundo: genial eh? Todos: hola fijate en 
+                  esto genial eh?</i>. Es un Ejemplo muy forzado pero me interesa 
+                  que veas de qu&eacute; va el asunto y la importancia que tiene 
+                  el orden y la separaci&oacute;n. Tamb&iacute;en he de advertirte 
+                  de que en versiones menores al 5.6 no funciona as&iacute;.</font></p>
+                <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Con 
+                  esto creo que ya es suficiente para empezar con los alias :-), 
+                  vayamos a uno de los pasos m&aacute;s importantes de este cursillo, 
+                  las comparaciones (if-then.else) </font></p>
+              </div>
+            </div>
+            <p align="right"><font size="2" face="Arial"><b>&lt;</b> <a href="scripting-cursillo-00-indice.html" target="_self">Volver 
+              al indice de contenidos</a> <b>||</b> Siguiente: <a href="scripting-cursillo-04-ifthenelse-prin.htm">Las 
+              comparaciones, if-then-else</a> <b>&gt;</b></font>
+            <p align="right"><font face="Arial" size="2">Ver: <a href="scripting-cursillo-identifiers.htm">Lista 
+              de identificadores</a></font> 
+            <p>&nbsp; 
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish39601175" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=39601175&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

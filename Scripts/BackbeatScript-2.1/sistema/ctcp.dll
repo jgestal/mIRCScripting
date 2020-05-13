@@ -1,0 +1,57 @@
+ctcp ^*:*:*: {
+  if ($1 == DCC) {
+    if (%flood.dcc.estado == on) {
+      if (%flood.dcc.max == $null) set %flood.dcc.max 5
+      if (%flood.dcc.time == $null) set %flood.dcc.time 10
+      if (%flood.dcc.ignore == $null) set %flood.dcc.ignore 60
+      if ($nick != $me) {
+        if (%dcc.flood. [ $+ $wildsite ] != $null) inc %dcc.flood. [ $+ $wildsite ]
+        if (%dcc.flood. [ $+ $wildsite ] == $null) set -u [ $+ [ %flood.dcc.time ] ] %dcc.flood. [ $+ $wildsite ] 1
+        if (%dcc.flood. [ $+ $wildsite ] => %flood.dcc.max) { 
+          flood.dt de $sbn(DCC´s) por parte de $sbn($wildsite)
+          .ignore -tnu $+ %flood.dcc.ignore $wildsite
+          unset %dcc.flood. [ $+ $wildsite ]
+    } } }
+  }
+
+  if ($1 $2 == DCC Send) { 
+    ;Antivirus
+    if ($virus($$3) == virus) {
+      .notice $nick %xn -[ Lo siento, no acepto virus. Bajate un antivirus de www.avp-es.com ]-
+      echo -s $timestamp 4Rechazado DCC Send 1(virus: $3 $+ ) de $nick ( $+ $address $+ ) $+ .
+      .ignore -tu60 $wildsite
+      halt
+    }
+  }
+  if ($query($nick) != $null) {
+    if ($1 != DCC) echo $nick 4 $+ $timestamp CTCP $1 $+  a $target de [ $+ $nick $+ ][ $+ $address $+ ]
+  }
+  if ($left($target,1) == $chr(35)) {
+    if ($1 != DCC) echo $chan 4 $+ $timestamp CTCP $1 $+  de [ $+ $nick $+ ][ $+ $address $+ ]
+  }
+  if ($left($target,1) != $chr(35)) {
+    if ($1 != DCC) echo -s 4 $+ $timestamp CTCP $1 $+  de [ $+ $nick $+ ][ $+ $address $+ ]
+  }
+  ;Protección de flood de ctcp´s
+  if (%flood.ctcp.max == $null) set %flood.ctcp.max 3
+  if (%flood.ctcp.time == $null) set %flood.ctcp.max 10
+  if (%flood.ctcp.ignore == $null) set %flood.ctcp.max 60
+  if ($1 == DCC) goto endfloodctcp
+  if ($nick != $me) {
+    if (%ctcp.flood. [ $+ $wildsite ] != $null) inc %ctcp.flood. [ $+ $wildsite ]
+    if (%ctcp.flood. [ $+ $wildsite ] == $null) set -u [ $+ [ %flood.ctcp.time ] ] %ctcp.flood. [ $+ $wildsite ] 1
+    if (%ctcp.flood. [ $+ $wildsite ] => %flood.ctcp.max) { 
+      .ignore -tu $+ %flood.ctcp.ignore $wildsite
+      flood.dt de ctcps por parte de $sbn($nick) ( $+ $wildsite $+ )
+      unset %ctcp.flood. [ $+ $wildsite ]
+      if (%flood.ctcp.res == 1) kickcom $nick CtcP flood Detected!
+      if (%flood.ctcp.res == 2) kickbancom $nick CtcP flood Detected!
+    }
+  }
+  :endfloodctcp
+  if ($1 == Ping) { if (%haltping != on) .ctcpreply $nick PING $ctime }
+  if ($1 == Finger) { if (%haltfinger != on) .ctcpreply $nick FINGER %publicidad }
+  if ($1 == Version) { if (%haltversion != on) .ctcpreply $nick VERSION $read -l %version.num.reply sistema\versionreply.txt  }
+  if ($1 == Time) { if (%halttime != on) .ctcpreply $nick TIME time: $+ $time // date: $+ $date }
+  if ($1 != DCC)  halt
+}

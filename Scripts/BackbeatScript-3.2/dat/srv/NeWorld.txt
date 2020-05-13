@@ -1,0 +1,8 @@
+irc.irc-NeWorld.org 6667
+GalaXy.NeWorld.org 6667
+kaos.neworld.org 6667
+luna.neworld.org 6667
+viento.neworld.org 6667
+pegaso.neworld.org 6667
+stats.neworld.org 6667
+SHaDoW.neworld.org 6667

@@ -1,0 +1,445 @@
+alias confgeneral dialog -m confgeneral confgeneral
+dialog confgeneral {
+  title "Configuración general del  script"
+  size -1 -1 500 400
+  button "Aceptar",1,185 370 135 25,ok
+  tab "Personal",2,10 10 480 360
+  tab "Musica",3
+  tab "Programas",4
+  tab "Protecciones",5
+  tab "Varios",6
+  box "Modos al inicio",10,20 40 110 125,tab 2
+  check "Invisible [+i]",11,30 60 100 20,tab 2
+  check "Wall-Ops [+w]",12,30 85 100 20,tab 2
+  check "Noticias [+s]",13,30 110 100 20,tab 2
+  check "Autista [+d]",14, 30 135 100 20,tab 2
+  box "Otros modos",15,140 40 130 125,tab 2
+  check "Privados en Status",16,150 60 130 20,tab 2
+  check "Whois en query",17,150 85 130 20,tab 2
+  check "Entrar en invitación",18,150 110 130 20,tab 2
+  check "Filtrar publicidad",19,150 135 130 20,tab 2
+  box "Varios",27,280 40 200 125,tab 2
+  check "Copiar IP´s al portapapeles",28,290 60 150 20,tab 2
+  check "Agradecer Op",29,290 85 160 20,tab 2
+  check "Reentrar en kick",30,290 110 160 20,tab 2
+  box "Puertos",31,280 170 200 185,tab 2
+  check "Detectar conexión de NetBus",32,290 190 160 20,tab 2
+  check "Detectar conexión de FTP",33,290 210 160 20,tab 2
+  check "Detectar conexión de NetBios",34,290 230 160 20,tab 2
+  box "Temas del script",36,20 170 250 185,tab 2
+  text "Los temas del script han sido creados por Chungo",37,30 200 230 50,center,tab 2
+  box "Selecciona el tema del script",39,30 260 230 85,tab 2
+  combo 40,40 295 210 100,drop,tab 2
+  box "Directorio de Midis",41,20 40 460 55,tab 3
+  edit "",42,30 60 350 20,tab 3,autohs
+  button "Examinar",43,390 60 80 20,tab 3
+  box "Directorio de MP3",44,20 100 460 55,tab 3
+  edit "",45,30 120 350 20,tab 3,autohs
+  button "Examinar",46,390 120 80 20,tab 3
+  box "Ruta del Winamp.exe",47,20 160 460 70,tab 3
+  edit "",48,30 180 350 20,tab 3,autohs
+  button "Localizar",49,390 180 80 20,tab 3
+  button  "Examinar",50,390 200 80 20,tab 3
+  box "Ruta del Firewall",51,20 40 460 70,tab 4
+  edit "",52,30 60 350 20,tab 4,autohs
+  button "Localizar",53,390 60 80 20,tab 4
+  button  "Examinar",54,390 80 80 20,tab 4
+  box "Ruta del Navegador",55,20 115 460 70,tab 4
+  edit "",56,30 135 350 20,tab 4,autohs
+  button "Localizar",57,390 135 80 20,tab 4
+  button  "Examinar",58,390 155 80 20,tab 4
+  box "Ruta del prograna de E-mail",59,20 190 460 70,tab 4
+  edit "",60,30 210 350 20,tab 4,autohs
+  button "Localizar",61,390 210 80 20,tab 4
+  button  "Examinar",62,390 230 80 20,tab 4
+  box "Ruta del Cliente de FTP",63,20 265 460 70,tab 4
+  edit "",64,30 285 350 20,tab 4,autohs
+  button "Localizar",65,390 285 80 20,tab 4
+  button  "Examinar",66,390 305 80 20,tab 4
+  box "Rechazar virus",67,20 40 130 170,tab 5
+  list 68,30 60 110 130 ,tab 5
+  button "Añadir",69,30 180 50 20,tab 5
+  button "Borrar",70,90 180 50 20,tab 5
+  box "Ctcp´s",71,160 40 320 170,tab 5
+  box "No Responder",72,170 55 100 145,tab 5
+  check "Ping",73,180 75 60 20,tab 5
+  check "Finger",74,180 100 60 20,tab 5
+  check "Version",75,180 125 60 20,tab 5
+  check "Time",76,180 150 60 20,tab 5
+  box "Flood",77,280 55 190 145,tab 5
+  edit "",78,290 70 40 20,tab 5
+  text "ctcp´s en",79,335 75 60 20,tab 5
+  edit "",80,385 70 40 20,tab 5,tab 5
+  text "seg(s)",81,430 75 60 20,tab 5
+  text "Ignorar al nick por",82,290 108 100 20,tab 5
+  edit "",83,385 105 40 20,tab 5
+  text "seg(s)",84,430 108 60 20,tab 5
+  box "En canales comunes",85,290 135 170 55,tab 5
+  combo 86,300 155 150 100,drop ,tab 5
+  box "Flood de address",87,20 215 460 140,tab 5
+  check "Invite:",88,30 240 50 20,tab 5
+  edit "",89,90 240 40 20,tab 5
+  text "Invitaciones en",90,140 243 80 20,tab 5,center
+  edit "",91,230 240 40 20,tab 5
+  text "seg(s). Ignorar por",92,280 243 90 20,tab 5
+  edit "",93,380 240 40 20,tab 5
+  text "seg(s)",94,430 243 30 20,tab 5
+  check "Query:",95,30 270 50 20,tab 5
+  edit "",96,90 270 40 20,tab 5
+  text "Query´s en",97,140 273 80 20,tab 5,center
+  edit "",98,230 270 40 20,tab 5
+  text "seg(s). Ignorar por",99,280 273 90 20,tab 5
+  edit "",100,380 270 40 20,tab 5
+  text "seg(s)",101,430 273 30 20,tab 5
+  check "DCC:",102,30 300 50 20,tab 5
+  edit "",103,90 300 40 20,tab 5
+  text "DCC´s en",104,140 303 80 20,tab 5,center
+  edit "",105,230 300 40 20,tab 5
+  text "seg(s). Ignorar por",106,280 303 90 20,tab 5
+  edit "",107,380 300 40 20,tab 5
+  text "seg(s)",108,430 303 30 20,tab 5
+  box "Respuesta CTCP Version",109,20 40 460 55,tab 6
+  combo 110,30 60 440 250,drop,tab 6
+  box "Nick completion",111,20 100 460 120,tab 6
+  check "Activar completion",112,30 120 150 20,tab 6
+  text "Las muestras del completion saldrán en la ventana de Status",113,30 140 160 40,tab 6
+  combo 114,30 180 160 200,drop,tab 6
+  check "Completion personalizado",115,280 120 150 20,tab 6
+  text "Puedes configurar los colores antes y después del nick",116,280 140 160 40,tab 6
+  edit "",117,280 180 50 20,tab 6
+  edit "",118,370 180 50 20,tab 6
+  box "Máscara de ban por defecto",119,20 225 240 130,tab 6
+  text "Es la mascara que se baneará en las protecciones de canal y flood.",120,30 240 200 60,tab 6
+  combo 121,30 285 220 100,drop,tab 6
+  box "Saludo automatico",122,270 225 210 130,tab 6
+  check "Activar saludo",123,280 250 100 20, tab 6 
+  edit "",124,280 285 190 20,autohs,tab 6
+}                                       
+on 1:dialog:confgeneral:init:*: {
+  did $iif(%mode.i == on,-c,-u) confgeneral 11
+  did $iif(%mode.w == on,-c,-u) confgeneral 12
+  did $iif(%mode.s == on,-c,-u) confgeneral 13
+  did $iif(%mode.d == on,-c,-u) confgeneral 14
+  did $iif($group(#noquerys) == on,-c,-u) confgeneral 16
+  did $iif(%w.query == on,-c,-u) confgeneral 17
+  did $iif(%j.invite == on,-c,-u) confgeneral 18
+  did $iif($group(#fpubl) == on,-c,-u) confgeneral 19
+  did $iif($group(#dnspp) == on,-c,-u) confgeneral  28
+  did $iif($group(#agradecerop) == on,-c,-u) confgeneral 29
+  did $iif($group(#reentrarenkick) == on,-c,-u) confgeneral 30
+  cargaskines
+  did $iif($group(#dcnetbus) == on,-c,-u) confgeneral 32
+  did $iif($group(#dcftp) == on,-c,-u) confgeneral 33
+  did $iif($group(#dcnetbios) == on,-c,-u) confgeneral 34
+  did -a confgeneral 42 %dir.midi
+  did -a confgeneral 45 %dir.mp3
+  did -a confgeneral 48 %dir.wamp
+  did -a confgeneral 52 %dir.firewall 
+  did -a confgeneral 56 %dir.naveg
+  did -a confgeneral 60 %dir.email
+  did -a confgeneral 64 %dir.ftp
+  cargavirus
+  did $iif(%haltping == on,-c,-u) confgeneral 73
+  did $iif(%haltfinger == on,-c,-u) confgeneral 74
+  did $iif(%haltversion == on,-c,-u) confgeneral 75
+  did $iif(%halttime == on,-c,-u) confgeneral 76
+  did -a confgeneral 78 %flood.ctcp.max
+  did -a confgeneral 80 %flood.ctcp.time
+  did -a confgeneral 83 %flood.ctcp.ignore
+  did -a confgeneral 86 KiCK
+  did -a confgeneral 86 KiCKBAN
+  did -a confgeneral 86 Nada
+  did -c confgeneral 86 %flood.ctcp.res
+  did $iif(%flood.invite.estado == on,-c,-u) confgeneral 88
+  if (%flood.invite.estado != on) {
+    did -b confgeneral 89
+    did -b confgeneral 90
+    did -b confgeneral 91
+    did -b confgeneral 92
+    did -b confgeneral 93
+    did -b confgeneral 94
+  }
+  did -a confgeneral 89 %flood.invite.max
+  did -a confgeneral 91 %flood.invite.time
+  did -a confgeneral 93 %flood.invite.ignore
+  did $iif(%flood.query.estado == on,-c,-u) confgeneral 95
+  if (%flood.query.estado != on) {
+    did -b confgeneral 96
+    did -b confgeneral 97
+    did -b confgeneral 98
+    did -b confgeneral 99
+    did -b confgeneral 100
+    did -b confgeneral 101
+  }
+  did -a confgeneral 96 %flood.query.max
+  did -a confgeneral 98 %flood.query.time
+  did -a confgeneral 100 %flood.query.ignore
+  did $iif(%flood.dcc.estado == on,-c,-u) confgeneral 102
+  if (%flood.dcc.estado != on) {
+    did -b confgeneral 103
+    did -b confgeneral 104
+    did -b confgeneral 105
+    did -b confgeneral 106
+    did -b confgeneral 107
+    did -b confgeneral 108
+  }
+  did -a confgeneral 103 %flood.dcc.max
+  did -a confgeneral 105 %flood.dcc.time
+  did -a confgeneral 107 %flood.dcc.ignore
+  ;Ctcp version
+  unset %i
+  :start
+  inc %i
+  if ($read -l %i sistema\versionreply.txt != $null) { 
+    set %tmp.ver $read -l %i sistema\versionreply.txt
+    did -a confgeneral 110 $strip(%tmp.ver)
+    goto start
+  }
+  unset %tmp.ver
+  did -c confgeneral 110 %version.num.reply
+
+  did $iif(%completion.estado == on,-c,-u) confgeneral 112
+  did -a confgeneral 114 1ª negrita
+  did -a confgeneral 114 [corchetes]
+  did -a confgeneral 114 {llaves}
+  did -a confgeneral 114 1ª negrita y subrayado
+  did -a confgeneral 114 ]corchetes[
+  did -a confgeneral 114 ¡¡completion!!
+  did -a confgeneral 114 colores
+  did -a confgeneral 114 subrayado
+  did -a confgeneral 114 negrita
+  did -a confgeneral 114 €£ï†€
+  did -c confgeneral 114 %num.completion
+  if (%comp.perso == on) {
+    did -b confgeneral 114
+    did -c confgeneral 115
+  }
+  if (%comp.perso != on) {
+    did -b confgeneral 117
+    did -b confgeneral 118
+  }
+  did -a confgeneral 117 %comp.izq
+  did -a confgeneral 118 %comp.der
+  did -a confgeneral 121 [0] *!ident@host
+  did -a confgeneral 121 [1] *!*ident@host
+  did -a confgeneral 121 [2] *!*@host
+  did -a confgeneral 121 [3] *!*ident@host.*
+  did -a confgeneral 121 [4] *!*@host.*
+  did -a confgeneral 121 [5] nick!ident@host
+  did -a confgeneral 121 [6] nick!*ident@host
+  did -a confgeneral 121 [7] nick!*@host
+  did -a confgeneral 121 [8] nick!*ident@host.*
+  did -a confgeneral 121 [9] nick!*@host.*
+  did -c confgeneral 121 $calc(%ban.num + 1)
+  did $iif(%autosaludo == on,-c,-u) confgeneral 123
+}
+on 1:dialog:confgeneral:sclick:*: {
+  if ($did == 11) { if (%mode.i == on) unset %mode.i
+  else set %mode.i on } 
+  if ($did == 12) { if (%mode.w == on) unset %mode.w
+  else set %mode.w on } 
+  if ($did == 13) { if (%mode.s == on) unset %mode.s
+  else set %mode.s on } 
+  if ($did == 14) { if (%mode.d == on) unset %mode.d
+  else set %mode.d on } 
+  if ($did == 16) { if ($group(#noquerys) == on) .disable #noquerys
+  else .enable #noquerys }
+  if ($did == 17) { if (%w.query == on) unset %w.query
+  else set %w.query on } 
+  if ($did == 18) { if (%j.invite == on) unset %j.invite
+  else set %j.invite on } 
+  if ($did == 19) { if ($group(#fpubl) == on) .disable #fpubl
+  else .enable #fpubl }
+  if ($did == 28) { if ($group(#dnspp) == on) .disable #dnspp
+  else .enable #dnspp }
+  if ($did == 29) { if ($group(#agradecerop) == on) .disable #agradecerop
+  else .enable #agradecerop }
+  if ($did == 30) { if ($group(#reentrarenkick) == on) .disable #reentrarenkick
+  else .enable #reentrarenkick }
+  if ($did == 40) { set %skin.num $did(confgeneral,40).sel | ponskin }
+  if ($did == 32) { if ($group(#dcnetbus) == on) {
+      .disable #dcnetbus 
+    if ($portfree(12345) != $true) sockclose netbus }
+    else { .enable #dcnetbus 
+  if ($portfree(12345) == $true) .socklisten Netbus 12345 } } 
+  if ($did == 33) { if ($group(#dcftp) == on) {
+      .disable #dcftp
+    if ($portfree(21) != $true) sockclose ftp }
+    else { .enable #dcftp
+  if ($portfree(21) == $true) .socklisten FTP 21 } }
+  if ($did == 34) { if ($group(#dcnetbios) == on) {
+      .disable #dcnetbios
+    if ($portfree(139) != $true) sockclose netbios }
+    else { .enable #dcnetbios
+  if ($portfree(139) == $true) .socklisten netbios 139 } }
+  if ($did == 43)  { .timer -m 1 1 pondir midi }
+  if ($did == 46)  { .timer -m 1 1 pondir mp3 }
+  if ($did == 50)  { .timer -m 1 1 pondir wamp }
+  if ($did == 49) { set %dir.wamp $findfile($left($mircdir,3),winamp.exe,1) | pondir }
+  if ($did == 53) { set %dir.firewall $findfile($left($mircdir,3),frw.exe,1) | pondir }
+  if ($did == 57) { set %dir.naveg $findfile($left($mircdir,3),iexplore.exe,1) | pondir }
+  if ($did == 61) { set %dir.email $findfile($left($mircdir,3),Msimn.exe,1) | pondir }
+  if ($did == 65) { set %dir.ftp $findfile($left($mircdir,3),cuteftp.exe,1) | pondir }
+  if ($did == 54) { .timer -m 1 1 pondir firewall | pondir }
+  if ($did == 58) { .timer -m 1 1 pondir naveg | pondir }
+  if ($did == 62) { .timer -m 1 1 pondir email | pondir }
+  if ($did == 66) { .timer -m 1 1 pondir ftp | pondir }
+  if ($did == 68) did -e confgeneral 70
+  if ($did == 69) { .timer -m 1 1 addvirus }
+  if ($did == 70) { write -dl $+ $did(confgeneral,68).sel sistema\virusdata.txt | cargavirus }
+  if ($did == 73) { if (%haltping == on) set %haltping off
+  else set %haltping on }
+  if ($did == 74) { if (%haltfinger == on) set %haltfinger off
+  else set %haltfinger on }
+  if ($did == 75) { if (%haltversion == on) set %haltversion off
+  else set %haltversion on }
+  if ($did == 76) { if (%halttime == on) set %halttime off
+  else set %halttime on }
+  if ($did == 86) set %flood.ctcp.res $did(confgeneral,86).sel
+  if ($did == 88) { 
+    if (%flood.invite.estado == on) { 
+      set %flood.invite.estado off
+      did -b confgeneral 89
+      did -b confgeneral 90
+      did -b confgeneral 91
+      did -b confgeneral 92
+      did -b confgeneral 93
+      did -b confgeneral 94   
+    }
+    else  {
+      set %flood.invite.estado on 
+      did -e confgeneral 89
+      did -e confgeneral 90
+      did -e confgeneral 91
+      did -e confgeneral 92
+      did -e confgeneral 93
+      did -e confgeneral 94
+    }
+  }
+  if ($did == 95) { 
+    if (%flood.query.estado == on) { 
+      set %flood.query.estado off
+      did -b confgeneral 96
+      did -b confgeneral 97
+      did -b confgeneral 98
+      did -b confgeneral 99
+      did -b confgeneral 100
+      did -b confgeneral 101  
+    }
+    else  {
+      set %flood.query.estado on 
+      did -e confgeneral 96
+      did -e confgeneral 97
+      did -e confgeneral 98
+      did -e confgeneral 99
+      did -e confgeneral 100
+      did -e confgeneral 101
+    }
+  }
+  if ($did == 102) { 
+    if (%flood.dcc.estado == on) { 
+      set %flood.dcc.estado off
+      did -b confgeneral 103
+      did -b confgeneral 104
+      did -b confgeneral 105
+      did -b confgeneral 106
+      did -b confgeneral 107
+      did -b confgeneral 108  
+    }
+    else  {
+      set %flood.dcc.estado on 
+      did -e confgeneral 103
+      did -e confgeneral 104
+      did -e confgeneral 105
+      did -e confgeneral 106
+      did -e confgeneral 107
+      did -e confgeneral 108
+    }
+  }
+  if ($did == 110) set %version.num.reply $did(confgeneral,110).sel
+  if ($did == 112) {
+    if (%completion.estado == on) unset %completion.estado
+    else set %completion.estado on
+  }
+  if ($did == 114) { set %num.completion $did(confgeneral,114).sel | echo -s $timestamp $sbn(Muestra:) $comp(Completion,%num.completion) }
+  if ($did == 115) { 
+    if (%comp.perso == on) {
+      unset %comp.perso
+      did -b confgeneral 117
+      did -b confgeneral 118
+      did -e confgeneral 114
+    }
+    else {
+      set %comp.perso on
+      did -b confgeneral 114
+      did -e confgeneral 117
+      did -e confgeneral 118
+    }
+  }
+  if ($did == 121) set %ban.num $calc($did(confgeneral,121).sel - 1)
+  if ($did == 123) {
+    if (%autosaludo == on) unset %autosaludo
+    else { set %autosaludo on }
+  }
+  did -a confgeneral 124 %autosaludo.msg
+}
+alias modesinit {
+  unset %tmp.modes.1
+  if (%mode.i == on) { set %tmp.modes.1 i }
+  if (%mode.w == on) { set %tmp.modes.2 %tmp.modes.1 $+ w }
+  if (%mode.s == on) { set %tmp.modes.1 %tmp.modes.2 $+ s }
+  if (%mode.d == on) { set %tmp.modes.2 %tmp.modes.1 $+ d }
+  if ($len(%tmp.modes.1) => $len(%tmp.modes.2)) .mode $me %tmp.modes.1 
+  else  .mode $me %tmp.modes.2 
+  unset %tmp.modes.*
+}
+alias cargaskines { did -a confgeneral 40 Ningún Tema | did -a confgeneral 40 BravoS AssAulT TeaM | did -a confgeneral 40 Verde & Negro | did -c confgeneral 40 %skin.num }
+alias ponskin { if (%skin.num == 1) { background -lx | background -ux | background -hx | background -mx }
+  if (%skin.num == 2) { background -l  skin\bat\menu.jpg | background -h skin\bat\canales.jpg | background -mt skin\fondo.jpg }
+if (%skin.num == 3) { background -l  skin\vn\menu.jpg | background -h skin\vn\canales.jpg | background -mt skin\fondo.jpg } }
+alias pondir { if ($1 == midi) set %dir.midi $sdir="Selecciona el directorio de Midis" $left($mircdir,3)
+  if ($1 == mp3) set %dir.mp3 $sdir="Selecciona el directorio de Mp3" $left($mircdir,3)
+  if ($1 == wamp) set %dir.wamp $dir="Selecciona el ejecutable del Winamp" $left($mircdir,3) 
+  if ($1 == firewall) set %dir.firewall $dir="Selecciona el ejecutable del Firewall" $left($mircdir,3) 
+  if ($1 == naveg) set %dir.naveg $dir="Selecciona el ejecutable del Navegador" $left($mircdir,3) 
+  if ($1 == email) set %dir.email $dir="Selecciona el ejecutable del E-mail" $left($mircdir,3) 
+  if ($1 == ftp) set %dir.ftp $dir="Selecciona el ejecutable del FTP" $left($mircdir,3) 
+  did -ra confgeneral 42 %dir.midi 
+  did -ra confgeneral 45 %dir.mp3
+  did -ra confgeneral 48 %dir.wamp
+  did -ra confgeneral 52 %dir.firewall
+  did -ra confgeneral 56 %dir.naveg
+  did -ra confgeneral 60 %dir.email
+  did -ra confgeneral 64 %dir.ftp
+}
+on 1:dialog:confgeneral:edit:*: {
+  if ($did == 42) set %dir.midi $did(confgeneral,42)
+  if ($did == 45) set %dir.mp3 $did(confgeneral,45)
+  if ($did == 48) set %dir.wamp $did(confgeneral,48)
+  if ($did == 52) set %dir.firewall $did(confgeneral,52)
+  if ($did == 56) set %dir.naveg $did(confgeneral,56)
+  if ($did == 60) set %dir.email $did(confgeneral,60)
+  if ($did == 64) set %dir.ftp $did(confgeneral,64)
+  if ($did == 78) set %flood.ctcp.max $did(confgeneral,78)
+  if ($did == 80) set %flood.ctcp.time $did(confgeneral,80)
+  if ($did == 83) set %flood.ctcp.ignore $did(confgeneral,83)
+  if ($did == 89) set %flood.invite.max $did(confgeneral,89)
+  if ($did == 91) set %flood.invite.time $did(confgeneral,91)
+  if ($did == 93) set %flood.invite.ignore $did(confgeneral,93)
+  if ($did == 96) set %flood.query.max $did(confgeneral,96)
+  if ($did == 98) set %flood.query.time $did(confgeneral,98)
+  if ($did == 100) set %flood.query.ignore $did(confgeneral,100)
+  if ($did == 103) set %flood.dcc.max $did(confgeneral,103)
+  if ($did == 105) set %flood.dcc.time $did(confgeneral,105)
+  if ($did == 107) set %flood.dcc.ignore $did(confgeneral,107)
+  if ($did == 117) set %comp.izq $did(confgeneral,117)
+  if ($did == 118) set %comp.der $did(confgeneral,118)
+  if ($did == 124) set %autosaludo.msg $did(confgeneral,124)
+
+}
+alias cargavirus {
+  unset %i | did -r confgeneral 68 | :ini | inc %i
+  if ($read -l %i sistema\virusdata.txt  != $null) { did -a confgeneral 68 $read -l %i sistema\virusdata.txt | goto ini }
+  did -b confgeneral 70
+}
+alias addvirus { write sistema\virusdata.txt $$?="Introduce el nombre del virus (puedes usar tambien * y ?)" | cargavirus  }

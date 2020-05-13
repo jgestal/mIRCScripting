@@ -1,0 +1,237 @@
+;*************************************
+;       BaCKBEAT by Jimmy_RAY
+; 
+; http://www.gestal.es
+; 
+; email: juan@gestal.es
+;
+;*************************************
+
+;*************************************
+; Control de bots de DAL NET
+; nickserv/chanserv/memoserv
+;
+;*************************************
+
+alias _dalnet if (*.dal.net iswm $server) return 1
+alias _nickserv .msg nickserv@services.dal.net $$1-
+alias _memoserv .msg memoserv@services.dal.net $$1-
+alias _chanserv .msg chanserv@services.dal.net $$1-
+
+menu status,menubar {
+  -
+  $iif($_dalnet,&chanserv)
+  .&register:_chanserv register #$$?="channel" $$?*="password" $$?="description"
+  .&set
+  ..&founder:_chanserv set #$$?="channel" founder
+  ..&passwd:_chanserv set #$$?="channel" $$?*="old password" $$?*="new password"
+  ..&desc:_chanserv set #$$?="channel" desc $$?="description"
+  ..&mlock:_chanserv set #$$?="channel" mlock $$?="mode lock mask"
+  ..&opguard
+  ...&on:_chanserv set #$$?="channel" opguard on
+  ...&off:_chanserv set #$$?="channel" opguard off
+  ..&keeptopic
+  ...&on:_chanserv set #$$?="channel" keeptopic on
+  ...&off:_chanserv set #$$?="channel" keeptopic off
+  ..-
+  ..&url:_chanserv set #$$?="channel" url $$?="url"
+  ..&ident
+  ...&on:_chanserv set #$$?="channel" ident on
+  ...&off:_chanserv set #$$?="channel" ident off
+  ..-
+  ..&restrict
+  ...&on:_chanserv set #$$?="channel" restrict on
+  ...&off:_chanserv set #$$?="channel" restrict off
+  ..&verbose
+  ...&on:_chanserv set #$$?="channel" verbose on
+  ...&off:_chanserv set #$$?="channel" verbose off
+  .&sop
+  ..&add:_chanserv sop #$$?="channel" add $$?="nick or mask"
+  ..&del:_chanserv sop #$$?="channel" del $$?="index number of mask"
+  ..&list:_chanserv sop #$$?="channel" list $?="search pattern"
+  ..&wipe:_chanserv sop #$$??"channel" wipe
+  .&aop
+  ..&add:_chanserv aop #$$?="channel" add $$?="nick or mask"
+  ..&del:_chanserv aop #$$?="channel" del $$?="index number of mask"
+  ..&list:_chanserv aop #$$?="channel" list $?="search pattern"
+  ..&wipe:_chanserv aop #$$?="channel" wipe
+  .&akick
+  ..&add:_chanserv akick #$$?="channel" add $$?="nick or mask"
+  ..&del:_chanserv akick #$$?="channel" del $$?="index number of mask"
+  ..&list:_chanserv akick #$$?="channel" list $?="search pattern"
+  ..&wipe:_chanserv akick #$$?="channel" wipe
+  .&drop:_chanserv drop #$$?="channel" $$?="drop code"
+  .-
+  .&identify:_chanserv identify #$$?="channel" $$?*="password"
+  .&op:_chanserv op #$$?="channel" $$?="nick"
+  .&deop:_chanserv deop #$$?="channel" $$?="nick"
+  .&info:_chanserv info #$$?="channel"
+  .&invite:_chanserv invite #$$?="channel"
+  .&mkick:_chanserv mkick #$$?="channel"
+  .&mdeop:_chanserv mdeop #$$?="channel"
+  .&unban:_chanserv unban #$$?="channel" $?="*/nickname/nick!user@host"
+  .&count:_chanserv count #$$?="channel"
+  .&why:_chanserv why #$$?="channel" $$?="nickname"
+  .-
+  .&help:_chanserv help
+  $iif($_dalnet,&nickserv)
+  .&register:_nickserv $$?*="password" $$?="email address"
+  .&set
+  ..&password:_nickserv set passwd $$?*="old password" $$?*="password"
+  ..&enforce
+  ...&on:_nickserv set enforce on
+  ...&off:_nickserv set enforce off
+  ..&url:_nickserv set url $$?="url"
+  ..-
+  ..&nomemo
+  ...&on:_nickserv set nomemo on
+  ...&off:_nickserv set nomemo off
+  ..&noop
+  ...&on:_nickserv set noop on
+  ...&off:_nickserv set noop off
+  ..&email:_nickserv set email $$?="email"
+  ..&showemail
+  ...&on:_nickserv set showemail on
+  ...&off:_nickserv set showemail off
+  .&access
+  ..&list:_nickserv access list
+  ..&add:_nickserv access add $$?="user@host mask"
+  ..&del:_nickserv access del $$?="user@host mask"
+  ..&wipe:_nickserv access wipe
+  .-
+  .&identify:_nickserv identify $$?*="password"
+  .&recover:_nickserv recover $$?="nick" $$?*="password" 
+  .&ghost:_nickserv ghost $$?="nick" $$?*="password" 
+  .&drop:_nickserv drop $me $$?*="drop code"
+  .-
+  .&release:_nickserv release $$?="nick" $$?*="password" 
+  .&info:_nickserv info $$?="nick"
+  .&acc
+  ..&level 0:_nickserv acc $me 0
+  ..&level 1:_nickserv acc $me 1
+  ..&level 2:_nickserv acc $me 2
+  ..&level 3:_nickserv acc $me 3
+  .-
+  .&help:_nickserv help
+  $iif($_dalnet,&memoserv)
+  .&send:_memoserv send $$?="nick/channel" $$?="memo"
+  .&sendsops:_memoserv send $$?="channel" $$?="memo"
+  .&list:_memoserv list
+  .&read:_memoserv read $$?="memo number"
+  .&del
+  ..&one:_memoserv del $$?="memo number"
+  ..&all:_memoserv del all
+  .&undel:_memoserv undel $$?="memo number"
+  .&purge:_memoserv purge
+  .&forward
+  ..&forward:_memoserv forward
+  ..&-:_memoserv forward -
+  ..&pass:_memoserv forward $$?*="password"
+  .&news:_memoserv news
+  .-
+  .&help:_memoserv help
+}
+menu channel {
+  -
+  $iif($_dalnet,&chanserv)
+  .&register:_chanserv register # $$?*="password" $$?="description"
+  .&set
+  ..&founder:_chanserv set # founder
+  ..&passwd:_chanserv set # $$?*="old password" $$?*="new password"
+  ..&desc:_chanserv set # desc $$?="description"
+  ..&mlock:_chanserv set # mlock $$?="mode lock mask"
+  ..&opguard
+  ...&on:_chanserv set # opguard on
+  ...&off:_chanserv set # opguard off
+  ..&keeptopic
+  ...&on:_chanserv set # keeptopic on
+  ...&off:_chanserv set # keeptopic off
+  ..-
+  ..&url:_chanserv set # url $$?="url"
+  ..&ident
+  ...&on:_chanserv set # ident on
+  ...&off:_chanserv set # ident off
+  ..-
+  ..&restrict
+  ...&on:_chanserv set # restrict on
+  ...&off:_chanserv set # restrict off
+  ..&verbose
+  ...&on:_chanserv set # verbose on
+  ...&off:_chanserv set # verbose off
+  .&sop
+  ..&add:_chanserv sop # add $$?="nick or mask"
+  ..&del:_chanserv sop # del $$?="index number of mask"
+  ..&list:_chanserv sop # list $?="search pattern"
+  ..&wipe:_chanserv sop #$$??"channel" wipe
+  .&aop
+  ..&add:_chanserv aop # add $$?="nick or mask"
+  ..&del:_chanserv aop # del $$?="index number of mask"
+  ..&list:_chanserv aop # list $?="search pattern"
+  ..&wipe:_chanserv aop # wipe
+  .&akick
+  ..&add:_chanserv akick # add $$?="nick or mask"
+  ..&del:_chanserv akick # del $$?="index number of mask"
+  ..&list:_chanserv akick # list $?="search pattern"
+  ..&wipe:_chanserv akick # wipe
+  .&drop:_chanserv drop # $$?="drop code"
+  .-
+  .&identify:_chanserv identify # $$?*="password"
+  .&op:_chanserv op # $$?="nick"
+  .&deop:_chanserv deop # $$?="nick"
+  .&info:_chanserv info #
+  .&invite:_chanserv invite #
+  .&mkick:_chanserv mkick #
+  .&mdeop:_chanserv mdeop #
+  .&unban:_chanserv unban # $?="*/nickname/nick!user@host"
+  .&count:_chanserv count #
+  .&why:_chanserv why # $$?="nickname"
+  .-
+  .&help:_chanserv help
+  $iif($_dalnet,&memoserv)
+  .&send:_memoserv send # $$?="memo"
+  .&sendsops:_memoserv send # $$?="memo"
+  .&list:_memoserv list #
+  .-
+  .&help:_memoserv help
+}
+menu nicklist {
+  -
+  $iif($_dalnet,&chanserv)
+  .&sop
+  ..&add:_chanserv sop # add $snick(#,1)
+  ..&del:_chanserv sop # del $$?="index number of mask"
+  ..&list:_chanserv sop # list $?="search pattern"
+  ..&wipe:_chanserv sop #$$??"channel" wipe
+  .&aop
+  ..&add:_chanserv aop # add $snick(#,1)
+  ..&del:_chanserv aop # del $$?="index number of mask"
+  ..&list:_chanserv aop # list $?="search pattern"
+  ..&wipe:_chanserv aop # wipe
+  .&akick
+  ..&add:_chanserv akick # add $snick(#,1)
+  ..&del:_chanserv akick # del $$?="index number of mask"
+  ..&list:_chanserv akick # list $snick(#,1)
+  ..&wipe:_chanserv akick # wipe
+  .&drop:_chanserv drop # $$?="drop code"
+  .-
+  .&op:_chanserv op # $snick(#,1)
+  .&deop:_chanserv deop # $snick(#,1)
+  .&why:_chanserv why # $snick(#,1)
+  .-
+  .&help:_chanserv help
+}
+menu nicklist,query {
+  -
+  $iif($_dalnet,&nickserv)
+  .&info:_nickserv info $$1
+  .-
+  .&recover:_nickserv recover $$1 $$?*="password" 
+  .&ghost:_nickserv ghost $$1 $$?*="password" 
+  .-
+  .&help:_nickserv help
+
+  $iif($_dalnet,&memoserv)
+  .&send:_memoserv send $$1 $$?="memo"
+  .-
+  .&help:_memoserv help
+}

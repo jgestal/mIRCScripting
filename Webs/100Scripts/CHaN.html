@@ -1,0 +1,564 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish3be2a2e6{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish3be2a2e6{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip3be2a2e6{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad3be2a2e6"></div>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web del canal #100scripts - IRC-Hispano.org</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="600" border="0">
+  <tr> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" size="5"><b><u>Scytale ha muerto, 
+                viva CHaN!</u></b></font></p>
+              <p align="left"><font face="Arial" size="3"><b>&nbsp;&nbsp;&nbsp;&nbsp;Tutorial 
+                sobre los bots del IRC-Hispano.org - Por Hiperman</b></font><br>
+              </p>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;CHaN 
+                permite registrar y controlar varios aspectos de los canales. 
+                CHaN ayuda a la administraci&oacute;n de los canales permitiendo 
+                establecer ciertos l&iacute;mites seg&uacute;n el nivel del usuario. 
+                Cualquier usuario con un nick registrado puede registrar un canal 
+                con el comando REGISTER. Si ning&uacute;n registrado entra en 
+                15 d&iacute;s el canal ser&aacute; borrado.</font></p>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;Para 
+                que CHaN ejecute una acci&oacute;n, tienes que enviarle un mensaje 
+                (o estar en un query) en el que ponga el comando apropiado. Por 
+                ejemplo: /msg chan help (o escribir "help" en el query con CHaN).</font></p>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;A 
+                continuaci&oacute;n estan todos los comandos. La sintaxis a seguir 
+                es: /msg CHaN COMANDO [par&aacute;metros obligatorios] (par&aacute;metros 
+                optativos)</font></p>
+              <p align="left">&nbsp;</p>
+              <table border=0 width="100%" cellpadding="2" align="center" >
+                <tr valign="top"> 
+                  <td width="32%"><b><font face="Verdana" size="1">HELP (comando) 
+                    (opci&oacute;n)</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Da ayuda sobre el 
+                    comando especificado o sobre la opci&oacute;n de este si se 
+                    ha especificado. Si no se especifica ninguno de los dos se 
+                    da ayuda general sobre CHaN.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>REGISTER 
+                      [canal] [contraseña] [descripci&oacute;n]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Registras el canal 
+                      especificado. Para registrarlo tienes que ser operador en 
+                      el canal y tu nick debe estar registrado. La contraseña 
+                      especificada ser&aacute; usada para que te identifiques 
+                      con el comando IDENTIFY como el FOUNDER (fundador) del canal.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><font face="Verdana" size="1"><b>DROP [canal]</b></font></td>
+                  <td width="68%"><font size="2" face="Arial">Elimina el canal 
+                    especificado. Este comando solo puede ser utilizado por el 
+                    FOUNDER, quien debe estar identificado.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>IDENTIFY 
+                      [canal] [contraseña]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Te identificas 
+                      como el FOUNDER del canal especificado. Identificarte como 
+                      fundador del canal es necesario para poder ejecutar varios 
+                      comandos.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      FOUNDER [nick]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Cambia el fundador 
+                      del canal por el nick especificado.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      PASSWORD [contraseña]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Cambia la contraseña 
+                      que utiliza el fundador para identificarse por la contraseña 
+                      especificada.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      DESC [descripci&oacute;n]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Fija la descripci&oacute;n 
+                      del canal. Esta ser&aacute; mostrada con los comandos INFO 
+                      Y LIST.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      URL (url)</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Asocia la url 
+                      especificada al canal. Esta ser&aacute; mostrada con el 
+                      comando INFO. Si no se especifica ninguna url la url asociada 
+                      al canal ser&aacute; borrada.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      EMAIL (mail)</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Asocia la direcci&oacute;n 
+                      de correo especificada al canal. Esta ser&aacute; mostrada 
+                      con el comando INFO. Si no se especifica ningun e-mail el 
+                      e-mail asociado al canal ser&aacute; borrado.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      ENTRYMSG (mensaje)</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Especifica el 
+                      mensaje que CHaN enviar&aacute; via NOTICE a los usuarios 
+                      cuando entren al canal. Si no se especifica ning&uacute;n 
+                      mensaje no habr&aacute; mensaje de bienvenida.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      TOPIC [texto]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Cambia el TOPIC 
+                      (tema del canal) por el texto especificado.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      KEEPTOPIC [on|off]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2"><u>On:</u> activa 
+                      la retenci&oacute;n de topic. Cuando todos los usuarios 
+                      abandonen el canal CHaN recordar&aacute; el topic actual 
+                      y lo establecer&aacute; la pr&oacute;xima vez que entre 
+                      un usuario en el canal.<br>
+                      <u>Off:</u> desactiva la retenci&oacute;n de topic.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      TOPICLOCK [on|off]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2"><u>On:</u> activa 
+                      la traba de topic. Solo ser&aacute; posible cambiar el topic 
+                      mediante el comando SET TOPIC.<br>
+                      <u>Off:</u> desactiva la traba de topic.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      MLOCK [modos]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Traba los modos 
+                      especificados. Los modos pueden ser trabados para que no 
+                      se puedan activar (con "-") o para que no se puedan desactivar 
+                      (con "+"). Si en el par&aacute;metro de los modos solo se 
+                      especifica "+" todos los modos podr&aacute;n ser activados 
+                      y desactivados. Por ejemplo con "SET #100scripts MLOCK +nt-spk" 
+                      no se podr&aacute;n quitar los modos n y t, no se podr&aacute;n 
+                      poner los modos s, p y k y los demas modos se podr&aacute;n 
+                      poner o quitar libremente.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      RESTRICTED [on|off]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2"><u>On:</u> activa 
+                      el acceso restringido. Los usuarios con acceso negativo 
+                      que entren al canal ser&aacute;n kickbaneados (ser&aacute;n 
+                      expulsados y se le impedir&aacute; el paso al canal). Si 
+                      el modo SECUREOPS est&aacute; activado solo podr&aacute;n 
+                      permanecer en el canal los usuarios registrados.<br>
+                      <u>Off:</u> desactiva el acceso restringido.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      SECURE [on|off]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2"><u>On:</u> activa 
+                      la seguridad del canal. Solo podr&aacute;n permanecer en 
+                      el canal los usuarios registrados. Los usuarios no registrados 
+                      ser&aacute;n kickbaneados.<br>
+                      <u>Off:</u> desactiva la seguridad del canal.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>SET [canal] 
+                      SECUREOPS [on|off]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2"><u>On:</u> activa 
+                      la seguridad de operadores. Solo los usuarios registrados 
+                      pueden obtener op (estatus de operador).<br>
+                      <u>Off:</u> desactiva la seguridad de operadores.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> </td>
+                  <td width="68%"></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"> 
+                    <p align="left"><font face="Verdana" size="1"><b>ACCESS [canal] 
+                      ADD [nick] [nivel]</b></font></p>
+                  </td>
+                  <td width="68%"> 
+                    <p align="left"><font face="Arial" size="2">Registra (añade 
+                      a la lista de usuarios del canal) al nick especificado con 
+                      el nivel de accesoespecificado. Si el usuario est&aacute; 
+                      actualmente registrado solo se modificar&aacute; su nivel. 
+                      El usuario que utiliza este comando debe tener un nivel 
+                      superior al nivel anterior del usuario al que se va a modificar 
+                      (0 si no estaba registrado)</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font size="1" face="Verdana">ACCESS [canal] 
+                    DEL [nick | n&uacute;mero]</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Elimina de la lista 
+                    de usuarios del canal al usuario especificado (mediante su 
+                    nick o su n&uacute;mero en la lista). Para ejecutar este comando 
+                    es necesario tener un nivel superior al nivel del usuario</font>.</td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><font size="1"><b><font face="Verdana">ACCESS 
+                      [canal] LIST (patr&oacute;n)</font></b></font></p>
+                  </td>
+                  <td > 
+                    <p class="left"><font face="Arial" size="2">Muestra la lista 
+                      entera de los registrados del canal. Se pueden especificar 
+                      nicks con car&aacute;cteres comodines o m&aacute;scaras 
+                      en cuyo caso solo se listar&aacute;n las coincidencias.</font></p>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><font size="1"><b><font face="Verdana">HELP 
+                    LEVELS DESC</font></b></font></td>
+                  <td width="68%"><font size="2" face="Arial">Lista todo los comandos 
+                    especificables.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><font size="1"><b><font face="Verdana">LEVELS 
+                    [canal] SET [comando] [nivel]</font></b></font></td>
+                  <td width="68%"><font size="2" face="Arial">Establece el nivel 
+                    m&iacute;nimo necesario para ejecutar el comando especificado. 
+                    Los comandos SET FOUNDER y SET PASSWORD solo pueden ser modificados 
+                    por el founder.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font size="1" face="Verdana">LEVELS [canal] 
+                    DIS | DISABLE [comando]</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Solo el founder 
+                    podr&aacute; ejecutar el comando especificado. El comando 
+                    DISABLE se puede ejecutar tambien con DIS (la forma abreviada 
+                    de DISABLE).</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font size="1" face="Verdana">LEVELS [canal] 
+                    LIST</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Muestra el nivel 
+                    actual necesitado para ejecutar cada comando.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font size="1" face="Verdana">LEVELS [canal] 
+                    RESET</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Establece todos 
+                    los comandos con el nivel por defecto, esto es, los niveles 
+                    pre-establecidos para cuando se registra un canal.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font face="Verdana" size="1">AKICK [canal] 
+                    ADD [mask] (raz&oacute;n)</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Agrega la mask especificada 
+                    a la lista de expulsiones autom&aacute;ticas. Cuando este 
+                    usuario entre en el canal CHaN lo kicbanear&aacute; con el 
+                    mensaje especificado en "raz&oacute;n". Si este no se ha especificado 
+                    el mensaje utilizado ser&aacute; "You have been banned from 
+                    the channel".</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font face="Verdana" size="1">AKICK [canal] 
+                    DEL [mask]</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Elimina la mask 
+                    especificada de la lista de expulsiones autom&aacute;ticas.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font face="Verdana" size="1">AKICK [canal] 
+                    LIST (mask)</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Muestra la lista 
+                    de expulsiones autom&aacute;ticas. Si se especifica "mask" 
+                    solo se listar&aacute;n las expulsiones autom&aacute;ticas 
+                    que coincidan con esta mask (se pueden utilizar car&aacute;cteres 
+                    comod&iacute;nes).</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><b><font face="Verdana" size="1">INFO [canal]</font></b></td>
+                  <td width="68%"><font size="2" face="Arial">Muestra informaci&oacute;n 
+                    sobre el canal o te avisa si este no est&aacute; registrado. 
+                    Lista el fundador, cuando se registr&oacute;, cuando fue la 
+                    &uacute;ltima vez que un usuario registrado entr&oacute;, 
+                    la descripción del canal y los modos trabados del canal.</font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td width="32%"><font size="1" face="Verdana"><b>LIST [patr&oacute;n]</b></font></td>
+                  <td width="68%"><font size="2" face="Arial">Lista todos los 
+                    canales que coincidan con el patr&oacute;n especificado, a 
+                    menos que tengan la opci&oacute;n PRIVATE activada.</font></td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">OP [canal] 
+                      [nick]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Hace operador 
+                      al nick especificado. Por defecto se necesita nivel 5.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">DEOP [canal] 
+                      [nick]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Deopea (quita 
+                      el estado de operador) al nick especificado. Por defecto 
+                      se necesita nivel 5.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">UNBAN [canal]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Elimina todos 
+                      los bans del canal. Por defecto se necesita nivel superior 
+                      a 0.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">INVITE 
+                      [canal]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Se invita a si 
+                      mismo al canal. Por defecto se necesita nivel superior a 
+                      0.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">CLEAR [canal] 
+                      [modes]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Quita los modos 
+                      establecidos en el canal. Por defecto se necesita un nivel 
+                      de 10.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">CLEAR [canal] 
+                      [bans]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Elimina todos 
+                      los bans del canal. Por defecto se necesita un nivel de 
+                      10.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">CLEAR [canal] 
+                      [ops]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Deopea a todos 
+                      los operadores del canal. Por defecto se necesita un nivel 
+                      de 10.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">CLEAR [canal] 
+                      [voices]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Quita la voz a 
+                      todos los usuarios que la tuviesen. Por defecto se necesita 
+                      un nivel de 10.</font></p>
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="32%" > 
+                    <p class="center"><b><font face="Verdana" size="1">CLEAR [canal] 
+                      [users]</font></b></p>
+                  </td>
+                  <td width="68%" > 
+                    <p class="left"><font face="Arial" size="2">Kickea a todos 
+                      los usuarios del canal. Por defecto se necesita un nivel 
+                      de 10.</font></p>
+                  </td>
+                </tr>
+              </table>
+              <p align="center"><a href="hispano.html"><img src="img/atras.gif" width="29" height="29" border="0" alt="Atr&aacute;s - Principal"></a><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;<a href="NiCK.html"><img src="img/adelante.gif" width="29" height="29" border="0" alt="Adelante - CHaN"></a></font></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish3be2a2e6" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=3be2a2e6&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

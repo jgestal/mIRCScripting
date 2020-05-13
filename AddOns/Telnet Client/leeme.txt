@@ -1,0 +1,43 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Telnet 1.0
+Autor: Jimmy_RAY
+email: jimmy@welt.es
+web: http://backbeat.welt.es
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~
+Instalación
+~~~~~~~~~~~~~
+
+	Sólamente tienes que copiar el fichero con extensión .mrc a tu directorio de mIRC
+y teclear en el mIRC en cualquier ventana el siguiente comando:
+	//load -rs $findfile($mircdir,telnet.mrc,1)
+	(sí, con dos barras al principio)
+	
+	Para realizar una conexión usa "/telnet ip|host puerto"
+	
+
+~~~~~~~~~~~~~
+Info
+~~~~~~~~~~~~~
+
+	No se permite la modificación del código para su distribución, pero sí la
+modificación para uso personal. En ningún caso se podrán modificar los créditos.
+
+	Si quieres incorporar éste addOn a tu script, mandame un email a jimmy@welt.es
+y tu propuesta será estudiada.
+
+	No se permite la copia/plagio de ninguna parte del código
+
+~~~~~~~~~~~~~
+Créditos
+~~~~~~~~~~~~~
+	* A la gente de los canales #scripting & #100scripts del irc-hispano.
+	* A Fulg0re porque el BAT nos está quedando genial :)
+	* A kobu por su espacio web en el servidor www.welt.es
+	* A ti por bajarte éste addOn
+
+						Saludos... 
+								Jimmy_RAY :)
+
+		...y bajate el backbeat (mi script) en http://backbeat.welt.es

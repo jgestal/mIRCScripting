@@ -1,0 +1,173 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish29cf2577{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish29cf2577{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip29cf2577{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad29cf2577"></div>
+ 
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>[Curso de scripting] Remotes sencillos</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="75%" border="0">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Los 
+                remotes sencillos<br>
+                </u></b></font><font size="3" face="Arial"><strong><br>
+                </strong></font></p>
+              <div align="left">
+                <p><font face="Arial" size="2">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Te 
+                  preguntar&aacute;s a qu&eacute; merefiero con los remotes sencillos, 
+                  yo entiendo por remotes sencillos a aquellos que tienen que 
+                  ver con lo que sucede en el servidor de IRC (on text, on notice... 
+                  los raws...), son adem&aacute;s los que en mi opini&oacute;n 
+                  tienen menor complicaci&oacute;n y son m&aacute;s sencillos 
+                  de entender (quiz&aacute; los raws sean algo enrevesados... 
+                  pero son bastantes m&aacute;s sencillos que meterse con dialogs 
+                  :-P)</font></p>
+                <p><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En 
+                  esta lecci&oacute;n vas a aprender el funcionamiento general 
+                  de un remote (que no tiene la verdad muchos secretos), manejar 
+                  los datos generados por los raws (las respuestas del servidor), 
+                  aprender&aacute;s a manejar las variables y ver&aacute;s ejemplos 
+                  pr&aacute;cticos. Aparte yo te dar&eacute; una serie de recomendaciones 
+                  ;-)</font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hay 
+                  tres tipos de eventos: los eventos como tales, las respuestas 
+                  del servidor (raws) y los ctcp's. Tanto los ctcps como los eventos 
+                  (en el mIRC aparece como events) pueden responder a unos niveles 
+                  de usuario que nosotros especifiquemos en la lista de usuarios 
+                  del mIRC con los comandos <i>auser</i> y <i>guser,</i> los raws 
+                  no responden a ning&uacute;n nivel puesto que los raws son las 
+                  respuestas del servidor, por ejemplo, cuando nosotros mandamos 
+                  el comando whois el servidor nos manda como poco 3 respuestas 
+                  (la del nombre y direcci&oacute;n del nick, servidor en el que 
+                  est&aacute; y finalmente la que indica que se ha acabado el 
+                  whois) </font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Empecemos... 
+                  en todos los cursos de scripting habr&aacute;s visto como ejemplo 
+                  de un remote el <b>on text</b>, es uno de los primeros eventos 
+                  puesto que es el que m&aacute;s reacciona y sobre el que seapoyan 
+                  las protecciones de flood, repeticiones, mayusculas, palabras 
+                  prohibidas... y un largo etc&eacute;tera. Mira este ejemplo 
+                  sencillo </font></p>
+                <table width="90%" border="0">
+                  <tr> 
+                    <td><font face="Arial" size="2"><b>on 1:TEXT:hola:#100scripts:{ 
+                      msg #100scripts hola $nick $+ , s&eacute; bienvenido a #100scripts 
+                      }</b></font></td>
+                  </tr>
+                </table>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                  Ahora viene la explicaci&oacute;n del chino: si alguien dice 
+                  la palabra exacta <b>&quot;</b>hola<b>&quot;</b> en el canal 
+                  #100scripts, nuestro script responder&aacute; mandando un mensaje 
+                  a #100scripts saludando a esa persona, como te habr&aacute;s 
+                  imaginado solo hace eso, as&iacute; que si halguien pone 20 
+                  veces hola nosotros tambi&eacute;n lo haremos. Pero claro, un 
+                  script no redeuce a algo tan sencillo, tenemos muchas posibilidades 
+                  a nuestro alcance y con ligeras variaciones.</font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pero 
+                  en los remotes no se encierran solo con los eventos, hay un 
+                  evento especial llamado ctcp, usado para interceptar los ctcps, 
+                  el uso vulgar que se le suele dar a este evento es para devolver 
+                  respuestas falsas (menuda imaginaci&oacute;n, aunque a veces 
+                  es divertido), yo por ejemplo los uso para mostrar cuando mandan 
+                  un ctcp a todo un canal. <i>Tambi&eacute;n se pueden definir 
+                  alias en los remotes mediante el prefijo &quot;alias</i>&quot; 
+                  <i>y con &quot;menu&quot;</i>, pero eso lo ver&aacute;s en las 
+                  lecciones de nivel medio, <i>otro prefijo especial es el raw 
+                  </i>que se utiliza para captar las respuestas del servidor (las 
+                  del /whois por ejemplo). Ahora mira un ejemplo del prefijo ctcp 
+                  y del prefijo raw</font></p>
+                <table width="100%" border="0">
+                  <tr>
+                    <td><b><font face="Arial" size="2">ctcp *:PING*:notice $nick 
+                      Con que ping eh? Pues toma: pang! pang! ;-P</font></b></td>
+                  </tr>
+                  <tr>
+                    <td><b><font size="2" face="Arial">raw *:*:echo -s El raw 
+                      $numeric devuelve $1-</font></b></td>
+                  </tr>
+                </table>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bien, 
+                  comencemos con el ctcp, el ejemplo hace que cuando nos hagan 
+                  un CTCP PING responda con un notice con esa peculiar respuesta 
+                  (a que si eh? :-D). El del raw a la par que un ejemplo (no se 
+                  me ocurria otro) es un truco (para cuando no sepamos que raw 
+                  nos devuelve el servidor), las aplicaciones de los raws son 
+                  varias, yo los uso para el detector de clones (usando las respuestas 
+                  del comando /who)</font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En 
+                  los remotes cabr&iacute;a un script entero (el i2 de pai es 
+                  un ejemplo) gracias a los prefijos especiales alias y menu. 
+                  Tambien son el 90% de un script, en cuanto a los ejemplos... 
+                  pues ya har&eacute; alguno para que puedas bajarlos y entiendas 
+                  mejor esto :-)</font></p>
+                </div>
+            </div>
+            <p><font size="2" face="Arial"><b>&lt;</b> <a href="scripting-cursillo-00-indice.html" target="_self">Volver 
+              al indice de contenidos</a> <b>||</b> Siguiente: <a href="scripting-cursillo-06-popups-medadv.htm" target="_self">[Medio] 
+              Popups avanzados</a> <b>&gt;</b></font> 
+            <p>&nbsp; 
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish29cf2577" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=29cf2577&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

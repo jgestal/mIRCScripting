@@ -1,0 +1,299 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish66fbeb43{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish66fbeb43{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip66fbeb43{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad66fbeb43"></div>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web del canal #100scripts - Scripting - Curso de Sockets</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="600" border="0">
+  <tr> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Scripting</u></b></font> 
+              </p>
+            </div>
+            <p align="left"><font face="Arial" color="#000000" size="3"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font size="3" face="Arial"><strong>Curso 
+              de programación de sockets para mIRC ( I )</strong></font></p>
+            <p align="left"><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;<u>Indice 
+              Tema 1</u></font></p>
+            <ul>
+              <li><font size="2" face="Arial">Prologo</font> 
+              <li><font size="2" face="Arial">Que son los sockets</font> 
+              <li><font size="2" face="Arial">Para que sirve</font> 
+              <li><font size="2" face="Arial">Sock de conexi&oacute;n</font> </li>
+            </ul>
+            <hr noshade>
+            <p align="left"><font face="Arial"><strong>Prologo</strong></font></p>
+            <p><font size="2" face="Arial">Despu&eacute;s de muchas peticiones, 
+              me he decido a crear este peque&ntilde;o curso de sockets, es el 
+              primer manual que escribo, y la verdad, no tengo mucha idea de escribir 
+              manuales, ni don de palabra para explicar, as&iacute; que intentare 
+              hacerlo lo mejor que pueda, y si pod&eacute;is me ech&aacute;is 
+              un cable:). Como ver&eacute;is lo he escrito de una manera muy peculiar, 
+              es un programita simple comentado, no s&eacute; si ser&aacute; la 
+              mejor forma de explicar, espero que funcione y que os sea de utilidad, 
+              os recomiendo, l&aacute;piz y papel, y que tom&eacute;is nota de 
+              cada uno de los comandos, tambi&eacute;n he supuesto, que ya sab&eacute;is 
+              algo de programaci&oacute;n de scripts.</font></p>
+            <hr noshade>
+            <p><font face="Arial"><strong>&iquest; Que son los sockets ?</strong></font></p>
+            <p><font size="2" face="Arial">Bueno, para que lo entend&aacute;is 
+              con gran facilidad, supondremos, que un Sock, es un cable, que une 
+              dos makinas, por el cual pasamos y recibimos informaci&oacute;n. 
+              F&aacute;cil &iquest;en? , Para lanzar este cable, necesitamos saber, 
+              la IP de la maquina destino, y el puerto de la maquina por el cual 
+              enchufaremos el cable;). La makina destino ha de tener un Sock de 
+              escucha esperando en dicho puerto, para que nuestro cable pueda 
+              conectar con ella. Con esto, ya te puedes hacer una idea, de que 
+              existe dos tipos de sockets, los de conexi&oacute;n, y los de escucha. 
+              </font></p>
+            <p><font size="2" face="Arial">Podemos mandar tantos cables como queramos 
+              a un mismo Sock de escucha, y viceversa, podemos recibir en un Sock 
+              de escucha, tantos cables como queramos.</font></p>
+            <hr noshade>
+            <p><font face="Arial"><strong>&iquest; Para que sirven ?</strong></font></p>
+            <p><font size="2" face="Arial">Esto no s&eacute; ni porque me lo pregunto:) 
+              , Pero es obvio, es la base de las comunicaciones en Internet, amos 
+              a poner un ejemplillo simpl&oacute;n.</font></p>
+            <p><font size="2" face="Arial">Un servidor de irc 'irc.lander.es', 
+              tiene un Sock de escucha en el puerto 6667, nosotros con nuestro 
+              cliente de IRC, lanzamos un cable a dicho puerto (sock de conexi&oacute;n), 
+              y una vez establecida la comunicaci&oacute;n, comienza la transmisi&oacute;n 
+              de datos. ( Le mandamos el nick y el user, nos responde si es valido 
+              o no, nos manda la informaci&oacute;n de entrada, le pedimos lista 
+              de canales, etc.).<br>
+              Pues as&iacute; funciona el 90% de las transmisiones en Internet, 
+              cada vez que abrimos una pagina web, nuestro navegador lanza un 
+              Sock a el servidor donde esta alojada la pagina por el puerto 80, 
+              y comienzan a hablar entre ellos :) ( oye tu dame esta pagina - 
+              error 404 esta pagina no esta colega, etc. etc. etc. etc. :) ):</font></p>
+            <hr noshade>
+            <p><font face="Arial"><strong>Sock de conexi&oacute;n</strong></font></p>
+            <p><font size="2" face="Arial">Bueno, espero que ya sep&aacute;is 
+              mas o menos que es un Sock, y hay&aacute;is comprendido mas o menos 
+              como y para que se usan, porque vamos a empezar a darle fuerte al 
+              asunto, y programarlos en mIRC.</font></p>
+            <p><font size="2" face="Arial">Bien, creo que la mejor forma de aprender, 
+              es un ejemplo, as&iacute; que vamos a programar, es un programita 
+              de chat, o mejor dicho, dos programitas, el cliente y el sever.<br>
+              EL server lo tendr&aacute; un amiguete , con el cual queremos conectar, 
+              y el cliente lo tendremos nosotros para conectar con el. El puerto 
+              por el que trabajaremos ser&aacute;....... el 10600 ( puede ser 
+              cualquier otro )</font></p>
+            <p><font size="2" face="Arial">El programa cliente:</font></p>
+            <p><font size="2" face="Arial">Lo primero que necesitamos es Lanzar 
+              el Sock, y ya suponemos que conocemos la IP de nuestro colega y 
+              el puerto de escucha</font></p>
+            <p class="left"><font size="2" face="Arial"><strong>Alias Conectar 
+              {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp; sockopen SOKILLO $$1 $$2<br>
+              }</strong></font></p>
+            <p><font size="2" face="Arial">Facil &iquest;no?, con esta opci&oacute;n 
+              abrimos un sock llamado SOKILLO ( puede ser cualquier nombre incluso 
+              un nombre guardado en una variablepor ejemplo %nomsock, y a %nomsock 
+              le asignamos el valor del nombre que queramos ), el cual conectara 
+              a al IP dada en el primer parametro $$1, por el puerto indicada 
+              en el segundo parametro.</font></p>
+            <p><font size="2" face="Arial">Asi pues si queremos conectar con nuestro 
+              amigo manolo que tiene la IP 195.5.65.134, solo tenemos que poner</font><font size="2" face="Arial" color="blue"><br>
+              </font><font size="2" face="Arial"><b>/conectar 195.5.65.134 10600</b></font><font size="2" face="Arial" color="blue"><br>
+              </font><font size="2" face="Arial">El puerto 10600 es porque hemos 
+              dicho que bamos a trabajor con ese puerto, y se supone que manolo 
+              tiene el programita server activado en ese puerto :)</font></p>
+            <p><font size="2" face="Arial">YA HEMOS LANZADO EL CABLE, &iquest; 
+              pero ahora como sabemos si el cable consigue o no conectar ?, bien, 
+              pues aqui entra en juego los eventos.</font></p>
+            <p><font size="2" face="Arial"><strong>on 1:sockopen:SOKILLO:{<br>
+              &nbsp;&nbsp;&nbsp;&nbsp; if ($sockerr == 0) { conexionOK }<br>
+              }</strong></font></p>
+            <p><font size="2" face="Arial">Bien, este evento es llamado tanto 
+              si se produce como si no se produce la conexi&oacute;n, si la funci&oacute;n 
+              $sockerr devuelve el valor 0, quiere decir que la conexi&oacute;n 
+              de ha establecido con &eacute;xito, si devuelve cualquier otro valor, 
+              quiere decir que no se pudo conectar. por lo tato, en este evento 
+              traducido al cristiano significa :<br>
+              Evento de apertura del sock llamado SOKILLO, -&gt; si conecto con 
+              exito ejecuta el alias llamado ConexionOK<br>
+              Esta claro, &iquest;No?, &iquest;que hacemos en el alias conexionOK?, 
+              pues aqu&iacute; podemos dejar volar nuestra imaginaci&oacute;n, 
+              pero lo principal, es abrir una ventanilla, donde podamos escribir, 
+              para hablar con nuestro colega manolo:)</font></p>
+            <p><font size="2" face="Arial"><strong>Alias ConexionOK {<br>
+              &nbsp;&nbsp;&nbsp;window -e @conexion<br>
+              &nbsp;&nbsp;&nbsp;echo @conexion Conexi&oacute;n establecida con 
+              $sock(SOKILLO).IP por el puerto $sock(SOKILLO).port <br>
+              }</strong></font></p>
+            <p><font size="2" face="Arial">Con esto nos abrimos una ventanilla 
+              donde podemos escribir, y adem&aacute;s, nos aparece la informaci&oacute;n 
+              de la ip y el puerto al que hemos conectado, &iquest;Que no lo pillas?, 
+              amos a ver, tenemos un cable lanzado y conectado, que se llama SOKILLO, 
+              la funci&oacute;n $sock(&lt;nombre_del_sock&gt;).ip nos devuelve 
+              la IP a la cual esta conectado el sock especificado, y la funci&oacute;n 
+              $sock(&lt;nombre_del_sock&gt;).port nos devuelve el puerto al que 
+              esta conectado el sock especificado, por lo tanto<br>
+              $sock(SOKILLO).IP nos dir&aacute; la ip a la que esta conectado 
+              SOKILLO y<br>
+              $sock(SOKILLO).port nos dir&aacute; el puerto por al que hemos conectado.</font></p>
+            <p><font size="2" face="Arial">Ahora empezamos a hablar con nuestro 
+              amiguete manolo, y escribimos en la ventanilla @conexion el mensaje 
+              que le queremos mandar. PEROOOOOOOOO, no basta con eso, hay que 
+              programar el script de tal manera que cuando escribamos en la ventana, 
+              le mandemos a manolo lo que hemos escrito, y eso lo podemos hacer 
+              f&aacute;cilmente de esta manera:</font></p>
+            <p><font size="2" face="Arial"><strong>on 1:INPUT: { <br>
+              &nbsp;&nbsp;if (@conexion isin $active ) { <br>
+              &nbsp;&nbsp;&nbsp;echo @conexion &gt; *1 <br>
+              &nbsp;&nbsp;&nbsp;sockwrite -tn SOKILLO *1 <br>
+              &nbsp;&nbsp;&nbsp;halt <br>
+              &nbsp;&nbsp;&nbsp;} <br>
+              &nbsp;&nbsp;}</strong></font></p>
+            <p><font size="2" face="Arial">Traducido al cristiano esto significa: 
+              <br>
+              Cuando ocurra un evento de escritura -&gt; Si la ventana activa 
+              ( donde hemos escrito ) es @conexion , imprimiremos en esta ventana 
+              lo que hemos escrito, y mandaremos por el cable llamado SOKILLO, 
+              lo que hemos escrito.<br>
+              La sintaxis de sockwrite es la siguiente<br>
+              Sockwrite [-tn] &lt;nombre_del_Sock&gt; &lt;Texto|%variable|&amp;binario&gt;<br>
+              El modificador -t, indica que sea lo que sea lo que vamos a mandar, 
+              (Texto variable o datos binarios) ser&aacute; mandado en forma de 
+              texto, y el modificador -n a&ntilde;adir&aacute; el s&oacute;lito 
+              al final de la l&iacute;nea de texto un retorno de carro<br>
+              Cuando trabajamos con textos ( como es este caso ) es recomendable 
+              usar siempre los modificadores -tn, </font></p>
+            <p><font size="2" face="Arial">Bien, pues ya hemos conseguido mandarle 
+              a nuestro amigo manolo, el primer mensaje, bueno, el primero el 
+              segundo etc... cada vez que escribamos en la ventanilla, mandaremos 
+              por SOKILLO lo que hemos escrito y manolo ( ya veremos luego como 
+              ) lo recibir&aacute; !!</font></p>
+            <p><font size="2" face="Arial">Pero claro, no acaba aqu&iacute; la 
+              historia, esta muy bien que le podamos mandar cosas a manolo, pero.... 
+              seria interesante que pudi&eacute;ramos leer lo que manolo nos manda 
+              a nosotros, tambi&eacute;n por el sock SOKILLO, as&iacute; pues, 
+              cada vez que manolo nos mande algo , por el sock que le hemos mandado, 
+              ocurrir&aacute; un evento de lectura en el sock, el cual podemos 
+              controlar de la siguiente manera:</font></p>
+            <p><font size="2" face="Arial"><strong>on 1:sockread:SOKILLO:{ <br>
+              &nbsp;&nbsp;sockread %mensaje <br>
+              &nbsp;&nbsp;echo @conexion &gt;&gt; %mensaje <br>
+              }</strong></font></p>
+            <p><font size="2" face="Arial">Traducido al cristiano significa :<br>
+              Cuando recibamos algo por el sock llamado SOKILLO -&gt; Leemos lo 
+              que llega y lo guardamos en la variable %mensaje, luego imprimimos 
+              en la ventana @conexion lo que hemos guardado en la variable %mensaje<br>
+              (Me parece que me repito mas que el ajo pero as&iacute; queda mas 
+              clarito no :) )</font></p>
+            <p><font size="2" face="Arial">Este evento (sockread) es llamado cada 
+              vez que se reciba algo por el Sock indicado, este caso SOKILLO, 
+              con el procedimiento sockread &lt;nombre_variable&gt; leemos y guardamos 
+              en la variable indicada, lo que hemos recibido, luego con dicha 
+              variable hacemos lo que queramos, en nuestro caso , la imprimimos 
+              en pantalla</font></p>
+            <p><font size="2" face="Arial">DIOS MIO !!! ya podemos entablar conversaci&oacute;n 
+              con manolo!!!!!!!!! &iquest; Hemos terminado? &iquest; Queda algo 
+              mas por hacer? Solo queda una cosilla, controlar el cierre de la 
+              sesi&oacute;n. Esto puede ocurrir de dos formas, que la cierre manolo, 
+              o que la cerremos nosotros. Vamos a empezar por la f&aacute;cil, 
+              que es cuando la queremos cerrar nosotros.</font></p>
+            <p><font size="2" face="Arial"><strong>Alias Cerrar { <br>
+              &nbsp;&nbsp;sockclose SOKILLO <br>
+              }</strong></font></p>
+            <p><font size="2" face="Arial">Yo creo que esto no necesita explicaci&oacute;n 
+              :), Pero aun as&iacute; lo comentare, sockclose cierra el sock ( 
+              previamente abierto ) indicado, en este caso , nuestro sock se llama 
+              SOKILLO .</font></p>
+            <p><font size="2" face="Arial">&iquest; Pero y si manolo es el que 
+              cierra la conexi&oacute;n ? &iquest; C&oacute;mo nos enteramos de 
+              que lo ha cerrado ?, muy sencillo, cuando un sock se cierra, sin 
+              haberlo ordenado nosotros, se produce en evento llamado sockclose, 
+              que usaremos de la siguiente manera</font></p>
+            <p><font size="2" face="Arial"><strong>on 1:sockclose:SOKILLO:{ <br>
+              &nbsp;&nbsp;echo @conexion Conexion Cerrada <br>
+              &nbsp;&nbsp;sockclose SOKILLO <br>
+              }</strong></font></p>
+            <p><font size="2" face="Arial">Traducido al cristianoparlante:<br>
+              Si el sock llamado SOKILLO se cierra -&gt; imprimimos en pantalla 
+              un mensaje de conexi&oacute;n cerrada, y cerramos el sock </font></p>
+            <p><font size="2" face="Arial">&iquest;Sencillito verdad?</font></p>
+            <p><font size="2" face="Arial">Pues ya esta, ya tenemos listo nuestro 
+              programa cliente, para conectar con nuestro colega manolo:) , Ya 
+              se que no es gran cosa, pero al menos ( y eso espero ) os ha servido 
+              para entender un poco m&aacute;s los sockets. Por supuesto con los 
+              sockets se pueden hacer mas cosas, y se pueden controlar mucho mas, 
+              pero eso lo veremos mas adelante.</font></p>
+            <p><font size="2" face="Arial">Bueno, antes de terminar con esta primera 
+              entrega, aclaremos un par de puntos</font></p>
+            <p><font size="2" face="Arial">1 - No se pueden tener dos sockets 
+              con el mismo nombre<br>
+              2 - Antes de abrir un sock, aseg&uacute;rate de que este cerrado, 
+              si esta abierto, te dar&aacute; error</font></p>
+            <p align="left"><br>
+            </p>
+            <hr noshade width="90%">
+            <p align="center"><a href="http://garra.com/poder"><font face="Arial" size="1">PoDeR 
+              oSCuRo</font></a><font face="Arial" size="1"><strong> On-Line Manual 
+              (sock) por |SombrA|</strong>: <a
+href="mailto:poderoscuro@garra.com">poderoscuro@garra.com</a></font></p>
+            <p align="center"><a href="scripting-socks0.html"><img src="img/atras.gif" width="29" height="29" alt="Atr&aacute;s" border="0"></a></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish66fbeb43" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=66fbeb43&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

@@ -1,0 +1,18 @@
+.............
+:Instalación:
+
+	Para instalar el addOn descomprime todos los ficheros a el directorio en donde
+tengas el mIRC y teclea /load -rs batsms.mrc
+
+	Para mandar sms tienes que teclear /batsms
+
+	Un saludo Jimmy_RAY
+
+http://scripts.aztecaonline.net
+email: jimmy@welt.es
+
+Problemas, bugs, lo que sea: jimmy@welt.es
+
+Nos vemos en los canales #scripting y #ayuda_IRC :)
+
+Agradecimientos especiales a pooley que me informó sobre los emails de amena.

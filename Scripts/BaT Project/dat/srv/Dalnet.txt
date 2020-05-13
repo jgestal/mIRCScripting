@@ -1,0 +1,14 @@
+brain.hub.eu.dal.net
+borg.se.eu.dal.net 6667
+gaston.se.eu.dal.net 6667
+valhall.no.eu.dal.net 6667
+netropolis-r.uk.eu.dal.net 6667
+watan.hub.us.dal.net 6667
+watan.hub.us.dal.net 6667
+journey.ca.us.dal.net 6667
+tornado-r.va.us.dal.net 6667
+tornado-r.va.us.dal.net 6667
+watan.hub.us.dal.net 6667
+tornado-r.va.us.dal.net 6667
+astro.ga.us.dal.net 6667
+astro.ga.us.dal.net 6667

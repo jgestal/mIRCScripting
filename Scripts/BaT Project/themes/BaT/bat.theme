@@ -1,0 +1,155 @@
+;----- ---- --- -- - - Información del theme (por favor, no cambies estas lineas ni de posición ni de contenido, o el cargador de themes no funcionará)
+alias th.nombre return BaT
+alias th.autor return Fulg0re
+alias th.version return 1.0
+alias th.comentario return Theme por defecto del script. De fondo gris claro, sin muchos adornos coloristas
+alias th.font return Tahoma
+alias th.fontsize return 11
+;----- ---- --- -- - - Fin Información del theme
+on *:load: {
+  .timestamp on
+}
+alias avisoinit { return $ts $lge $lgn Cambiando el theme. Nuevo theme: 2BaT }
+alias jnc { if (%jnclno) { if (%jnclno > 5) { return - Clones: %jnclno } | else { return - Clones ( $+ %jnclno $+ ): %jnclni } | unset %jnclno %jnclni } }
+alias ts return 2[ $+ $gettok($time,1-2,58) $+ 2]
+alias tsa return 4[ $+ $gettok($time,1-2,58) $+ 4]
+alias lgf return 4(Error4)
+alias lge return -ø-
+alias lga return 4BaT:
+alias lgn return 2BaT2:
+alias lgc return 2·
+alias brn { if ($1 == @) echo $colour(normal text) $2 $ts (@ $+ $3 $+ ) $4- | elseif ($1 == +) echo $colour(normal text) $2 $ts (+ $+ $3 $+ ) $4- | else echo $colour(normal text) $2 $ts ( $+ $3 $+ ) $4- }
+alias brnn { if ($2 isop $1) echo $colour(normal text) -a $ts 12(@ $+ $2 $+ 12/ $+ $1 $+ 12) $3- | elseif ($2 isvo $1) echo $colour(normal text) -a $ts 12(+ $+ $2 $+ 12/ $+ $1 $+ 12) $3- | else echo $colour(normal text) -a $ts 12( $+ $2 $+ 12/ $+ $1 $+ 12) $3- }
+alias brna return $ts ( $+ $1 $+ 12: $+ $2 $+ ) $3-
+alias brny { if ($1 == @) echo $colour(own text) $2 $ts (@ $+ $3 $+ ) $4 $iif($5,$5-) | elseif ($1 == +) echo $colour(own text) $2 $ts (+ $+ $3 $+ ) $4 $iif($5,$5-) | else echo $colour(own text) $2 $ts ( $+ $3 $+ ) $4 $iif($5,$5-) }
+alias actn { if ($1 == @) echo 6 $2 $ts * @ $+ $3- | elseif ($1 == +) echo 6 $2 $ts * + $+ $3- | else echo 6 $2 $ts * $3- }
+alias setcolors {
+  colour background 15
+  colour listbox 15
+  colour editbox 15
+  colour editbox text 1
+  colour normal text 1
+  colour own text 1
+  colour info text 1
+  colour listbox text 1
+}
+alias cnl { goto $1 | :yo | return 12 | :op | return 10 | :voz | return 1 | :normal | return 14 | :cop | return 13 }
+alias display {
+  goto $1
+  :joinme | echo 2 $2 $ts 2· · ·· ··· ···· ····· 2Entrando en $2 2····· ···· ··· ·· · · | return
+  :jncomp | echo 2 $2 $ts $lgn Entrada completada en $3 %ecjo-cop. [ $+ [ $2 ] ] %ecjo-away. [ $+ [ $2 ] ] | return
+  :join | echo 10 $2 $ts $lge Entra: $3 2( $+ $replace($4,@,2@) $+ 2) $jnc $jnl $jnn | return
+  :part | echo 10 $2 $ts $lge Sale: $3 2( $+ $replace($4,@,2@) $+ 2) $iif($5,$5-) | return
+  :quit | echo 10 $2 $ts $lge Quit: $3 2( $+ $iif($4,$4-,No ha dado razón) $+ 2)  | return
+  :nick | echo 2 $2 $ts $lge Nick: $3 es ahora $4 | return
+  :rawmode | echo 2 $2 $ts $lge Modo ( $+ $3 $+ : $+ $2 $+ ): $4- | return
+  :baneado | echo 2 $2 $ts $lge Baneados: $3- | return
+  :topic | echo 2 $2 $ts $lge Topic ( $+ $3 $+ : $+ $2 $+ ): $4- | return
+  :settopic | echo 2 $2 $ts $lgc Topic: $8- (por $3 - $4 del $5-7 $+ ) | return
+  :kick | echo 5 $2 $ts $lge Kick: $3 a $4 ( $+ $5- $+ ) | return
+  :deopme | echo 5 -s $tsa $lga 4(Deop4/ $+ $2 $+ 4) Has sido deopado por $3 | return
+  :kickme | echo 5 -s $tsa $lga 4(Kick4/ $+ $2 $+ 4) Has sido kickeado por $3 $+ : $4- | return
+  :banme | echo 5 -s $tsa $lga 4(Ban4/ $+ $2 $+ 4) Has sido baneado por $3 $+ : $4- | return
+  :deopproteg | echo 5 -s $tsa $lga 4(Deop4/ $+ $2 $+ 4) $3 (Usuario Protegido) ha sido deopado por $4 | return
+  :kickproteg | echo 5 -s $tsa $lga 4(Kick4/ $+ $2 $+ 4) $3 (Usuario Protegido) ha sido kickeado por $4 $+ : $5- | return
+  :banproteg | echo 5 -s $tsa $lga 4(Ban4/ $+ $2 $+ 4) $3 (Usuario Protegido) ha sido baneado por $4 $+ : $5- | return
+  :query | echo $2 $ts $lgn Query con $2 ( $+ $3 $+ ) | echo $2 $ts $lgn Canales comunes ( $+ $comchan($2,0) $+ ): $comcan($2) | echo $2  | return
+  :mmode | echo 2 -s $ts $lgn Cambio de modos personales: $2 ( $+ $usermode $+ ) | return
+  :msg | echo 1 msg $1- | return
+  :mmsg | echo 1 -a $ts -> 12[Msg2( $+ $2 $+ 2)12] $3- | return
+  :notice | echo 5 $2 $ts 12[Notice 2( $+ $3 $+ 2: $+ $4 $+ 2)12] $6- | return
+  :privnotice | echo 5 -a $ts 12[Notice2( $+ $2 $+ 2)12] $4- | return
+  :mnotice | echo 1 -a $ts -> 12[Notice2( $+ $2 $+ 2)12] $3- | return
+  :monotice | echo 1 -a $ts -> 12[Notice2(@ $+ $2 $+ 2)12] $3- | return
+  :mctcp | echo 4 -a $ts -> 12[ctcp2( $+ $2 $+ 2)12] $3- | return
+  :ctcp | echo -a $ts CTCP12 $upper($6) $iif($7,( $+ [ $7- ] $+ )) de $2 ( $+ $3 $+ ) $iif($4 != ti,a [ $4 ] ) $iif($5 == Si,[Cloak Activado]) | return
+  :ctcpshit | echo -a $ts CTCP12 $upper($4) $iif($5,( $+ [ $5- ] $+ )) de $2 ( $+ $3 $+ ) [Shit List]: Petición rechazada | return
+  :ctcpreply | echo -a $ts CTCP 12 $+ $upper($4) reply de $2 ( $+ $3 $+ ) $iif($5, : $5-) | return
+  :dnsres | echo 2 -a $ts $lgn Resuelta DNS de $2 $3 $4 | return
+  :dnsfallo | echo 2 -a $ts $lgn No se ha podido resover DNS de $2 $3 | return
+  :notify | echo 7 -s $ts $lge $2 entra en el IRC $iif($3, $chr(91) $+ $3- $+ $chr(93) ) | return
+  :unotify | echo 7 -s $ts $lge $2 sale del IRC o cambia de nick | return
+  :aviso | echo 2 $2 $tsa $lga $3- | return
+  :informa | echo 2 $2 $ts $lgn $3- | return
+  :informa2 | echo 2 $2 $ts $lgc $3- | return
+  :titulo | echo 2 $2 $ts 2· · ·· ··· ···· ····· $3- $+  2····· ···· ··· ·· · · | return
+  :minvite | echo 2 -a $ts $lgn Invitando a14 $3 al canal14 $2 | return
+  :invite | echo 2 -a $ts $lgn Has sido invitado por $3 a entrar en $2 (12F4 para entrar) | return
+  ;
+  ; cosas nuevas....
+  ;
+  :away | echo 2 -s $ts $lgn Ahora estás marcado como away | return
+  :back | echo 2 -s $ts $lgn Dejas de estar marcado como away | return
+  :names | echo 2 -s $ts $lgn Names( $+ $2 $+ ): $3- | return
+  :finnames | echo 2 -s $ts $lgn Fin de Names | return
+  :noesta | echo 2 -a $ts $lgn $2 no está en el IRC | return
+  :noenvtext | echo 2 $2 No puedes enviar texto a $2 (moderado/baneado) | return
+  :badcom | echo 2 -a $ts $lgn $2 (comando desconocido) | return
+  :raw422 | echo 2 -s $ts $lgn No hay fichero MOTD | return
+  :raw471 | echo 2 -a $tsa $lga No puedes entrar en $2 (+l) | return
+  :raw475 | echo 2 -a $tsa $lga No puedes entrar en $2 (+k) | return
+  :raw473 | echo 2 -a $tsa $lga No puedes entrar en $2 (+i) | return
+  :raw474 | echo 2 -a $tsa $lga No puedes entrar en $2 (baneado) | return
+  :delbanmi | echo 2 $2 $ts $lgn Borrando bans puestos por ti en $2 (Total: $3 $+ ) | return
+  :nodelbanmi | echo 2 $2 $ts $lgn No se encontraron bans puestos por ti en $2 | return 
+  :delbantot | echo 2 $2 $ts $lgn Borrando todos los bans en $2 (Total: $3 $+ ) | return
+  :nodelbantot | echo2  $2 $ts $lgn No se encontraron bans en $2 | return 
+  :ign | echo 2 -a $ts $lgn $2 añadido a tu lista de ignore ( $+ $3- $+ ) | return
+  :delign | echo 2 -a $ts $lgn $2 borrado de tu lista de ignore | return
+  :noign | echo 2 -a $ts $lgn $2 no se encuentra en tu lista de ignore | return 
+  :ignerror | echo 2 -a No se encuentra la máscara a designorar; inténtalo manualmente desde las opciones del mIRC | return
+  :idnick | echo 2 -a $ts $lgn El nick $2 está registrado... procediendo a identificar. | return 
+  :idnickok | echo -a $ts $lgn Contraseña del nick $2 aceptada. Autentificación correcta. | return
+  :idnicknoconf | echo 2 -a  $ts $lgn El nick $2 no está configurado en el Auto Identify. Configúralo (/ai) o usa /identify tu_clave | return
+  :idnickerr | echo 2 -a $ts $lgn La contraseña configurada en el AutoIdentify es incorrecta. Identificate manualmente (/identify tu_pass) y configurala correctamente | return
+  :idnickfail | echo 2 -a $ts $lgn Contraseña de identificación del nick incorrecta. Inténtalo de nuevo (/identify tu_contraseña) | return
+  :restaway | echo 2 -a $ts $lgn Restaurando away con las opciones que tenias marcadas... | return
+  :awidle | echo 2 -a $ts $lgn Activando Away por Idle... | return
+  :awsilencreg | echo 2 -a ·ts $lgn Regresando del Away silencioso... | return
+  :lagelevado | echo 2 -a $tsa $lga Tu lag es de $2 y sigue subiendo... | return
+  :lagelevado2 | echo 2 -a $tsa $lga Tu lag es superior a un minuto. Se hará una recomprobación de lag. | return
+  :flood | echo 2 -a $tsa $lga Flood ( $+ $3 $+ ) detectado de $2 | return
+  :ataque |  echo 2 -a $tsa $lga 12Ataque $4- detectado de $2 ( $+ $3 $+ ) | return
+  :dccrechazadoaway | echo 2 -a $ts $lgn Dcc rechazado de $2 ( $+ $3 $+ ): opción no dcc's en away, activada | return 
+  :dccrechazadofiletype | echo 2 -a $ts $lgn Dcc rechazado de $2 ( $+ $3 $+ ): tipo de fichero ignorado ( $+ $3 $+ ) | return 
+  :filesent | echo 2 -a $ts $lgn Envio a $2 ( $+ $3 $+ ) del fichero $5- ( $+ $4 $+ ) finalizado correctamente | return
+  :filercvd | echo 2 -a $ts $lgn $6- ( $+ $5 $+ ) enviado por $2 ( $+ $3 $+ ) finalizado a $4 cps [12F9 para abrirlo] | set %f9 run $getdir $+ $6- | return
+  :getfail | echo 2 -a $ts $lgn Fallo al recibir $4- de $2 ( $+ $3 $+ ) | return
+  :sendfail | echo 2 -a $ts $lgn Fallo al enviar $4- a $2 ( $+ $3 $+ ) | return
+  :snot-gline | echo 2 -s $ts [Snotice] Gline para %snotgline1 $+ : %snotgline3 (Expira: %snotgline2 $+ ) | return
+
+}
+;-- -- - raws iniciales - -- --;
+alias thrini { 
+  set %arr.creat %arr.creat $2 de $1 de $3 ( $+ $5 $+ )
+  display titulo -s Welcome | display informa -s Host: %arr.host Versión: %arr.vers | display informa -s Creado: %arr.creat
+  display informa -s Modos personales permitidos: %arr.mp | display informa -s Modos en canal permitidos: %arr.mc | display titulo -s Welcome
+  unset %arr.* | halt
+}
+;-- -- - Lusers - -- --;
+alias thlusers {
+  echo -s  $+ $colour(Background) -
+  display titulo -s Lusers ( $+ $server $+ )
+  display informa2 -s Usuarios: %lus.user ( $+ %lus.inv invisibles) Servidores: %lus.serv [ $+ $round(%lus.medser,2) usuarios/servidor $+ ]
+  display informa2 -s Operadores: %lus.op operadores [ $+ $round(%lus.usop,2) usuarios/operador $+ ]
+  display informa2 -s Canales: %lus.can canales [ $+ $round(%lus.userchan,2) usuarios/canal $+ ]
+  if (%lus.condes != $null) display informa2 -s Conexiones Desconocidas: %lus.condes conexiones
+  display informa2 -s Usuarios locales: %lus.client usuarios en $server
+  display titulo -s Lusers ( $+ $server $+ )
+  unset %lus.*
+  halt
+}
+;-- -- - Whois - -- --;
+alias wh.nprot echo 2 -s $ts 2· Este usuario tiene el nick registrado y protegido | return
+alias wh.nick echo $colour(background) - | echo 2 -s $ts 2· · ·· ··· ···· ····· Whois $1-2 | echo 2 -s $ts 2· Nombre: $3- | if (($ialcalc($address($1,2)) != Nadie en el canal) && ($ialcalc($address($1,2)) != $1)) { echo 2 -s $ts 2· Clones: $ialcalc($address($1,2)) } | return
+alias wh.canales echo 2 -s $ts 2· Canales: $2- [Comunes: $comchan($1,0) $+ ] | return
+alias wh.server echo 2 -s $ts 2· Servidor: $1 ( $+ $2- $+ ) | return
+alias wh.away echo 2 -s $ts 2· Away: $1- | return
+alias wh.dirvirt echo 2 -s $ts 2· Dirección Virtual: $1- | halt
+alias wh.ircop echo 2 -s $ts 2· Este usuario es IRCop | return
+alias wh.oper echo 2 -s $ts 2· Este usuario es 4OPERador de los servicios de red | halt
+alias wh.idle echo 2 -s $ts 2· Idle: $duration($1) (Conectado: $asctime($2) $+ ) | return
+alias wh.end echo 2 -s $ts 2· · ·· ··· ···· ····· Fin del Whois a $1 2····· ···· ··· ·· · ·
+;
+; Reply Theme
+;

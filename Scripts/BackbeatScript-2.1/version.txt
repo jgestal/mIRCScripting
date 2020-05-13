@@ -1,0 +1,8 @@
+~~~~~~~~~~~~~~~
+BaCKBEAT v2.1
+~~~~~~~~~~~~~~~
+ [*] Añadido addOn de floodbots
+ [*] Trae el mIRC 5.81 incluido
+ [*] Los addOns de ayuda son opcionales, tienes que cargarlos.
+ [*] Utilidad para ver la letra de un dni.
+ [*] Ahora puedes instalar el script en cualquier directorio

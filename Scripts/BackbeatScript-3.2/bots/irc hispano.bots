@@ -1,0 +1,451 @@
+;*************************************
+;       BaCKBEAT by Jimmy_RAY
+; 
+; http://www.gestal.es
+; 
+; email: juan@gestal.es
+;
+;*************************************
+
+;*************************************
+; Service Server Control
+; ...::( Somatic )::...
+;
+;********** Nota **********
+;
+; Le he cambiado un par de cosas
+; para que sólo aparezcan los menús si
+; la red en la que se está es el 
+; IRC Hispano.org y para adaptarlo al 
+; sistema de autoidentificación del 
+; backbeat. Tambien he borrado algunas
+; cosas en desuso como los links de
+; nicks.
+;
+;*************************************
+
+;*************************************
+; Alias de control de los mensajes
+;
+;*************************************
+
+alias _hispano if (*.irc-hispano.org iswm $server) || (*.irc-NeWorld.org iswm $server) return 1
+alias _nickd .msg nick@deep.space $$1-
+alias _memod .msg memo@deep.space $$1-
+alias _chand .msg chan@deep.space $$1-
+
+MENU MenuBar {
+  -
+  $iif($_hispano,&irc hispano)
+  .Registrar $me: msg nick@deep.space REGISTER $$?="Introduce tu e-mail."
+  .$iif($hispakey($me) && (*.irc-hispano.org iswm $server),&Identificarte como $me ) :_nickd IDENTIFY $iif($hispakey($me),$ifmatch,$$?*="Introduce el pass")
+  .Opciones y Configuración
+  ..Cambiar tu clave: _nickd SET PASSWORD $$?="¿Nueva clave? (Mínimo 5 letras y un número)"
+  ..Seguridad del nick
+  ...Protección mediante KILL
+  ....Activar (dar 1 minuto): _nickd SET KILL on
+  ....Activar (20 segundos): _nickd SET KILL QUICK
+  ....-
+  ....Desactivar: _nickd SET KILL off
+  ...Pedir siempre clave
+  ....Secure ON: _nickd SET SECURE on
+  ....-
+  ....Secure OFF: _nickd SET SECURE off
+  ...Ocultar nick en LIST
+  ....Private ON: _nickd SET PRIVATE on
+  ....-
+  ....Private OFF: _nickd SET PRIVATE off 
+  ...HIDE - Ocultar datos
+  ....Ocultar e-mail: _nickd SET HIDE EMAIL $$?="on / off"
+  ....-
+  ....Ocultar última máscara: _nickd SET HIDE USERMASK $$?="on / off"
+  ....-
+  ....Ocultar último quit: _nickd SET HIDE QUIT $$?="on / off"
+  ..-
+  ..Añadir Mask a $me: _nickd ACCESS ADD $$?="Introduce la nueva máscara para $me"
+  ..Borrar Mask a $me: _nickd ACCESS DEL $$?="¿Máscara a eliminar?"
+  ..-
+  ..Web de $me: _nickd SET URL $?="Dirección de la página (dejar en blanco para borrar)"
+  ..E-Mail de $me: _nickd SET EMAIL $?="Dirección de correo (Dejar en blanco para borrar)"
+  ..-
+  ..INFO de $me: _nickd INFO $me | _nickd STATUS $me | _nickd ACCESS LIST
+  ..INFO de un nick: _nickd INFO $$?="¿Nick?" | _nickd STATUS $!
+  ..NicksLIST: _nickd LIST $$?="Patron para buscar nick's (puedes usar ? o *). Lista Max 50 nicks "
+  ..-
+  ..Expulsar a un usurpador: _nickd RECOVER $$?="¿Nick a recuperar?" $$?="¿Contraseña de $! $+ ?"
+  ..Release: _nickd RELEASE $$?="¿Nick a liberar?" $$?="¿Contraseña de $! $+ ?"
+  ..Expulsar tu Ghost: _nickd GHOST $$?="¿Nick?" $$?="¿Clave?"
+  .DesRegistrar $me {
+    :inicio1
+    %xtvrt36 = $$?="¿Está seguro de eliminar $me del registro?. (Esto puede suponer la PÉRDIDA de REGISTROS de canales) .............. (Si/No)"
+    if ( %xtvrt36 == Si ) _nickd DROP 
+    elseif ( %xtvrt36 == No ) goto fin1 
+    else goto inicio1
+    :fin1
+  }
+  .-
+  .Registrar un Canal: _chand REGISTER #$$?="¿Canal?" $$?="Introduce una clave de Fundador" $$?="Breve descripción del canal"
+  .Identificarte como Fundador: _chand IDENTIFY #$$?="¿Canal?" $$?="¿Clave de Fundador?"
+  .Control de Canales
+  ..Opciones Admin
+  ...Cambia clave Canal: _chand SET #$$?="¿Canal?" PASSWORD $$?="¿Nueva contraseña de fundador?"
+  ...Cambiar Fundador: _chand SET #$$?="¿Canal?" FOUNDER $$?="Nick del nuevo administrador"
+  ...-
+  ...Descripción Canal: _chand SET #$$?="¿Canal?" DESC $$?="Nueva descripción del canal:"
+  ...URL DEL Canal: _chand SET #$$?="¿Canal?" URL $?="Web del canal: (Dejar en blanco para borrar)"
+  ...E-Mail del Canal: _chand SET #$$?="¿Canal?" EMAIL $?="E-Mail del canal: (Dejar en blanco para borrar)"
+  ...-
+  ...Mensaje de entrada: _chand SET #$$?="¿Canal?" ENTRY.msg $?="mensaje de entrada al canal: (Dejar en blanco para borrar)"
+  ...Fijar Modos del Canal: _chand SET #$$?="¿Canal?" MLOCK $?="Determina los modos +/-iklmnpst"
+  ...VER ACCIONES: _chand SET #$$?="¿Canal?" DEBUG $$?="ON/OFF"
+  ...-
+  ...Cambiar Topic: _chand SET #$$?="¿Canal?" TOPIC $?="¿Topic para el canal? (Dejar en blanco para borrar)"
+  ...Recordar Topic
+  ....Recordar ON: _chand SET #$$?="¿Canal?" KEEPTOPIC on
+  ....-
+  ....Recordar OFF: _chand SET #$$?="¿Canal?" KEEPTOPIC off
+  ...Fijar el Topic
+  ....Fijar ON: _chand SET #$$?="¿Canal?" TOPICLOCK on
+  ....-
+  ....Fijar OFF: _chand SET #$$?="¿Canal?" TOPICLOCK off
+  ...-
+  ...OP solo registrados
+  ....SecureOPS ON: _chand SET #$$?="¿Canal?" SECUREOPS on
+  ....-
+  ....SecureOPS OFF: _chand SET #$$?="¿Canal?" SECUREOPS off
+  ...Entrada solo registrados
+  ....Secure ON: _chand SET #$$?="¿Canal?" SECURE on
+  ....-
+  ....Secure OFF: _chand SET #$$?="¿Canal?" SECURE off
+  ...Canal restringido
+  ....Restringido ON: _chand SET #$$?="¿Canal? (Expulsa a los registrador con level negativo o preestablecido)" RESTRICTED on
+  ....-
+  ....Restringido OFF: _chand SET #$$?="¿Canal?" RESTRICTED off
+  ..Lista Auto KICK
+  ...Añadir a la Lista: _chand AKICK #$$?="Añadir a la lista del canal..." ADD $$?="Introducir nick o máscara (nick!user@host)" $$?="¿Mensaje de expulsión?"
+  ...Borrar de la Lista: _chand AKICK #$$?="Borrar de la lista del canal..." DEL $$?="Introducir nick máscara (nick!user@host)"
+  ...Ver Lista en un Canal: _chand AKICK #$$?="lista del canal..." LIST $?="Puedes meter una máscara como patrón de búsqueda o dejarlo en blanco"
+  ..LEVELS
+  ...Nivel para AUTOOP
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET AUTOOP $$?="¿Nivel mínimo para AUTOOP?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS AUTOOP
+  ...Nivel para AUTOVOICE
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET AUTOVOICE $$?="¿Nivel mínimo para AUTOVOICE?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS AUTOVOICE
+  ...Nivel para AUTODEOP
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET AUTODEOP $$?="¿Nivel para AUTODEOP?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS AUTODEOP
+  ...Nivel para NOJOIN
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET NOJOIN $$?="¿Nivel para NOJOIN? (Con el canal en modo Restringido)"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS NOJOIN
+  ...Nivel para INVITE
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET INVITE $$?="¿Nivel mínimo para autoINVITE?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS INVITE
+  ...Nivel para AKICK
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET AKICK $$?="¿Nivel mínimo para manejar la lista de expulsión automática?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS AKICK
+  ...Nivel para SET
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET SET $$?="¿Nivel mínimo para manejar comandos SET?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS SET
+  ...Nivel para CLEAR
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET CLEAR $$?="¿Nivel mínimo para manejar comandos CLEAR?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS CLEAR
+  ...Nivel para UNBAN
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET UNBAN $$?="¿Nivel mínimo para desbanearse?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS UNBAN
+  ...Nivel para OP/DEOP
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET OPDEOP $$?="¿Nivel mínimo para usar OP/DEOP?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS OPDEOP
+  ...Nivel para Ver Registrados
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET ACC-LIST $$?="¿Nivel mínimo para ver la lista de registros?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS ACC-LIST
+  ...Nivel para Registrar
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET ACC-CHANGE $$?="¿Nivel mínimo para añadir registros?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS ACC-CHANGE
+  ...Nivel para ver memos al canal
+  ....Establecer nivel: _chand LEVELS #$$?="¿En que Canal?" SET MEMO $$?="¿Nivel mínimo para ver el mensaje de entrada?"
+  ....-
+  ....Desactivar: _chand LEVELS #$$?="¿En que Canal?" DIS MEMO
+  ...-
+  ...Resetear LEVELS: _chand LEVELS #$$?="¿En que Canal?" RESET
+  ..-
+  ..Registrar Usuario: _chand ACCESS #$$?="¿Canal?"  ADD $$?="¿Nick a registrar?" $$?="¿Nivel para $! $+ ?"
+  ..Borrar Usuario: _chand ACCESS #$$?="¿Canal?" DEL $$?="¿Nick a Borrar? (o número de registro)"
+  ..Usuarios registrados: _chand ACCESS #$$?="¿Canal?" LIST $?="Nick o máscara a buscar. (En blanco para listar todos)"
+  ..-
+  ..OP en canal: _chand OP #$$?="¿Canal para el OP?" $$?="¿Nick a opear?"
+  ..DEOP en canal: _chand DEOP #$$?="¿Canal para el DEOP?" $$?="¿Nick a deopar?"
+  ..RESETAR canal: _chand RESET #$$?="¿Canal?"
+  ..CLEAR's
+  ...MassDEOP: _chand CLEAR #$$?="Canal para el MassDeop" OPS
+  ...MassKICK: _chand CLEAR #$$?="Canal para el MassKick" USERS
+  ...MassDEVOICE: _chand CLEAR #$$?="Canal para el MassDevoice" VOICES
+  ...-
+  ...Quitar BAN's: _chand CLEAR #$$?="¿Canal?" BANS
+  ...Quitar modos: _chand CLEAR #$$?="¿Canal?" MODES
+  ..-
+  ..Desbanearte !!!: _chand UNBAN #$$?="Quitarte el  BAN del canal..."
+  ..Auto-Invite: _chand INVITE #$$?="¿A que canal? (solo para registrados e identificados)"
+  ..-
+  ..Listar Canales Regist.: _chand LIST $$?="Especifica patrón de nombre de canal. (Puedes usar ? y *). Lista max: 50"
+  ..INFO y Niveles Canal: _chand INFO #$$?="¿Canal?" | _chand LEVELS #$$! LIST
+  .DesRegistrar un Canal: {
+    %xtvrt37 = #$$?="¿Que canal desea dar de baja?"
+    :inicio2
+    %xtvrt38 = $$?="¿Está seguro de eliminar %xtvrt37 del registro? (Si/No)"
+    if ( %xtvrt38 == Si ) _chand DROP %xtvrt37
+    elseif ( %xtvrt38 == No ) goto fin2 
+    else goto inicio2
+    :fin2
+  }
+  .OPER y ADMIN: _chand IRCOPS
+  .-
+  .Enviar Mensaje: _memod SEND $$?="Nick del destinatario" $$?="Texto del mensaje"
+  .Leer mensaje
+  ..Último mensaje recibido: _memod READ LAST
+  ..-
+  ..Leer mensaje número...: _memod READ $$?="Número del mensaje que quieres leer"
+  .Listar mensajes
+  ..Listar todos: _memod LIST
+  ..-
+  ..Solo los no leidos: _memod LIST NEW
+  .Administración Buzón
+  ..Borrar mensajes
+  ...Borrar todos: _memod DEL ALL
+  ...-
+  ...Borrar seleccionados: _memod DEL $$?="Número, Serie o Rango. P. ej: 1,2,3,4 ó 1-4 "
+  ..-
+  ..Notificación de mensajes
+  ...Notificar siempre: _memod SET NOTIFY on
+  ...Solo en Connect y salida de Away: _memod SET NOTIFY logon
+  ...Solo al recibir: _memod SET NOTIFY new
+  ...No notificar: _memod SET NOTIFY off
+  ..-
+  ..Límite de mensajes
+  ...Límite por canal: _memod SET LIMIT #$$?="¿Canal a limitar?" $$?="Límite de mensajes en buzón (Máximo 20)"
+  ...Límite general: _memod SET LIMIT $$?="Límite de mensajes en buzón (Máximo 20)"
+}
+
+;--------------------------------------------------------------------
+
+MENU Channel {
+  -
+  $iif($_hispano,&irc hispano)
+  .Registrar Este Canal: _chand REGISTER # $$?="Introduce una clave de Fundador" $$?="Breve descripción del canal"
+  .Identificarte como Fundador: _chand IDENTIFY # $$?="¿Clave de Fundador?"
+  .-
+  .AutoOP por CHAN:  _chand OP # $me
+  .-
+  .Opciones Admin
+  ..Cambia clave Canal: _chand SET # PASSWORD $$?="¿Nueva contraseña de fundador?"
+  ..Cambiar Fundador: _chand SET # FOUNDER $$?="Nick del nuevo administrador"
+  ..-
+  ..Descripción Canal: _chand SET # DESC $$?="Nueva descripción del canal:"
+  ..URL DEL Canal: _chand SET # URL $?="Web del canal: (Dejar en blanco para borrar)"
+  ..E-Mail del Canal: _chand SET # EMAIL $?="E-Mail del canal: (Dejar en blanco para borrar)"
+  ..-
+  ..Mensaje de entrada: _chand SET # ENTRY.msg $?="mensaje de entrada al canal: (Dejar en blanco para borrar)"
+  ..Fijar Modos del Canal: _chand SET # MLOCK $?="Determina los modos +/-iklmnpst"
+  ..VER ACCIONES: _chand SET # DEBUG $$??="ON/OFF"
+  ..-
+  ..Cambiar Topic: _chand SET # TOPIC $?="¿Topic para el canal? (Dejar en blanco para borrar)"
+  ..Recordar Topic
+  ...Recordar ON: _chand SET # KEEPTOPIC on
+  ...-
+  ...Recordar OFF: _chand SET # KEEPTOPIC off
+  ..Fijar el Topic
+  ...Fijar ON: _chand SET # TOPICLOCK on
+  ...-
+  ...Fijar OFF: _chand SET # TOPICLOCK off
+  ..-
+  ..OP solo registrados
+  ...SecureOPS ON: _chand SET # SECUREOPS on
+  ...-
+  ...SecureOPS OFF: _chand SET # SECUREOPS off
+  ..Entrada solo registrados
+  ...Secure ON: _chand SET # SECURE on
+  ...-
+  ...Secure OFF: _chand SET # SECURE off
+  ..Canal restringido
+  ...Restringido ON: _chand SET # RESTRICTED on
+  ...-
+  ...Restringido OFF: _chand SET # RESTRICTED off
+  .Lista Auto KICK
+  ..Añadir a la Lista: _chand AKICK # ADD $$?="Introducir nick o máscara (nick!user@host)" $$?="¿Mensaje de expulsión?"
+  ..Borrar de la Lista: _chand AKICK # DEL $$?="Introducir nick o máscara (nick!user@host)"
+  ..Ver Lista en un Canal: _chand AKICK # LIST $?="Puedes meter una máscara como patrón de búsqueda o dejarlo en blanco"
+  .LEVELS
+  ..Nivel para AUTOOP
+  ...Establecer nivel: _chand LEVELS # SET AUTOOP $$?="¿Nivel mínimo para AUTOOP?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS AUTOOP
+  ..Nivel para AUTOVOICE
+  ...Establecer nivel: _chand LEVELS # SET AUTOVOICE $$?="¿Nivel mínimo para AUTOVOICE?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS AUTOVOICE
+  ..Nivel para AUTODEOP
+  ...Establecer nivel: _chand LEVELS # SET AUTODEOP $$?="¿Nivel para AUTODEOP?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS AUTODEOP
+  ..Nivel para NOJOIN
+  ...Establecer nivel: _chand LEVELS # SET NOJOIN $$?="¿Nivel para NOJOIN? (Con el canal en modo Restringido)"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS NOJOIN
+  ..Nivel para INVITE
+  ...Establecer nivel: _chand LEVELS # SET INVITE $$?="¿Nivel mínimo para autoINVITE?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS INVITE
+  ..Nivel para AKICK
+  ...Establecer nivel: _chand LEVELS # SET AKICK $$?="¿Nivel mínimo para manejar la lista de expulsión automática?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS AKICK
+  ..Nivel para SET
+  ...Establecer nivel: _chand LEVELS # SET SET $$?="¿Nivel mínimo para manejar comandos SET?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS SET
+  ..Nivel para CLEAR
+  ...Establecer nivel: _chand LEVELS # SET CLEAR $$?="¿Nivel mínimo para manejar comandos CLEAR?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS CLEAR
+  ..Nivel para UNBAN
+  ...Establecer nivel: _chand LEVELS # SET UNBAN $$?="¿Nivel mínimo para desbanearse?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS UNBAN
+  ..Nivel para OP/DEOP
+  ...Establecer nivel: _chand LEVELS # SET OPDEOP $$?="¿Nivel mínimo para usar OP/DEOP?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS OPDEOP
+  ..Nivel para Ver Registrados
+  ...Establecer nivel: _chand LEVELS # SET ACC-LIST $$?="¿Nivel mínimo para ver la lista de registros?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS ACC-LIST
+  ..Nivel para Registrar
+  ...Establecer nivel: _chand LEVELS # SET ACC-CHANGE $$?="¿Nivel mínimo para añadir registros?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS ACC-CHANGE
+  ..Nivel para ver memos al canal
+  ...Establecer nivel: _chand LEVELS # SET MEMO $$?="¿Nivel mínimo para ver el mensaje de entrada?"
+  ...-
+  ...Desactivar: _chand LEVELS # DIS MEMO
+  ..-
+  ..Resetear LEVELS: _chand LEVELS # RESET
+  .-
+  .Registrar Usuario: _chand ACCESS # ADD $$?="¿Nick a registrar?" $$?="¿Nivel para $! $+ ?"
+  .Borrar Usuario: _chand ACCESS # DEL $$?="¿Nick a Borrar? (o número de registro)"
+  .Usuarios registrados: _chand ACCESS # LIST $?="Nick o máscara a buscar. (En blanco para listar todos)"
+  .-
+  .RESETAR canal: _chand RESET #
+  .CLEAR's
+  ..MassDEOP: _chand CLEAR # OPS
+  ..MassKICK: _chand CLEAR # USERS
+  ..MassDEVOICE: _chand CLEAR # VOICES
+  ..-
+  ..Quitar BAN's: _chand CLEAR # BANS
+  ..Quitar modos: _chand CLEAR # MODES
+  .Desbanearte !!!: _chand UNBAN #
+  .-
+  .INFO y Niveles Canal: _chand INFO # | _chand LEVELS # LIST
+  .-
+  .MEMOS canal
+  ..Enviar al canal: _memod SEND # $$?="¿Texto?"
+  ..Leer Memos canal
+  ...Último mensaje: _memod READ # LAST
+  ...-
+  ...Leer mensaje número...: _memod READ # $$?="Número del mensaje que quieres leer"
+  ..Listar mensajes
+  ...Listar todos: _memod LIST #
+  ...-
+  ...Solo los no leidos: _memod LIST # NEW
+  ..Administración Buzón
+  ...Borrar mensajes
+  ...Borrar todos: _memod DEL # ALL
+  ...-
+  ...Borrar seleccionados: _memod DEL # $$?="Número, Serie o Rango. P. ej: 1,2,3,4 ó 1-4 "
+  ..-
+  ..No recibir MEMOS al canal: _memod SET LIMIT # 0
+  ..Limitar el número: _memod SET LIMIT # $$?="¿Límite de mensajes desde $chan $+ ? (Máximo 20)"
+  .-
+  .Apoyar canal:_creg apoya #
+  .Ver apoyos:_cregd apoyos #
+}  
+;--------------------------------------------------------------------
+
+MENU NickList {
+  -
+  $iif($_hispano,&irc hispano)
+  .OP por CHAN: _chand OP $chan $1 $2 $3 $4 $5 $6
+  .DEOP por CHAN: _chand DEOP $chan $1 $2 $3 $4 $5 $6
+  .-
+  .Añadir a Auto Kick
+  ..Añadir por nick: _chand AKICK $chan ADD $1 $$?="¿Mensaje de expulsión?"
+  ..-
+  ..Añadir por host: _chand AKICK $chan ADD $address($1,2) $?="¿Mensaje de expulsión? (Opcional)"
+  .REGISTRO en canal
+  ..Registrar Usuario: _chand ACCESS $chan  ADD $1 $$?="¿Nivel para $1 $+ ?"
+  ..-
+  ..Borrar Usuario: _chand ACCESS $chan DEL $1
+  .-
+  .INFO de UN nick: _nickd INFO $1 | _nickd STATUS $1
+  .-
+  .Expulsar a un usurpador: _nickd RECOVER $1 $$?="¿Contraseña de $1 $+ ?"
+  .Expulsar tu Ghost: _nickd GHOST $1 $$?="¿Clave?"
+}
+
+;--------------------------------------------------------------------
+
+MENU Query {
+  -
+  $iif($_hispano,&irc hispano)
+  .MENSAJERÍA
+  ..Enviar Mensaje: _memod SEND $$?="Nick del destinatario" $$?="Texto del mensaje"
+  ..LEER mensaje
+  ...Último mensaje recibido: _memod READ LAST
+  ...-
+  ...Leer mensaje número...: _memod READ $$?="Número del mensaje que quieres leer"
+  ..Listar mensajes
+  ...Listar todos: _memod LIST
+  ...-
+  ...Solo los no leidos: _memod LIST NEW
+  ..Borrar mensajes
+  ...Borrar todos: _memod DEL ALL
+  ...-
+  ...Borrar seleccionados: _memod DEL $$?="Número, Serie o Rango. P. ej: 1,2,3,4 ó 1-4 "
+  ..-
+  ..Notificación de mensajes
+  ...Notificar siempre: _memod SET NOTIFY on
+  ...Solo en Connect y salida de Away: _memod SET NOTIFY logon
+  ...Solo al recibir: _memod SET NOTIFY new
+  ...No notificar: _memod SET NOTIFY off
+  ..-
+  ..Límite de mensajes
+  ...Límite por canal: _memod SET LIMIT #$$?="¿Canal a limitar?" $$?="Límite de mensajes en buzón (Máximo 20)"
+  ...Límite general: _memod SET LIMIT $$?="Límite de mensajes en buzón (Máximo 20)"
+  .-
+  .OP por NICK: _chand OP #$$?="¿Canal?" $1
+  .DEOP por NICK: _chand DEOP #$$?="¿Canal?" $1
+  .-
+  .Añadir a Auto Kick
+  ..Añadir por nick: _chand AKICK #$$?="¿Canal?" ADD $1 $$?="¿Mensaje de expulsión?"
+  ..Añadir por host: _chand AKICK #$$?="¿Canal?" ADD $address($1,2) $$?="¿Mensaje de expulsión?"
+  .REGISTRO en canal
+  ..Registrar Usuario: _chand ACCESS #$$?="¿Canal?"  ADD $1 $$?="¿Nivel para $1 $+ ?"
+  ..Borrar Usuario: _chand ACCESS #$$?="¿Canal?" DEL $1
+  .-
+  .INFO del nick: _nickd INFO $1 | _nickd STATUS $1
+  .-
+  .Expulsar a un usurpador: _nickd RECOVER $1 $$?="¿Contraseña de $1 $+ ?"
+  .Release: _nickd RELEASE $1 $$?="¿Contraseña de $1 $+ ?"
+  .Expulsar tu Ghost: _nickd GHOST $1 $$?="¿Clave?"
+}

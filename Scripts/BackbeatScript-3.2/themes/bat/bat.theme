@@ -1,0 +1,232 @@
+;*************************************
+; Información del theme y datos:
+;
+;*************************************
+
+alias theme return themes\bat\bat.theme
+alias th.font return Courier New
+alias th.fontsize return 12
+
+[info]
+Author=Jimmy_RAY
+Version=1.0
+
+alias th.barra return themes\bat\bar.jpg
+alias th.menu return themes\bat\menu.jpg
+
+;*************************************
+; Colores en la nicklist
+;
+;*************************************
+
+alias th.nc {
+  if ($1 == o) return 10
+  elseif ($1 == v) return 1
+  elseif ($1 == m) return 2
+  else return 14
+}
+
+;*************************************
+; Colores del mIRC
+;
+;*************************************
+
+alias th_color {
+  if ($1- == ACTION) return 6
+  elseif ($1- == CTCP) return 4
+  elseif ($1- == HIGHLIGHT) return 2
+  elseif ($1- == INFO) return 1
+  elseif ($1- == INFO2) return 2
+  elseif ($1- == INVITE) return 3
+  elseif ($1- == JOIN) return 10
+  elseif ($1- == KICK) return 4
+  elseif ($1- == MODE) return 10
+  elseif ($1- == NICK) return 10
+  elseif ($1- == NORMAL) return 1
+  elseif ($1- == EDITBOX TEXT) return 1
+  elseif ($1- == EDITBOX) return 15
+  elseif ($1- == NOTICE) return 12
+  elseif ($1- == NOTIFY) return 7
+  elseif ($1- == OTHER) return 1
+  elseif ($1- == OWN) return 1
+  elseif ($1- == PART) return 10
+  elseif ($1- == QUIT) return 10
+  elseif ($1- == TOPIC) return 10
+  elseif ($1- == WALLOPS) return 7
+  elseif ($1- == WHOIS) return 1
+  elseif ($1- == LISTBOX TEXT) return 1
+  elseif ($1- == LISTBOX) return 15
+  elseif ($1- == BACKGROUND) return 15
+  elseif ($1- == GRAYED) return 1
+}
+
+;*************************************
+; Errores en los comandos
+;
+;*************************************
+
+alias th.error {
+  goto $1
+  :msg | return /msg 2Parámetros insuficientes. 10Usa 2[/msg <nick|channel> <text>]
+  :ctcp | return /ctcp 2Parámetros insuficientes. 10Usa 2[/ctcp <nick|channel> <text>]
+  :ctcpreply | return /ctcpreply 2Parámetros insuficientes. 10Usa 2[/ctcpreply <nick|channel> <text>]
+  :notice | return /notice 2Parámetros insuficientes. 10Usa 2[/notice <nick|channel> <text>]
+  :onotice1 | return  /onotice: 2must be an Op on2 $chan
+  :onotice2 | return /onotice 2Parámetros insuficientes. 10Usa 2[/onotice <text>]10 on a channel
+  :omsg1 | return  /omsg: 2must be an Op on 2 $chan
+  :omsg2 | return /omsg 2Parámetros insuficientes. 10Usa 2[/omsg <text>]10 on a channel
+  :amsg | return /amsg 2Parámetros insuficientes. 10Usa 2[/amsg <text>]
+  :say | return /say 2Parámetros insuficientes. 10Usa 2[/say <text>]
+}
+
+;*************************************
+; Muestra general de información
+;
+;*************************************
+
+alias display {
+  haltdef | goto $1 
+  :topic | echo 2 -t $2 $th.lg2 Topìc $th.par($3 $+ : $+ $2) $+ : $4- | return
+  :start 
+  echo -st $th.lg BaT[v0.9b] by Jimmy_RAY & Fulg0re: Keep Away From Fire!
+  echo -st $th.lg Theme: BaT by Fulg0re (v.1.0)
+  echo -st $th.lg Theme: Adaptado al BaCKBEAT por Jimmy_RAY 
+  return
+  :connect | return  
+  :snotice | echo 5 -ts - $+ $2 $+ - $3- | return
+  :rawmode | echo 2 -t $2 $th.lg2 Modo: ( $+ $3 $+ : $+ $2 $+ ): $4- | return
+  :join | echo 10 -t $2 $th.lg2 Entra: $3 $th.par($replace($4,@,2@)) $+ 15] $joinclon($iif($gettok($clones($3),1,32) > 1,$th.par(Clones( $+ $calc($ifmatch -1) $+ ) $gettok($clones($3),3-,32)))) $iif($nickant($3),$th.par(Posible nick anterior: $ifmatch)) | return
+  :joinme | echo -t $2 $th.lg 2· · ·· ··· ···· ····· 2Entrando en $2 2····· ···· ··· ·· · · | return
+  :part | echo 10 -t $2 $th.lg2 Sale: $3 $th.par($replace($4,@,2@)) $+ 15] $5- | return
+  :kickme | echo -ts $th.lg $3 te echa de $2 $iif($5- != $4,por $th.par($5-))
+  :kick | echo 5 -t $2 $th.lg2 KicK: $3 a $4 $iif($5- != $4,( $+ $5- $+ )) | return
+  :banme | echo -ts $th.lg3 Has sido baneado en 2 $+ $2 $+  por $3 $th.par($4) | return
+  :quit | echo 10 -t $2 $th.lg2 Quit: $3 ( $+ $4 $+ ) $iif($5,2( $+ $5- $+ 2)) | return
+  :nick | echo 2 -t $2 $th.lg2 $3 es ahora $4 | return
+  :ctcpchan | echo -t $2 CTCP12 $5- de $3 $th.par($4) | return
+  :ctcpreply | echo -ts CTCP REPLY12 $4- de $2 $th.par($3) | return
+  :ctcpnick | echo -ts CTCP12 $4- de $2 $th.par($3) | return
+  :ctcpreplyed | echo 2 -ts Reply enviado: $2- | return
+  :textchan |  :inputchan | echo -t $2 1( $+ $th.sts($3,$2) $+ $3 $+ 1) $$4- | return
+  :textquery | echo -t $2 ( $+ $2 $+ ) $3- | return
+  :nombrado | echo -ta $th.lg $th.par($3 $+ : $+ $2) $4- | return  
+  :chat | echo -t = $+ $2 ( $+ $2 $+ ) $3- | return
+  :noticechan | echo 5 -t $2 - $+ $4 $+ : $+ $3 $+ - $5- | return  
+  :noticequery | echo 5 -ta - $+ $2 $+ - $3- | return  
+  :actionchan | :actionquery | echo 13 -t $2 * $iif($2 !ischan,$2,$3) $iif($2 !ischan,$3-,$4-) | return
+  :inputquery | :inputchat | echo -t $2 ( $+ $3 $+ ) $$4- | return
+  :invite | echo -ta $th.lg $3 te invita a entrar en $2 | return
+  :notify | echo 7 -ts $th.lg2 $2 $iif($3,( $+ $3- $+ )) está en el IRC | return
+  :unotify | echo 7 -ts $th.lg2 $2 $iif($3,( $+ $3- $+ )) deja el IRC | return
+  :usermode | echo -ta $th.lg 2Modos de usuario:2 $4 $th.par(2 $+ $3) | return
+  :wallops | echo -ts $th.lg Wallops:2 $2 $+ 10:2 $3- | return
+  :error | echo -ta $th.lg3 Error: $2- | return
+  :msg | echo -ta ->2[msg2[ $+ $2 $+ 2]] $3- | return
+  :ctcp | echo -ta ->2[ctcp2[ $+ $2 $+ 2]] $upper($3) $4- | return
+  :notice | echo 5 -ta ->2[notice2[ $+ $2 $+ 2]] $3- | return
+  :onotice | echo 5 -ta ->2[notice2[@ $+ $2 $+ 2]] $3- | return
+  :omsg | echo -ta ->2[omsg2[@ $+ $2 $+ 2]] $3- | return
+  :floodpers | echo -at $th.lg3 Flood $2 detectado:1 $5 $2 $+ s en $6 $+ s 1de 2 $+ $3 $th.par($4) 2Añadido $8 a la lista de ignorados durante $duration($7) | return 
+  :echo | echo $th.lg $$2- | return
+  :lag | echo $th.lg Lag:2 $2 | return
+}
+
+;*************************************
+; Especificación de raws modificados
+;
+;*************************************
+
+alias th.raws return  221.251.252.253.254.255.301.307.310.311.312.313.317.318.319.324.329.332.333.341.375.376.378.401.421.443.471.473.474.475
+
+;*************************************
+; Especificación de raws no modificados
+;
+;*************************************
+
+alias th.nomod return 321.322.323.353.366.364.365
+
+;*************************************
+; Muestra de la información de los raws
+;
+;*************************************
+
+alias displayraw {
+  if ($istok($th.nomod,$1,46) == $true) return
+  haltdef | var %numeric $1 | tokenize 32 $2-
+  goto $iif($istok($th.raws,%numeric,46) == $true,%numeric,default)
+
+  ;---------(WHOIS)---------
+
+  :301 | if (%whois) { echo -ts 2· Away: 2 $2 is away: 2 $+ $3- | return } 
+  echo -ts $th.lg 2 $+ $2 1está away: 2 $+ $3- | return
+  :307 | :310 | :313 | :378 | echo 2 -ts · Info: 2 $3- | return
+  :311 | echo -ts 2· · ·· ··· ···· ····· Whois $2 $th.par(2 $+ $3 $+ @ $+ $4) 
+  if ($6)  echo -ts 2· Nombre: $6- 
+  var %x $clones($2)
+  if ($calc($gettok(%x,1,32)) > 1) echo -ts 2· Clones: $th.par($ifmatch) $replace($gettok(%x,3-,32),$chr(32),$chr(44))
+
+  set -u20 %whois on | return
+
+  :312 | echo -ts 2· Servidor: $3 $th.par(2 $+  $4-) | return
+  :317 | echo -ts 2· Idle: $duration($3) $th.par(2Conectado: $asctime($4)) | return
+  :318 | unset %whois | echo -ts 2· · ·· ··· ···· ····· Fin del Whois a $2 2····· ···· ··· ·· · · | return
+  :319 | echo -ts 2· Canales: $3- | return
+
+  ;---------(MOTD)---------
+  :375 | :376 | echo -ts $th.lg 2MOTD ( $+ $server $+ ) | return
+
+  ;---------(Lusers)---------
+
+  :251 | echo -ts 2· · ·· ··· ···· ····· Lusers ( $+ $server $+ ) 2····· ···· ··· ·· · ·
+  echo -ts 2· Usuarios: $4 | echo -ts  2· Invisibles: $7
+  echo -ts 2· Servidores: $10 | return
+  :252 | echo -ts  2· Operadores: $2 | return
+  :253 | echo -ts  2· Conexiones Desconocidas: $2 | return
+  :254 | echo -ts  2· Canales: $2 | return
+  :255 | echo -ts  2· Clientes: $4 $th.par($7 servidores) 
+  echo -ts 2· · ·· ··· ···· ····· Lusers ( $+ $server $+ ) 2····· ···· ··· ·· · ·
+  return  
+
+  ;---------(De canal)---------
+
+  :333 | echo -t $2 $th.lg Puesto por $3 $th.par(2 $+ $asctime($4) $+ 2) | return
+  :332 | echo -t $2 2· Topic: $3- | return
+  :324 | if ($2 ischan) echo -t $2 $th.lg Modos del canal:  $th.par($3) | return
+  :329 | if ($2 ischan) echo -t $2 $th.lg Creado: $th.par($asctime($3)) | return
+
+  ;---------(Otros)---------
+
+  :341 | echo 2 -ta $th.lg $2 ha sido invitado a entrar en $3 | return 
+  :443 | echo 2 -ta $th.lg $2 está ya en $3 | return 
+  :401 | echo $iif($query($2),-t $2,-ts) $th.lg 2 $+ $2 no se encuentra el nick o canal | return
+  :421 | echo -ts $th.lg3 Comando erroneo: $2 | return
+  :471 | echo -ts $th.lg3 No puedes entrar en $2 porque el canal está lleno | return
+  :473 | echo 2 -ts $th.lg3 Error: No puedes entrar en $2 porque es sólo para invitados | return
+  :474 | echo -ts $th.lg3 Error: No puedes entrar en $2 porque estás baneado | return
+  :475 | echo -ts $th.lg3 Error: No puedes entrar en $2 porque es un canal con clave | return
+  :221 | return
+  ;---------(Por defecto)---------
+
+  :default | echo -ts $th.lg $2- | return
+}
+
+;*************************************
+; Logos frecuentes del theme
+;
+;*************************************
+
+alias th.lg return 2BaT2:
+alias th.lg2 return -ø-
+alias th.lg3 return 4BaT4:
+alias th.par return 2( $+ $$1- $+ 2)
+
+;*************************************
+; @/+ Delante del nick cuando hablan
+;
+;*************************************
+
+alias th.sts {
+  if ($1 isop $2) return 2@
+  elseif ($1 isvo $2) return +
+  return 
+}

@@ -1,0 +1,11 @@
+~~~~~~~~~~~~~~~~~~~~~~
+BaCKBEAT ScripT v2.1
+Autor: Jimmy_RAY
+http://backbeat.welt.es
+jimmy@welt.es
+~~~~~~~~~~~~~~~~~~~~~~
+
+  [*] No se permite la copia o plagio de ninguna de sus partes.
+  [*] El autor no se responsabiliza del mal uso que se le pueda
+dar a las utilidades que el script presenta.
+  [*] Si no está de acuerdo en esto no instale el script.

@@ -1,0 +1,21 @@
+QUIT :BaCKBEAT v3.2 - Uhhh huh huh, i love you Beavis - (http://www.gestal.es) by Jimmy_RAY
+ERROR :Closing Link: 141.213.238.252.dyn.user.ono.com (Client Quit)
+QUIT :BaCKBEAT v3.2 - irc is like a box of chocolates.. you never know what you're gunna get - (http://www.gestal.es) by Jimmy_RAY
+NICK jimmy_
+USER backbeat "" "irc.umich.edu" :http://www.gestal.es
+NOTICE AUTH :*** Processing connection to irc.umich.edu
+NOTICE AUTH :*** Looking up your hostname...
+NOTICE AUTH :*** Checking Ident
+NOTICE AUTH :*** Found your hostname
+NOTICE AUTH :*** No Ident response
+:irc.umich.edu NOTICE jimmy_ :To complete your connection to this server, type "/QUOTE PONG :cookie", where cookie is the following ascii.
+:irc.umich.edu 998 jimmy_ : _   _  ______  _  __ _  __ _    _ __          __
+:irc.umich.edu 998 jimmy_ :| \ | ||  ____|| |/ /| |/ /| |  | |\ \        / /
+:irc.umich.edu 998 jimmy_ :|  \| || |__   | ' / | ' / | |  | | \ \  /\  / / 
+:irc.umich.edu 998 jimmy_ :| . ` ||  __|  |  <  |  <  | |  | |  \ \/  \/ /  
+:irc.umich.edu 998 jimmy_ :| |\  || |____ | . \ | . \ | |__| |   \  /\  /   
+:irc.umich.edu 998 jimmy_ :|_| \_||______||_|\_\|_|\_\ \____/     \/  \/    
+:irc.umich.edu 998 jimmy_ :                                                 
+pong:nekkuw
+ERROR :Closing Link: 141.213.238.252.dyn.user.ono.com (Connection timed out)
+QUIT :BaCKBEAT v3.2 - we gonna be heroes... just for one day - (http://www.gestal.es) by Jimmy_RAY

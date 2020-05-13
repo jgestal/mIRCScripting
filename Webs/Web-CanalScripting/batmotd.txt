@@ -1,0 +1,24 @@
+	~~~~~~~~~~~~~~~~~~~~~~
+		BAT
+	BravoS AssAult TeaM ®
+	~~~~~~~~~~~~~~~~~~~~~~
+	
+	[17/04/01 (15:30)] Fulg0re
+	
+	   Dado que es una BETA y se encuentra pequeños fallos cada dos por tres
+	   se corregiran poco a poco, y es posible que cada dia se suban un par 
+	   de betas con fallos anteriores corregidos. No te las bajes todas o te
+	   volverás loco xD
+
+	   Por ahora se han corregido:
+	   - disfunciones en los themes (cambio de font, compatibilidades varias)
+	   - corregido una falta de un fichero que provocaba el fallo del away
+	   - seteo automático de variables necesarias para el buen funcionamiento
+	   - añadidas un par de alias y accesos rápidos
+.-
+	[17/04/01 (00:00)] Jimmy_RAY
+	
+	   Por fin disponible una beta... que la disfrutes :)
+
+	BaT; El script para mIRC 5.82 de Fulg0re & Jimmy_RAY
+

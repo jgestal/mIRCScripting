@@ -1,0 +1,12 @@
+4,1           .adAMMMb.   .dAMMMAbn.              
+4,1       .adAWWWWWWWWWAuAWWWWWWWWWWAbn.          
+4,1    .adWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWbn.       
+4,1 ..adMMMMMP13,1^~".--"~^4,1YWWWWWWWWWWHHMMMMMMMMbn..1,1  
+4,1    "~^13,1Y"   /    4,1..dMWMP".ammmmdMMMUP^~"       
+4,1       13,1|   Y4,1    dMAbammdAMMMMMMP^~"            
+4,1       13,1|   |4,1    MMMMMMMMMMMMU^"                
+4,1       13,1l   :4,1    Y^YUWWWWUP^"                   
+4,1        13,1\       j1,1                              
+4,1         13,1"-..,.^1,1                               
+16,1             15,1‘,                                
+16,1           15,1,'1,1                                  

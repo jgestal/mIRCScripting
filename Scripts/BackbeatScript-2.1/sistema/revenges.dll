@@ -1,0 +1,103 @@
+alias _revenges dialog -m revenges revenges
+dialog revenges {
+  title "Configuración de las venganzas"
+  size -1 -1 390 320
+  button "Aceptar",1,130 290 125 25,ok
+  tab "KiCK", 2, 5 5 380 280
+  tab "Deop", 3
+  text "¿Qué hacerle al que te eche fuera del canal?",4,80 50 250 30,tab 2
+  combo 5,70 100 240 100, drop,tab 2
+  check "Preguntar si hacer el KiCK Revenge",6,80 150 190 20,tab 2
+  check "Excluir amigos",7,80 170 190 20,tab 2
+  text "¿Qué hacerle al que te quite el op?",8,80 50 250 30,tab 3
+  combo 9,70 100 240 100, drop,tab 3
+  check "Preguntar si hacer el Deop Revenge",10,80 150 195 20,tab 3
+  check "Excluir amigos",11,80 170 190 20,tab 3
+}
+on 1:dialog:revenges:init:*: {
+  did -a revenges 5 kickear
+  did -a revenges 5 kickear y banear
+  did -a revenges 5 no hacer nada
+  did -c revenges 5 %kick.revenge.action
+  did $iif(%kick.revenge.preg == on,-c,-u) revenges 6
+  did $iif(%kick.revenge.noam == on,-c,-u) revenges 7
+  did -a revenges 9 kickear
+  did -a revenges 9 kickear y banear
+  did -a revenges 9 no hacer nada
+  did -c revenges 9 %deop.revenge.action
+  did $iif(%deop.revenge.preg == on,-c,-u) revenges 10
+  did $iif(%deop.revenge.noam == on,-c,-u) revenges 11
+}
+on 1:dialog:revenges:sclick:*: {
+  if ($did == 5) set %kick.revenge.action $did(revenges,5).sel
+  if ($did == 6) { if (%kick.revenge.preg == on) unset %kick.revenge.preg
+  else { set %kick.revenge.preg on } }
+  if ($did == 7) { if (%kick.revenge.noam == on) unset %kick.revenge.noam
+  else { set %kick.revenge.noam on } }
+  if ($did == 9) set %deop.revenge.action $did(revenges,9).sel
+  if ($did == 10) { if (%deop.revenge.preg == on) unset %deop.revenge.preg
+  else { set %deop.revenge.preg on } }
+  if ($did == 11) { if (%deop.revenge.noam == on) unset %deop.revenge.noam
+else { set %deop.revenge.noam on } } }
+on 1:connect: { 
+  unset %krev.* 
+  unset %drev.* 
+}
+on 1:kick:#: { 
+  if (($amigo($nick) == si) && (%kick.revenge.noam == on)) { goto fin }
+  if (($knick == $me) && ($nick != $me) && ($usuario($nick) != bot)) {
+    set %krev.chan $chan
+    set %krev.nick $nick
+    set %krev.date $asctime
+    if ((%kick.revenge.action != 3) && (%kick.revenge.preg != on)) {
+      echo -s $c4(KiCK Revenge) Para perdonar a $sbn($nick) en $sbn($chan) pulsa shift F2.
+    }
+    :fin
+  }
+}
+on 1:nick: { 
+  if ($nick == %krev.nick) set %krev.nick $newnick 
+  if ($nick == %drev.nick) set %drev.nick $newnick 
+}
+on 1:op:#: { 
+  if ((%krev.nick == %drev.nick) && (%krev.chan == %drev.chan)) { unset drev.* }
+  if (($opnick == $me) && (%krev.nick ison $chan) && (%krev.chan == $chan)) {
+    if ($nick == %krev.nick) unset %krev.*
+    if (($amigo(%krev.nick) == si) && (%kick.revenge.noam == on)) { goto fin }
+    if ((%kick.revenge.preg == on) && (%kick.revenge.action != 3)) {
+      echo $chan $c4(KiCK Revenge) Pulsa shift F4 para vengarte del kick de $sbn(%krev.nick) $+ .
+    }
+    if ((%kick.revenge.preg != on) && (%kick.revenge.action != 3)) {
+      if (%kick.revenge.action == 2) mode $chan -o+b %krev.nick $address(%krev.nick,%ban.num)
+      kk $chan %krev.nick KiCK Revenge: %krev.date 
+      unset %krev.*
+    }
+  }
+  if ((%drev.nick == %drev.nick) && (%drev.chan == %drev.chan)) { unset drev.* }
+  if (($opnick == $me) && (%drev.nick ison $chan) && (%drev.chan == $chan)) {
+    if ($nick == %drev.nick) unset %drev.*
+    if (($amigo(%drev.nick) == si) && (%deop.revenge.noam == on)) { goto fin }
+    if ((%deop.revenge.preg == on) && (%deop.revenge.action != 3)) {
+      echo $chan $c4(DeOp Revenge) Pulsa shift F5 para vengarte del deop de $sbn(%drev.nick) $+ .
+    }
+    if ((%deop.revenge.preg != on) && (%deop.revenge.action != 3)) {
+      if (%deop.revenge.action == 2) mode $chan -o+b %drev.nick $address(%drev.nick,%ban.num)
+      kk $chan %drev.nick DeOp Revenge: %drev.date 
+      unset %drev.*
+    }
+  }
+  :fin
+}
+on 1:deop:#: { 
+  if (($amigo($nick) == si) && (%deop.revenge.noam == on)) { goto fin }
+  if (($opnick == $me) && ($nick != $me) && ($usuario($nick) != bot)) {
+    set %drev.chan $chan
+    set %drev.nick $nick
+    set %drev.date $asctime
+    if ((%deop.revenge.action != 3) && (%deop.revenge.preg != on)) {
+
+      echo -s $c4(DeOp Revenge) Para perdonar a $sbn($nick) en $sbn($chan) pulsa shift F3.
+    }
+    :fin
+  }
+}

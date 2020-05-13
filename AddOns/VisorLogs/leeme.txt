@@ -1,0 +1,42 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lector de logs v2.0
+Autor: Jimmy_RAY
+email: jimmy@welt.es
+web: http://backbeat.welt.es
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~
+Instalación
+~~~~~~~~~~~~~
+
+	Descomprime el fichero vlogs.mrc al directorio donde está el mIRC32.exe
+y teclear en el mIRC en cualquier ventana el siguiente comando:
+	//load -rs $findfile($mircdir,vlogs.mrc,1)
+	(sí, con dos barras al principio)
+	
+	
+	El comando para abrir el visor de logs es /logs
+
+~~~~~~~~~~~~~
+Info
+~~~~~~~~~~~~~
+
+	No se permite la modificación del código para su distribución, pero sí la
+modificación para uso personal. En ningún caso se podrán modificar los créditos.
+
+	Si quieres incorporar éste addOn a tu script, mandame un email a jimmy@welt.es
+y tu propuesta será estudiada.
+
+	No se permite la copia/plagio de ninguna parte del código.
+
+~~~~~~~~~~~~~
+Créditos
+~~~~~~~~~~~~~
+	* A la gente de los canales #scripting & #100scripts del irc-hispano.	
+	* A kobu por su espacio web en el servidor www.welt.es
+	* A ti por bajarte éste addOn
+
+						Saludos... 
+								Jimmy_RAY :)
+
+           ...y bajate el BaCKBEAT mIRC Script & más addóns en en http://backbeat.welt.es

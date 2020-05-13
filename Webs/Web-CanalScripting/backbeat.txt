@@ -1,0 +1,11 @@
+;*************************************
+;
+; 30/06/01 - ..::(Jimmy_RAY)::..
+;
+;*************************************
+
+Bueno parece que éste script está casi listo, 
+en un par de días pasaré una versión beta a 
+los betatesters y espero publicarlo en menos
+de una semana, espero que os guste a los que 
+leais esto :)

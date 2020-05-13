@@ -1,0 +1,197 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish260295fc{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish260295fc{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip260295fc{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad260295fc"></div>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Web del canal #100scripts - Scripting - Curso de Sockets</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="600" border="0">
+  <tr> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Scripting</u></b></font> 
+              </p>
+            </div>
+            <p align="left"><font face="Arial" color="#000000" size="3"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font size="3" face="Arial"><strong>Curso 
+              de programación de sockets para mIRC ( II )</strong></font></p>
+            <p align="left"><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;<u>Indice 
+              Tema 2</u></font></p>
+            <ul>
+              <li><font size="2" face="Arial">Prologo</font> 
+              <li><font size="2" face="Arial">Sock de escucha</font></li>
+            </ul>
+            <hr noshade>
+            <p><font face="Arial"><strong>Prologo</strong></font></p>
+            <p><font face="Arial" size="2">Bueno, aqu&iacute; esta la segunda 
+              entrega del curso de sock, si comprendisteis el anterior, y comprend&eacute;is 
+              este, ya tendr&eacute;is casi un completo control sobre los sockets, 
+              el resto solo depende de vuestra imaginaci&oacute;n y creatividad</font></p>
+            <p> 
+            <hr noshade>
+            <p></p>
+            <p><font face="Arial"><strong>Sock de escucha</strong></font></p>
+            <p><font face="Arial" size="2">Como ya dijimos en el capitulo anterior, 
+              el sock de escucha, sirve para que alguien lance un cable a dicho 
+              sock, y establezcamos con el la comunicaci&oacute;n. Estos sock 
+              son un tanto peculiares, porque en realidad, estos no sirven para 
+              mandar o recibir inform&aacute;tico, simplemente escuchan, y una 
+              vez que reciben un aviso de conexi&oacute;n, se le pasa el control 
+              a los sockets de conexi&oacute;n, pero bueno, la mejor forma de 
+              verlo es con un ejemplo. as&iacute; que seguiremos con el mismo 
+              programa que el capitulo anterior:)</font></p>
+            <p><font face="Arial" size="2">Bien, vamos a ver como funciona el 
+              programita que tiene nuestro amigo manolo instalado en su script, 
+              para que nos acepte la conexi&oacute;n cuando queremos hablar con 
+              el, con nuestro programita de chat !</font></p>
+            <p><font face="Arial" size="2">Lo primero que necesita manolo, es 
+              abrir un sock de escucha en el puerto 10600 (seguimos trabajando 
+              en el mismo puerto) </font></p>
+            <p><font face="Arial" size="2"><strong>Alias escucha {<br>
+              &nbsp;&nbsp;socklisten SOKILLOESCUCHA 10600<br>
+              }</strong></font></p>
+            <p><font face="Arial" size="2">socklisten &lt;nombre_del_sock_de_escucha&gt; 
+              [puerto], con esto ya tenemos lo que se llama un puerto abierto, 
+              y preparado para recibir entradas por el.</font></p>
+            <p><font face="Arial" size="2">Hora necesitamos saber y/o controlar, 
+              las conexiones que nos llegan a dicho puerto, aqu&iacute; es donde 
+              la cosa se complica un pel&iacute;n</font></p>
+            <p><font face="Arial" size="2"><strong>on 1:socklisten:SOKILLOESCUCHA: 
+              {<br>
+              &nbsp;&nbsp;window -e @conexion<br>
+              &nbsp;&nbsp;sockaccept SOKILLO<br>
+              &nbsp;&nbsp;echo @conexion Conexi&oacute;n aceptada desde $sock(SOKILLO).IP<br>
+              }</strong></font></p>
+            <p><font face="Arial" size="2">Traducido al Cristiano <br>
+              Cuando se reciba conexi&oacute;n por el sock de escucha llamado 
+              SOKILLOESCUCHA -&gt; creamos ventana donde se puede escribir, aceptamos 
+              la conexi&oacute;n y transferimos el control de transmisi&oacute;n 
+              al sock llamado SOKILLO, imprimimos en ventana, la ip de la persona 
+              que ha conectado con nosotros.</font></p>
+            <p><font face="Arial" size="2">Bien, despu&eacute;s de esto, es SOKILLO 
+              quien a partir de ahora se encarga de recibir y mandar informaci&oacute;n 
+              a quien se ha conectado con nosotros, y lo hace de las misma forma 
+              que en el capitulo anterior, puesto que SOKILLO hay donde lo veis, 
+              no es un sock de escucha :) , Es un simple sock de conexi&oacute;n. 
+              </font></p>
+            <p><font face="Arial" size="2">Bien, ahora tenemos una ventana abierta, 
+              ( igual que en el capitulo anterior ) en la que podemos escribir, 
+              ¿ que pasa si manolo nos quiere mandar un mensaje ?, pues el procedimiento 
+              es el mismo que el capitulo anterior</font></p>
+            <p><font face="Arial" size="2"><strong>on 1:INPUT: {<br>
+              &nbsp; if ( @conexion isin $active ) { <br>
+              &nbsp; echo @conexion &gt; *1 <br>
+              &nbsp; sockwrite -tn SOKILLO *1 <br>
+              &nbsp; halt <br>
+              &nbsp; }<br>
+              }</strong></font></p>
+            <p><font face="Arial" size="2">Como veis, estamos usando sokillo y 
+              no sokilloescucha, puesto que el control de la comunicaci&oacute;n, 
+              lo tiene hora sokillo. de la misma forma, si le mandamos un mensaje 
+              a manolo, el lo recibiera de la misma forma.</font></p>
+            <p><font face="Arial" size="2"><strong>on 1:sockread:SOKILLO:{<br>
+              &nbsp; sockread %mensaje<br>
+              &nbsp; echo @conexion &gt;&gt; %mensaje<br>
+              }</strong></font></p>
+            <p><font face="Arial" size="2">Y exactamente lo mismo para cerrar 
+              la conexi&oacute;n, tanto si la cierra manolo.....</font></p>
+            <p><font face="Arial" size="2"><strong>Alias Cerrar {<br>
+              &nbsp; sockclose SOKILLO<br>
+              }</strong></font></p>
+            <p><font face="Arial" size="2">Con esto manolo cierra la conexi&oacute;n, 
+              ( solo la conexi&oacute;n ) pero no cierra el sock de escucha, por 
+              lo que sigue teniendo durante todo el proceso, el puerto 10600 abierto, 
+              puesto que aun no hemos cerrado el sock SOKILLOESCUCHA<br>
+              Si nosotros cerramos la conexi&oacute;n, manolo detecta que hemos 
+              cerrado de la misma forma que nosotros.</font></p>
+            <p><font face="Arial" size="2"><strong>on 1:sockclose:SOKILLO:{<br>
+              &nbsp; echo @conexion Conexion Cerrada<br>
+              &nbsp; sockclose SOKILLO<br>
+              }</strong></font></p>
+            <p><font face="Arial" size="2">Bien. solo queda una cosita, y es cerrar 
+              el sock de escucha SOKILLOESCUCHA, el cual ha permanecido abierto 
+              desde el principio, incluso mientras estabamos hablando con manolo, 
+              la forma de cerrarlo, es la mima que con los sock normales /sockclose 
+              SOKILLOESCUCHA, lo mejor para este casos, es cerrar el sock justo 
+              despu&eacute;s de aceptar la conexi&oacute;n con alguien, en el 
+              evento socklisten, el cual quedar&iacute;a mejor de esta forma.</font></p>
+            <p><font face="Arial" size="2"><strong>on 1:socklisten:SOKILLOESCUCHA: 
+              {<br>
+              &nbsp; window -e @conexion<br>
+              &nbsp; sockaccept SOKILLO<br>
+              &nbsp; echo @conexion Conexion aceptada desde $sock(SOKILLO).IP<br>
+              &nbsp; <u>Sockclose SOKILLOESCUCHA<br>
+              </u>}</strong></font></p>
+            <p><font face="Arial" size="2">De esta manera, el sock de escucha 
+              permanece abierto, hasta que alguien conecta con nosotros, en ese 
+              momento quedara cerrada y no aceptara ninguna otra conexi&oacute;n. 
+              !!</font></p>
+       <p align="left"><br>
+            </p>
+            <hr noshade width="90%">
+            <p align="center"><a href="http://garra.com/poder"><font face="Arial" size="1">PoDeR 
+              oSCuRo</font></a><font face="Arial" size="1"><strong> On-Line Manual 
+              (sock) por |SombrA|</strong>: <a
+href="mailto:poderoscuro@garra.com">poderoscuro@garra.com</a></font></p>
+            <p align="center"><a href="scripting-socks0.html"><img src="img/atras.gif" width="29" height="29" alt="Atr&aacute;s" border="0"></a></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish260295fc" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=260295fc&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

@@ -1,0 +1,20 @@
+efnet.telstra.net.au 6667
+efnet.sgic.fi 6667
+irc.ec-lille.fr 6667
+irc.inter.net.il 6667
+irc.nijenrode.nl 6667
+irc.homelien.no 6667
+irc.df.lth.se 6667
+efnet.demon.co.uk 6665 6667
+irc02.irc.aol.com 6667
+irc.primenet.com 6667
+irc.blackened.com 6667
+irc.cerf.net 6667
+irc.colorado.edu 6667
+irc.emory.edu 6667
+irc.ais.net 6667
+irc.mo.net 6667
+irc.netcom.com 6667
+irc.ionet.net 6667
+irc.phoenix.net 6667
+irc.sprynet.com 6667

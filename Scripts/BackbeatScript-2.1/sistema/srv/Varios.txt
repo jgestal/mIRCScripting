@@ -1,0 +1,5 @@
+irc.interec.com 6667
+irc.terra.es 6667
+irc.relic.net 6667
+www.terrachat.cl 6667
+irc.telepolis.com 6667

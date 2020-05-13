@@ -1,0 +1,446 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish497d1269{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish497d1269{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip497d1269{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad497d1269"></div>
+ 
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<TITLE>Cursillo de Scripting '99 - Las comparaciones</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="80%" border="0" align="left">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Las 
+                compraciones: if-then-else<br>
+                </u></b></font><font size="3" face="Arial"><strong><br>
+                </strong></font></p>
+              <div align="left">
+                <p><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las 
+                  comparaciones (en otros sitios y en la ayuda del mIRC mencionados 
+                  como if-then-else) son el centro de todo script, sin ellas no 
+                  podr&iacute;amos indicarle al mIRC que si tal persona dice tal 
+                  palabra se le patee del canal, o si nos mencionan en un canal 
+                  en el que no estamos muy atentos que nos avise con un echo... 
+                  y un sinf&iacute;n de cosas que entran dentro de las funciones 
+                  &quot;programables&quot; del mIRC que la verdad son extensas 
+                  a veces y que tamb&iacute;en no suelen ser aprovechadas por 
+                  las personas que usan el mIRC &quot;a pelo&quot; :-)</font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vayamos 
+                  por partes, aqu&iacute; tienes una tabla de todas las comparaciones 
+                  que hay en el mIRC, algunas palabras y ejemplos aparecer&aacute;n 
+                  resaltados en negrita (los ejemplos ir&aacute;n adem&aacute;s 
+                  en cursiva. En los ejemplos de la tabla no voy a usar variables 
+                  ni identificadores porque quiero que primero entiendas la funci&oacute;n 
+                  de cada operador. los ejemplos son alias</font></p>
+                <table width="100%" border="0" cellspacing="1">
+                  <tr bgcolor="#DFDFFF" align="none"> 
+                    <td width="16%" valign="top" align="none"><font size="3"><b><font face="Arial">Operador</font></b></font></td>
+                    <td width="84%"><font size="3"><b><font face="Arial">Significado/funci&oacute;n</font></b></font></td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">==</font></td>
+                    <td width="84%"> 
+                      <p><font size="2" face="Arial"><i>igual a</i><br>
+                        Logicamente se refiere a que si cierto valor es igual 
+                        a otro, generalmente se usan identificadores, variables 
+                        o valores fijos. En cualquier comparaci&oacute;n se pueden 
+                        usar valores fijos o variables (para que luego no digan 
+                        que no he mencionado eso)</font></p>
+                      <p><font face="Arial" size="2"><i><b>igual if (blanco == 
+                        blanco) echo -a Todo es blanco</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font size="2" face="Arial">===</font></td>
+                    <td width="84%"> 
+                      <p><font size="2" face="Arial"><i>igual a (sensible a las 
+                        may&uacute;sculas)</i> <br>
+                        Hace casi lo mismo que el anterior, aunque no ser&aacute; 
+                        lo mismo para &eacute;ste Hola que hoLa, puesto que debe 
+                        ser <b>exactamente identico</b> cada lado de la igualdad.</font></p>
+                      <p><font face="Arial" size="2"><i><b>sensible {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;</b></i></font><b><i><font face="Arial" size="2">if 
+                        (Ana === ana) echo -a Ana es lo mismo que ana<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;else echo -a Um... parece que 
+                        no es as&iacute;<br>
+                        }</font></i></b><font face="Arial" size="2"> </font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">!=</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>distinto de</i><br>
+                        No creo que haga falta explicarlo</font></p>
+                      <p><font face="Arial" size="2"><b><i>distinto if (casa != 
+                        perro) echo -a parece ser que la casa no es un perro</i></b></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">&lt;</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>menos que</i><br>
+                        Se usa para saber si un valor es menor que otro:</font></p>
+                      <p><font face="Arial" size="2"><b><i>menor if (0 &lt; 1) 
+                        echo -a cero es menor que uno</i></b></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">&gt;</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>m&aacute;s que</i><br>
+                        Se usa para saber si un valor es mayor que otro (nada 
+                        nuevo...)</font></p>
+                      <p><font face="Arial" size="2"><i><b>mayor if (1 &gt; 0) 
+                        echo -a uno es mayor que cero</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">&gt;=</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>mayor o igual a</i><br>
+                        Por su propio significado cae no?</font></p>
+                      <p><font face="Arial" size="2"><b><i>mayorogiual if (2 &gt;= 
+                        2) echo -a se ha dado un valor mayor o igual a 2</i></b></font></p>
+                      <p><b><i><font face="Arial" size="2">mayoroigual2 if (5 
+                        &gt;= 2) echo -a hay un valor mayor o igual a 2</font></i></b></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">&lt;=</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>menor o igual a</i><br>
+                        Creo que no hace falta explicarlo tambien... solo ejemplos</font></p>
+                      <p><font face="Arial" size="2"><i><b>menoroigual if (2 &lt;= 
+                        3) echo -a el 2 es menor o igual que 3</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">//</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>es un multiplo de</i><br>
+                        Piensa un poco... es como el mayor o menor que... lo explica 
+                        por su tradduci&oacute;n con palabras</font></p>
+                      <p><font face="Arial" size="2"><i><b>multiplo if (5 // 25) 
+                        echo -a El 5 es un multiplo de 25</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">\\</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>no es un multiplo de</i><br>
+                        Lo contrario al anterior</font></p>
+                      <p><font face="Arial" size="2"><b><i>nomultiplo if (3 \\ 
+                        25) echo -a El 3 no es m&uacute;ltiplo de 25</i></b></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">&amp;</font></td>
+                    <td width="84%" valign="top"> 
+                      <p><font face="Arial" size="2"><i>bitwise</i><br>
+                        Puf... no se como explicarlo... (nadie es p</font><font face="Arial" size="2">erfecto 
+                        y yo menos)</font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isin</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>una palabra o letra est&aacute; 
+                        dentro de una cadena</i><br>
+                        Se usa para buscar coincidencias inexactas (ya que con 
+                        esto especificas que cualquier palabra que contenga ese 
+                        valor o cadena es v&aacute;lida</font></p>
+                      <p><font face="Arial" size="2"><i><b>saludo if (a isin hola) 
+                        echo -a parece ser que hay una a :-P</b></i></font></p>
+                      <p><font face="Arial" size="2">Debo apuntar que a partir 
+                        del isin se utiliza una explamaci&oacute;n para negar 
+                        algo, por ejemplo:</font></p>
+                      <p><b><i><font face="Arial" size="2">saludo2 if (j !isin 
+                        hola) echo -a no hay una &quot;j&quot; en &quot;hola&quot;</font></i></b></p>
+                      <p><font face="Arial" size="2">As&iacute; que en las estructuras 
+                        que siguen tienes un funcionamiento parecido</font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font size="2" face="Arial">isincs</font></td>
+                    <td width="84%"><font size="2" face="Arial"><i>una palabra 
+                      o letra est&aacute; dentro de una cadena y adem&aacute;s 
+                      es sensible a las mayusculas</i><br>
+                      Parecido al isin, solo que influyen las may&uacute;sculas</font></td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font size="2" face="Arial">iswm</font></td>
+                    <td width="84%"> 
+                      <p><font size="2" face="Arial">una cadena comod&iacute;n 
+                        coincide con otra cadena<br>
+                        Se usa para buscar coincidencias en un rango mayor que 
+                        isin, mejor que veas el ejemplo para verlo</font></p>
+                      <p><font face="Arial" size="2"><i><b>comodines if (m*l* 
+                        iswm mola) echo -a parece que mola coincide</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isnum</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>un valor es un n&uacute;mero 
+                        o pertenece a un rango n&uacute;mer&iacute;co</i><br>
+                        Extremadamente util en algunas ocasiones. Se usa para 
+                        saber si una valor est&aacute; dentro de un intervalo 
+                        determinado (1-7 por ejemplo) o si ese valor es num&eacute;rico 
+                        o no, todo hay que decirlo y el segundo par&aacute;metro 
+                        es opcional, mira el ejemplo:</font></p>
+                      <p><font face="Arial" size="2"> <b><i>numero if (4 isnum) 
+                        echo -a el 4 es un n&uacute;mero</i></b></font></p>
+                      <p><b><i><font face="Arial" size="2">numero2 if (2 isnum 
+                        1-5) echo -a el 2 es un n&uacute;mero entre el 1 y el 
+                        5</font></i></b></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isletter</font></td>
+                    <td width="84%"><font face="Arial" size="2">un valor es una 
+                      letra o pertenece a una serie de letras<br>
+                      De funcionamiento parecido al isnum solo que con letras</font></td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">ison</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">Tal nick est&aacute; en tal 
+                        canal<br>
+                        De uso realmente recomendado para saber si alguien est&aacute; 
+                        en un canal donde nosotros estamos (muy util en algunos 
+                        casos la verdad)</font></p>
+                      <p><font face="Arial" size="2"><i><b>100scripts if (Locorl 
+                        ison #100scripts) echo -a Ahi tenemos en #100scripts al 
+                        vIRCiado de Locorl</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isop</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2"><i>El nick indicado es op 
+                        en el canal indicado</i>, util para acciones que tengan 
+                        que ver con kicks o baneos la verdad</font></p>
+                      <p><font face="Arial" size="2"><i><b>mirasitieneop if (Locorl 
+                        isop #100scripts) echo -a Locorl tiene op en #100scripts</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isvo</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">De funcionamiento parecido 
+                        al isop, nos permite saber si un nick determinado es op 
+                        o no en un canal</font></p>
+                      <p><font face="Arial" size="2"><i><b>tienevoz if (SHaDoW 
+                        isvo #100scripts) echo -a Ya tenemos otro bot inutil con 
+                        voz en el canal</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">ishelp</font></td>
+                    <td width="84%"><font face="Arial" size="2">El helper (ayudante) 
+                      sin mal no recuerdo es una especie de semi-op, aunque no 
+                      se usa este en el irc-hispano (en ninguno de los 2) si creo 
+                      recordar que se usa en Dalnet, no pongo ejemplo porque funciona 
+                      EXACTAMENTE igual al isop e isvo</font></td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isreg</font></td>
+                    <td width="84%"><font face="Arial" size="2">Se refiere a si 
+                      un nick es un nick &quot;normal&quot; (que no tiene op, 
+                      voz, estatus de ayudante), paso de ejemplos por la raz&oacute;n 
+                      dada en el ishelp</font></td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">ischan</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">Interesante este... sirve 
+                        para saber si el par&aacute;metro que le das es un canal 
+                        donde est&aacute;s, ejemplo ocupa una l&iacute;nea, pero 
+                        por esas cosas de la vida la l&iacute;nea se parte :-P</font></p>
+                      <p><font face="Arial" size="2"><i><b>escanal if (#100scripts 
+                        ischan) echo -a De entre todos los canales en los que 
+                        est&aacute;s #100scripts es uno de ellos</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isauto</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">Usado para saber si un determinado 
+                        nick (o direcci&oacute;n, dependiendo de como lo tengas 
+                        definido) est&aacute; en tu lista de autoop de un canal.</font></p>
+                      <p><font face="Arial" size="2"><i><b>esautoop if (Locorl 
+                        isauto #100scripts) echo -a Locorl figura en la lista 
+                        de autoops</b></i></font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isignore</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">Para saber si un nick est&aacute; 
+                        en nuestra lista de ignore, podemos indicarle que mire 
+                        tamb&iacute;en si tiene un tipo determinado de ignore.</font></p>
+                      <p><font face="Arial" size="2"><i><b>esignore if (Locorl 
+                        isignore) echo -a Locorl est&aacute; en tu lista de ignore</b></i></font></p>
+                      <p><b><i><font face="Arial" size="2">esignore2 if (Locorl 
+                        isignore t) echo -a Se est&aacute;n ignorando los ctcp's 
+                        de locorl</font></i></b></p>
+                      <p><font face="Arial" size="2">[Aclaraci&oacute;n] el t 
+                        del <i>isignore</i> se refiere al par&aacute;metro -t 
+                        del /ignore, con ello se ignoran los ctcp's de un determinado 
+                        nick o de una determinada direcci&oacute;n</font></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="lightgrey"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isprotect</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">Para saber si un nick est&aacute; 
+                        en la lista de nicks (o direcciones) protegidos del mIRC, 
+                        funciona de igual forma que el isauto, al igual que este, 
+                        el segundo par&aacute;metro es opcional</font></p>
+                      <p><font face="Arial" size="2"><i><b>protegido if (Locorl 
+                        isprotect) echo -a Locorl est&aacute; protegido</b></i></font></p>
+                      <p><b><i><font face="Arial" size="2">prote if (locorl isprotect 
+                        #100scripts) echo -a Locorl est&aacute; protegido en #100scripts</font></i></b></p>
+                    </td>
+                  </tr>
+                  <tr bgcolor="white"> 
+                    <td width="16%" valign="top" align="none"><font face="Arial" size="2">isnotify</font></td>
+                    <td width="84%"> 
+                      <p><font face="Arial" size="2">Ultimo ya! :-P. Este nos 
+                        sirve para saber si un nick determinado est&aacute; en 
+                        el notify del mIRC</font></p>
+                      <p><font face="Arial" size="2"><i><b>esnotify if (hPm isnotify) 
+                        echo -a Warra King on the irc :-P</b></i></font></p>
+                    </td>
+                  </tr>
+                </table>
+                <p>&nbsp;</p>
+                <p> <font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y 
+                  como no, despu&eacute;s de la explicaci&oacute;n van los ejemplos, 
+                  excepciones y explicaciones extensas, rollos increibles, blablablabla... 
+                  Vamos a poner en pr&aacute;ctica unos cuantos conceptos y ense&ntilde;ar 
+                  un poco m&aacute;s de qu&eacute; va esto. Probemos con un alias 
+                  para saber el tama&ntilde;o de un archivo, que llamaremos <i>tama&ntilde;o</i> 
+                  y nos devolver&aacute; el tama&ntilde;o en bytes, kilobytes 
+                  y megas:</font></p>
+                <table width="84%" border="0">
+                  <tr> 
+                    <td><b><i><font size="2" face="Arial">tamaño {</font></i></b></td>
+                  </tr>
+                  <tr> 
+                    <td><b><i><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;if 
+                      (($lof($1-) >= 1024) && ($lof($1-) <= 1048575)) return $round($calc($lof($1-) 
+                      / 1024),2) Kb</font></i></b></td>
+                  </tr>
+                  <tr> 
+                    <td><b><i><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;if 
+                      ($lof($1-) >= 1048576) return $round($calc($lof($1-) / 1048576),2) 
+                      Mb</font></i></b></td>
+                  </tr>
+                  <tr> 
+                    <td><b><i><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;else 
+                      return $lof($1-) bytes</font></i></b></td>
+                  </tr>
+                  <tr> 
+                    <td><b><i><font size="2" face="Arial">}</font></i></b></td>
+                  </tr>
+                </table>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ahora 
+                  expliquemos el ejemplo, vayamos por partes, si te fijas, el 
+                  alias que estamos usando aqu&iacute; est&aacute; en modo de 
+                  identificador (ya que si se cumple una condici&oacute;n u otra 
+                  devuelve un valor), se han usado los identificadores <i>$lof</i> 
+                  (tama&ntilde;o del archivo), <i>$round</i> (redondeo a x d&eacute;cimas) 
+                  y el $1- de par&aacute;metro, se usa este puesto que los alias 
+                  que funcionan como identificadores toman las comas como separadores 
+                  de par&aacute;metros (esto deber&iacute;as sabertelo ya).<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No ver&iacute;as nada 
+                  nuevo en esto si no fuese porque el primer if incluye una novedad, 
+                  los &amp;&amp;. En los if puedes meter varias comparaciones 
+                  a fin de que se cumplan todas (&amp;&amp;) o alguna de esas 
+                  (||) o una combinacion de ambas para que si se cumplen una serie 
+                  de condiciones o adem&aacute;s se cumple otra se realice tal 
+                  o cual acci&oacute;n.<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Explicaci&oacute;n 
+                  del ejemplo] En el alias el primer if dice al mIRC que si el 
+                  tama&ntilde;o es mayor o igual a 1024 bytes <b>y</b> menor o 
+                  igual a 1048575 bytes que devuelva el tama&ntilde;o en kilobytes, 
+                  en el segundo dice que si el tama&ntilde;o es mayor o igual 
+                  a 1048576 bytes el mIRC ha de devolver el tama&ntilde;o en megas 
+                  y por ultimo, el <i>else</i> quiere decir que si no se cumple 
+                  ninguna de estas condiciones devuelva el tama&ntilde;o en bytes&iquest;lo 
+                  entiendes?&iquest;no? Pues pasate por el canal y pregunta por 
+                  donde te quedas atascado :-). Eesto es un ejemplo, no han de 
+                  ser estrictamente las mismas cosas :-P</font></p>
+                <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una 
+                  vez solventadas las dudas... vayamos a la siguiente lecci&oacute;n 
+                  b&aacute;sica, los remotes sencillos, la parte sobre la que 
+                  se mueven el 95% de los scripts y addons que campan por ah&iacute;</font></p>
+              </div>
+            </div>
+            <p align="right"><font size="2" face="Arial"><b>&lt;</b> <a href="scripting-cursillo-00-indice.html" target="_self">Volver 
+              al indice de contenidos</a> <b>||</b> Siguiente: <a href="scripting-cursillo-05-remotes-prin.htm">Remotes 
+              sencillos</a><b>&gt;</b></font> 
+            <p align="center">&nbsp; 
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish497d1269" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=497d1269&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

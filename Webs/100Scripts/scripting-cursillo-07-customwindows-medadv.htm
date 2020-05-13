@@ -1,0 +1,171 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish4d838bf3{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish4d838bf3{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip4d838bf3{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad4d838bf3"></div>
+
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<TITLE>Web del Canal #100scripts - Curso de Scripting - Lecci&oacute;n 7: Creaci&oacute;n de ventanas personalizadas</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="75%" border="0">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Creaci&oacute;n 
+                de ventanas personalizadas<br>
+                </u></b></font><br align="right">
+                <font size="2" face="Arial">Texto original realizado por Typhoon, 
+                posteriormente lo he ampliado con unas cuantas cosas, gracias 
+                Typhoon (miembros y habituales del canal... moved el culo!)</font></p>
+              <p align="left"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En 
+                este apartado vamos a aprender a crear nuestras propias ventanas. 
+                Ejemplos de estas ventanas son las típicas del whois, scan de 
+                puertos o clones... que incluyen algunos scripts...<br>
+                <font size="1">Nota de Locorl: si, muy bien dicho, en algunos 
+                scripts porque en el mio no :P</font></font></p>
+              <p align="left"><font face="Arial" size="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vamos 
+                a empezar por crear una ventana sencilla, en la que se incluya 
+                nuestra información personal: nombre, nick, web, e-mail.... Es 
+                un ejemplo muy tonto, pero puede valer perfectamente para lo que 
+                queremos conseguir, introducirte en el maravilloso y amplio mundo 
+                de las ventanas personalizadas ;-P.</font></p>
+              <p align="left"><font face="Arial" size="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Empecemos 
+                por lo m&aacute;s b&aacute;sico, vamos a crear una ventana con 
+                las dimensiones que nosotros queramos e intencionadamente sin 
+                ningun modificador, por ejemplo: </font></p>
+              <p align="center"><font face="Arial" size="2"><b>window @informacion 
+                200 200 300 400</b></font></p>
+            </div>
+            <blockquote> 
+              <div align="left"> 
+                <p><font face="Arial" size="2">Esto crearía una ventana llamada 
+                  @Informacion, de un tamaño de 300 de ancho por 400 de alto. 
+                  Hecho esto, vamos a explicar algunas cosillas importantes.<br>
+                  Lo primero es que todos los nombres de ventana han de empezar 
+                  por @.<br>
+                  Los 2 primeros números después del nombre de la ventana indican 
+                  a que distancia de la esquina superior izquierda del mIRC se 
+                  situará la ventana, y los dos números siguientes, las dimensiones 
+                  de la misma, ancho y alto respectivamente. <br>
+                  Se podrían poner parámetros para mejorar la ventana inicialmente, 
+                  pero eso ya lo veremos mas adelante.</font></p>
+              </div>
+            </blockquote>
+            <div align="left"> 
+              <p><font face="Arial" size="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pero 
+                el comando window tiene una serie de par&aacute;metros entre el 
+                nombre del comando y el nombre de la ventana que hacen cambios 
+                interesantes en el comportamiento y en el aspecto de la misma 
+                ventana, pero que no me voy a dedicar a poner aqu&iacute; (para 
+                eso est&aacute; la ayuda del mIRC), pero si que voy a tratar 2 
+                casos especiales de ventanas personalizadas: la ventanas graficas, 
+                que las tratar&eacute; en otra lecci&oacute;n y las ventanas en 
+                modo lista (listbox).</font></p>
+              <p align="center"><font face="Arial" size="2"><b><i><u>Ventanas 
+                en modo lista (listbox) </u></i></b></font></p>
+              <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Con las ventanas normales podemos mostrar texto con un <i>echo 
+                @ventana</i> o con un <i>aline @ventana,</i> sin embargo esto 
+                no ocurre as&iacute; cuando tenemos en modo lista (usando el par&aacute;metro 
+                -l para crear la ventana), puesto que <b><i>con los listbox solo 
+                son v&aacute;lidos los aline @ventana</i></b>, as&iacute; que 
+                si ves un echo dirigido a una ventana y esta aun existiendo aparece 
+                en el status es que has hecho algo mal :-P</font></p>
+            </div>
+            <blockquote> 
+              <div align="left"><font face="Arial" size="2">Lo primero es lo primero, 
+                crearemos nuestra ventana en modo lista, le daremos una posicion 
+                y tama&ntilde;o para ser creados (que son obligatorios), y le 
+                asignaremos un menu que en este caso hemos llamado @lista, y quedar&aacute; 
+                as&iacute;: </font></div>
+              <div align="center"><font face="Arial" size="2"><b>window -l @lista 
+                100 100 400 200 @lista</b></font></div>
+              <div align="left">
+                <p><font face="Arial" size="2">Con esto habremos creado nuestra 
+                  ventana, solo nos queda trabajar con ella un poco y a&ntilde;adirle 
+                  lo que nos haga falta y manipularla con los comandos adecuados. 
+                  Los comandos de las ventanas personalizadas son <i>aline, rline, 
+                  dline iline, cline y sline. </i>Cada uno hace un trabajo diferente, 
+                  mostrados con un ejemplo entre par&eacute;ntesis: <i>aline</i> 
+                  a&ntilde;ade una l&iacute;nea al final de la ventana (aline 
+                  @lista hola), <i>dline </i>borra una l&iacute;nea en una posici&oacute;n 
+                  que le indiquemos y puede ser un intervalo o una l&iacute;nea 
+                  sola (dline @lista 1 o dline @lista 1-4), <i>rline</i> reemplaza 
+                  una l&iacute;nea de la ventana (rline @lista 1 adios), <i> iline</i> 
+                  inserta una l&iacute;nea en una posici&oacute;n que le indiquemos, 
+                  sline selecciona nuna l&iacute;nea y cline la colorea con el 
+                  color que indiquemos del 0 al 15</font></p>
+                <p><font face="Arial" size="2">Conocidos los comandos podemos 
+                  jugar un poco con ellos y probarlos, te recomiendo que a&ntilde;adas 
+                  unas 10 l&iacute;neas a tu ventana de prueba y vayas comprobando 
+                  lo que hacen y sobre todo piensa en algo nuevo ;-)</font></p>
+              </div>
+            </blockquote>
+            <div align="left">
+              <p><font face="Arial" size="2">(inacabado, vuelve otro dia xP)</font></p>
+            </div>
+            <p><font size="2" face="Arial"><b>&lt;</b> <a href="scripting-cursillo-00-indice.html" target="_self">Volver 
+              al indice de contenidos</a> <b>||</b> Siguiente: <a href="http://usuarios.multimania.es/w100scripts/scripting-cursillo-08-variablescompuestas-med.htm">Variables 
+              compuestas</a><b>&gt;</b></font> 
+            <p>&nbsp; 
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish4d838bf3" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=4d838bf3&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

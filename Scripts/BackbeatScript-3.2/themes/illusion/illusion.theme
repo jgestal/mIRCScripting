@@ -1,0 +1,244 @@
+;*************************************
+;       BaCKBEAT by Jimmy_RAY
+; 
+; http://backbeat.da.ru
+; http://jimmyray.da.ru
+; 
+; email: jimmy@welt.es
+;
+; No está permitida la copia/plagio
+; de ninguna de las partes de éste
+; código. Sí lo está su modificación
+; para uso personal excepto créditos.
+; En ningún caso se podrá distribuir 
+; el script modificado.
+;
+;*************************************
+
+;*************************************
+; Información del theme y datos:
+;
+;*************************************
+
+alias theme return themes\illusion\illusion.theme
+alias th.font return Terminal
+alias th.fontsize return 9
+
+[info]
+Name=Illusion theme
+Author=Jimmy_RAY
+Version=1.0
+Email=jimmy@welt.es
+Web=http://backbeat.da.ru
+
+;*************************************
+; Colores en la nicklist
+;
+;*************************************
+
+alias th.nc {
+  if ($1 == o) return 11
+  elseif ($1 == v) return 10
+  elseif ($1 == m) return 0
+  else return 14
+}
+
+;*************************************
+; Colores del mIRC
+;
+;*************************************
+
+alias th_color {
+  if ($1- == ACTION) return 6
+  elseif ($1- == CTCP) return 4
+  elseif ($1- == HIGHLIGHT) return 11
+  elseif ($1- == INFO) return 10
+  elseif ($1- == INFO2) return 10
+  elseif ($1- == INVITE) return 10
+  elseif ($1- == JOIN) return 10
+  elseif ($1- == KICK) return 4
+  elseif ($1- == MODE) return 10
+  elseif ($1- == NICK) return 10
+  elseif ($1- == NORMAL) return 10
+  elseif ($1- == EDITBOX TEXT) return 10
+  elseif ($1- == EDITBOX) return 1
+  elseif ($1- == NOTICE) return 12
+  elseif ($1- == NOTIFY) return 14
+  elseif ($1- == OTHER) return 15
+  elseif ($1- == OWN) return 15
+  elseif ($1- == PART) return 10
+  elseif ($1- == QUIT) return 10
+  elseif ($1- == TOPIC) return 10
+  elseif ($1- == WALLOPS) return 3
+  elseif ($1- == WHOIS) return 15
+  elseif ($1- == LISTBOX TEXT) return 0
+  elseif ($1- == LISTBOX) return 1
+  elseif ($1- == GRAYED) return 0
+  elseif ($1- == BACKGROUND) return 1
+}
+
+;*************************************
+; Errores en los comandos
+;
+;*************************************
+
+alias th.error {
+  goto $1
+  :msg | return /msg 14Insuficient parameters. 10Use 11[/msg <nick|channel> <text>]
+  :ctcp | return /ctcp 14Insuficient parameters. 10Use 11[/ctcp <nick|channel> <text>]
+  :ctcpreply | return /ctcpreply 14Insuficient parameters. 10Use 11[/ctcpreply <nick|channel> <text>]
+  :notice | return /notice 14Insuficient parameters. 10Use 11[/notice <nick|channel> <text>]
+  :onotice1 | return  /onotice: 14must be an Op on11 $chan
+  :onotice2 | return /onotice 14Insuficient parameters. 10Use 11[/onotice <text>]10 on a channel
+  :omsg1 | return  /omsg: 14must be an Op on 11 $chan
+  :omsg2 | return /omsg 14Insuficient parameters. 10Use 11[/omsg <text>]10 on a channel
+  :amsg | return /amsg 14Insuficient parameters. 10Use 11[/amsg <text>]
+  :say | return /say 14Insuficient parameters. 10Use 11[/say <text>]
+}
+
+;*************************************
+; Muestra general de información
+;
+;*************************************
+
+alias display {
+  haltdef | goto $1 
+  :topic | echo -t $2 $th.lg2 11 $+ $3 10changes topic to: 11' $+ $4- $+ ' | return
+  :start | echo -s ÿ | echo -s ÿÚÄÄÄ11(10welcome...11)ÄÄÄÄ10ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄ Ä | echo -s ÿ³ theme:  11i10llusion11 v2.0 (zIRC:el_guineo) | echo -s ÿ³ author: Jimmy_RAY | echo -s ÿÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ10ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄ Ä | echo -s ÿ | return
+  :connect | return  
+  :snotice | $snotices_window SERV $3- | return
+  :rawmode | echo -t $2 $th.lg2 14mode: 11 $+ $3 $+ :15 $4-  $+ $2  | return
+  :join | echo -t $2 $th.lg2 14joins: 11 $+ $3 15[10 $+ $4 $+ 15] $joinclon($iif($gettok($clones($3),1,32) > 1,15[Clones15[ $+ $calc($ifmatch -1) $+ 15] $gettok($clones($3),3-,32) $+ 15] ))))  $iif($nickant($3),15[nick anterior: $ifmatch $+ 15]) | return
+  :joinme | echo -t $2 $th.lg Now talking in $2 | return
+  :part | echo -t $2 $th.lg2 14parts: 11 $+ $3 15[10 $+ $4 $+ 15] $iif($5,( $+ $5- $+ )) | return
+  :kickme | echo -ts $th.lg 14You were kicked from 11 $+ $2 14by10 $3 $iif($5- != $4,00(11 $+ $5- $+ 00))
+  :kick | echo -t $2 $th.lg2 10 $+ $4 14was kicked by10 $3 $iif($5- != $4,00(11 $+ $5- $+ 00)) | return
+  :banme | echo -ts $th.lg 4Banned from 11 $+ $2 10by $3 11(10 $+ $4 $+ 11) | return
+  :quit | echo -t $2 $th.lg2 14quits: 11 $+ $3 15[10 $+ $4 $+ 15] $iif($5,( $+ $5- $+ )) | return
+  :nick | echo -t $2 $th.lg2 10 $+ $3 14is now known as10 $4 | return
+  :ctcpchan | echo -t $2 CTCP  $3 11(10 $+ $4 $+ 11) sent $2 $5- 11request | return
+  :ctcpnick | echo -ts CTCP 10 $+ $2 $+  11(10 $+ $3 $+ 11) 10sent you a 11 $+ $4- 10request | return
+  :ctcpreply | echo -ts CTCPREPLY 10 $+ $2 $+  11(10 $+ $3 $+ 11) 10sent you a 11 $+ $4- 10reply | return
+  :ctcpreplyed | echo -ts $th.lg Replyed: $2- | return 
+  :textchan |  :inputchan | echo -t $2 11( $+ $th.sts($3,$2) $+ $3 $+ 11)10 $$4- | return
+  :textquery | echo -t $2 11( $+ $2 $+ 11)10 $$3- | return
+  :nombrado | echo -ta $th.lg 11 $+ $3 $+ / $+ $2 $+ > $4- | return 
+  :chat | echo -t = $+ $2 11( $+ $2 $+ 11)10 $$3- | return
+  :noticechan | echo 11 -t $2 - $+ $4 $+ : $+ $3 $+ - $5- | return  
+  :noticequery | echo 11 -ta - $+ $2 $+ - $3- | return  
+  :actionchan | :actionquery | echo 13 -t $2 * $iif($2 !ischan,$2,$3) $iif($2 !ischan,$3-,$4-) | return
+  :inputquery | :inputchat | echo -t $2 11( $+ $3 $+ 11)10 $4- | return
+  :invite | echo -ta $th.lg 11 $+ $3 10invites you to join 11 $+ $2 | return
+  :notify | echo -ts $th.lg 11 $+ $2 10is on IRC $iif($3,11(10 $+ $3- $+ 11)) | return
+  :unotify | echo -ts $th.lg 11 $+ $2 10has left IRC $iif($3,11(10 $+ $3- $+ 11)) | return
+  :usermode | echo -ta $th.lg Usermode:11 $4 (10 $+ $3 $+ 11) | return
+  :wallops | echo -ts $th.lg Wallops:11 $2 $+ 10:11 $3- | return
+  :error | echo -ta $th.lg 4Error: $2- | return
+  :msg | echo -ta ->11[msg11[ $+ $2 $+ 11]] $3- | return
+  :ctcp | echo -ta ->11[ctcp11[ $+ $2 $+ 11]] $upper($3) $4- | return
+  :notice | echo -ta ->11[notice11[ $+ $2 $+ 11]] $3- | return
+  :onotice | echo -ta ->11[notice11[@ $+ $2 $+ 11]] $3- | return
+  :omsg | echo -ta ->11[omsg11[@ $+ $2 $+ 11]] $3- | return
+  ;type nick address f/s ignoretime 
+  :floodpers | echo -a $th.lg 4 $+ $2 Flood Detected:14 $5 $2 $+ s in $6 $+ s 10from 11 $+ $3 (10 $+ $4 $+ 11)10 Added 11 $+ $8 10to ignore list for:11 $duration($7) | return 
+  :echo | echo $th.lg $$2- | return
+  :lag | echo $th.lg Lag:11 $2 | return
+}
+
+;*************************************
+; Especificación de raws modificados
+;
+;*************************************
+
+alias th.raws return  221.251.252.253.254.255.301.307.310.311.312.313.317.318.319.324.329.332.333.341.372.375.376.378.401.421.443.471.473.474.475
+
+;*************************************
+; Especificación de raws no modificados
+;
+;*************************************
+
+alias th.nomod return 321.322.323.353.366.364.365
+
+;*************************************
+; Muestra de la información de los raws
+;
+;*************************************
+
+alias displayraw {
+  if ($istok($th.nomod,$1,46) == $true) return
+  haltdef | var %numeric $1 | tokenize 32 $2-
+  goto $iif($istok($th.raws,%numeric,46) == $true,%numeric,default)
+
+  ;---------(WHOIS)---------
+
+  :301 | if (%whois) { echo -ts ÿ³ 10Awayÿÿÿ :11 $2 is away: 11 $+ $3- | return } 
+  echo -ts $th.lg 11 $+ $2 10is away: 11 $+ $3- | return
+  :307 | :310 | :313 | :378 | echo -ts ÿ³ 10Infoÿÿÿ :11 $3- | return
+  :311 | echo -ts ÿÚÄ11(10whoisÿ: $2 11)ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ11ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄÄÄÄ ÄÄ ÄÄ Ä 
+  echo -ts ÿ³ 10address :11 $3 $+ @ $+ $4 
+  if ($6) echo -ts ÿ³ 10ircname :11 $6- 
+  var %x $clones($2)
+  if ($gettok(%x,1,32) > 1) echo -ts ÿ³ 10clonesÿÿ:11 15[ $+ $calc($gettok(%x,1,32) -1) $+ 15] $replace($gettok(%x,3-,32),$chr(32),$chr(44))
+  set -u20 %whois on 
+  return
+  :312 | echo -ts ÿ³ 10serverÿÿ:11 $3 11(10 $+ $4- $+ 11) | return
+  :317 | echo -ts ÿ³ 10Idleÿÿÿÿ:11 $duration($3) | return
+  :318 | unset %whois | echo -ts ÿÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ11ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄÄ Ä Ä | return
+  :319 | echo -ts ÿ³ 10channels:11 $3- | return
+
+  ;---------(MOTD)---------
+  :375 | echo -ts $th.lg Message of the day: | return
+  :372 | echo -ts ÿÿÿÿ $2- | return
+  :376 | echo -ts $th.lg End of MOTD | return
+
+  ;---------(Lusers)---------
+
+  :251 | echo -ts  ÿÿ11welcome to irc ÕÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¸ | echo -ts  ÿÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄµ10 $align(37,$server) ³
+  echo -ts  ÿ³ 11server info:ÿÿÔÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¾ | echo -ts  ÿ³ | echo -ts  ÿ³ 10users:11ÿÿÿ $4 | echo -ts  ÿ³ 10hidden:11ÿÿ $7
+  echo -ts  ÿ³ 10Servers:11ÿÿ $+ $10 | return
+  :252 | echo -ts  ÿ³ 10Opers:11ÿÿÿ $2 | return
+  :253 | echo -ts  ÿ³ 10Unknown:11ÿ  $2- | return
+  :254 | echo -ts  ÿ³ 10Channels:11ÿ $+ $2 | return
+  :255 | echo -ts  ÿ³ 10Clients:11ÿÿ $+ $4 11(10 $+ $7 servers11) | echo -ts ÿÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ11ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄÄ Ä Ä | return  
+
+  ;---------(De canal)---------
+
+  :333 | echo -t $2 $th.lg Set by $3 11(10 $+ $asctime($4) $+ 11) | return
+  :332 | echo -t $2 $th.lg Topic: $3- | return
+  :324 | if ($2 ischan) echo -t $2 $th.lg Channel modes:11 $3 | return
+  :329 | if ($2 ischan) echo -t $2 $th.lg Created:11 $asctime($3) | return
+
+  ;---------(Otros)---------
+
+  :341 | echo -ta $th.lg 11 $+ $2 10has been invited to join11 $3 | return 
+  :443 | echo -ta $th.lg 11 $+ $2 10is already on11 $3 | return 
+  :401 | echo $iif($query($2),-t $2,-ts) $th.lg 11 $+ $2 $+  no such nick/channel | return
+  :421 | echo -ts $th.lg I don't understand '14 $+ $2 $+ ' - Erroneous Command | return
+  :471 | echo -ts $th.lg 10Can't join 11 $+ $2 $+  (Channel is full).  | return
+  :473 | echo -ts $th.lg 4Error: Cannot Join Channel - Invite Only 11(10 $+ $2 $+ 11) | return
+  :474 | echo -ts $th.lg 4Error: Cannot Join Channel - You´re banned 11(10 $+ $2 $+ 11) | return
+  :475 | echo -ts $th.lg 4Error: Cannot Join Channel - Requires Correct Key 11(10 $+ $2 $+ 11) | return
+  :221 | return
+  ;---------(Por defecto)---------
+
+  :default | echo -ts $th.lg $2- | return
+}
+
+;*************************************
+; Logos frecuentes del theme
+;
+;*************************************
+
+alias th.lg return 10:11z10:
+alias th.lg2 return 10¯11¯
+
+;*************************************
+; @/+ Delante del nick cuando hablan
+;
+;*************************************
+
+alias th.sts {
+  if ($1 isop $2) return 11@
+  elseif ($1 isvo $2) return 11+
+  else return 
+}

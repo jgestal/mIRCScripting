@@ -1,0 +1,19 @@
+koala.nsw.au.dal.net 6667 6669
+raptor.DAL.net 6661 6667
+xgw.DAL.net 6667 7000
+vogon.dal.net 6667 6668
+defiant.dal.net 6667 7003
+ans.dal.net 6664 6667 
+davis.DAL.net 6667 6668
+voyager.dal.net 6666 6667
+spider.dal.net 6667 6669
+mindijari.dal.net 6667 7000
+sodre.dal.net 6663 6667
+centurion.dal.net 6667 6668
+hebron.dal.net 6661 6667
+stlouis.dal.net 6665 6667
+barovia.dal.net 6661 6667
+glass.dal.net 6667
+webzone.dal.net 6664 6667
+armory.dal.net 6667 7002
+irc.dal.net 6666 6667

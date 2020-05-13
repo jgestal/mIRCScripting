@@ -1,0 +1,194 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish5fe13e77{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish5fe13e77{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip5fe13e77{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad5fe13e77"></div>
+<html>
+<head>
+<title>Curso de Scripting '99 - Los popups</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="80%" border="0">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td colspan="4"> 
+            <div align="center"> 
+              <p align="left"><font face="Arial" color="#000000" size="5"><b><u>Iniciaci&oacute;n 
+                a los popups<br>
+                </u></b></font><font size="3" face="Arial"><strong><br>
+                </strong></font></p>
+            </div>
+            <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;En muchos scripts 
+              el tema de los popups es vital, en otros ni siquiera los usan, si 
+              bien es cierto que los popups a nivel b&aacute;sico son lo m&aacute;s 
+              sencillo de aprender (yo empec&eacute; traduci&eacute;ndolos ;-)</font>
+            <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;En esta primera 
+              parte de los popups no se van a tratar varios temas avanazados, 
+              para eso avanza un par de lecciones :-P, simplemente se va a tratar 
+              el tema de la jerarqu&iacute;a y el uso de comandos m&uacute;ltiples 
+              (que ser&aacute; ampliado en la lecci&oacute;n de alias), en este 
+              paso no se dan temas ligeramente avanzados (nivel medio) como los 
+              popups creados desde el remote con el prefijo &quot;menu&quot; o 
+              los men&uacute;s din&aacute;micos, las cosas por pasos y poco a 
+              poco entran bien en la cabeza.</font>
+            <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;Ahora empecemos, 
+              primero el tema de la <b>jerarqu&iacute;a</b> (el orden). El mIRC 
+              procesa lo que le pones en la secci&oacute;n de popups (la pesta&ntilde;a 
+              donde pone popups), los popups se dividen en 5 secciones: <i>status</i> 
+              (la ventana status :-P), <i>channel</i> (los men&uacute;s que saldran 
+              en el area de texto de los canales), <i>query</i> (el men&uacute; 
+              que saldr&aacute; en los privados), <i>nicklist </i>(lista de nicks 
+              en los canales) y <i>menubar</i> (el men&uacute; que a&ntilde;adimos 
+              nosotros a la barra de men&uacute;s y que en el mIRC &quot;pelado&quot; 
+              sale como <i>Commands</i>). Todos ellos son accesibles desde el 
+              editor que lleva el mIRC (no hay ning&uacute;n misterio con esto). 
+              Despu&eacute;s de irme por las lagunas de Ruidera vayamos al grano:</font> 
+            <p><font face="Arial" size="2">Un ejemplo b&aacute;sico de popup ser&iacute;a 
+              este que he sacado de mi script para la lista de nicks:<br>
+              </font>
+            <table width="50%" border="0">
+              <tr> 
+                <td><b><font face="Arial" size="2">Info</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">.whois:whois $$1</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">.ucentral: uwho $$1</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">-</font></b></td>
+              </tr>
+              <tr>
+                <td><b><font face="Arial" size="2">saludar:me saluda a $$1</font></b></td>
+              </tr>
+            </table>
+            <p><font size="2" face="Arial">Ahora las explicaciones, esto que puede 
+              parecer complicado no lo es tanto :-), la palabra <i>Info</i> hace 
+              de &quot;raiz&quot; de un submen&uacute; en el cual va a haber uno, 
+              dos o m&aacute;s elementos (en este caso dos), en los que <i>whois</i> 
+              hace un whois al nick seleccionado en la lista de nicks, <i>ucentral</i> 
+              saca la solapa &quot;whois?&quot; del libro de direcciones con /uwho.<br>
+              El gui&oacute;n es una separaci&oacute;n que no es necesaria, pero 
+              que algunos como yo tenemos la man&iacute;a de usar de forma compulsiva 
+              :-). Por ultimo el elemento saludar lo que hace es mandar al mIRC 
+              que ponga ese texto con el nombre del nick seleccionado. Pero la 
+              teodr&iacute;a no sirve de nada sin la pr&aacute;ctica... as&iacute; 
+              que pruebalo! :-)</font>
+            <p><font face="Arial" size="2"> &nbsp;&nbsp;&nbsp;&nbsp;&iquest;Pero 
+              qu&eacute; pasa cuando queremos poner <b>varios comandos</b> en 
+              un mismo elemento del men&uacute;? Sencillamente se usan llaves 
+              {} y en cada l&iacute;nea se pone el comando o separadas por el 
+              <b>|</b>, por descontado se pueden usar comparaciones y dem&aacute;s 
+              cosas :P, f&iacute;jate en el siguiente ejemplo:<br>
+              </font>
+            <table width="100%" border="0">
+              <tr> 
+                <td><b><font face="Arial" size="2">Info</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">.whois:whois $$1</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">.ucentral: uwho $$1</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">-</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">Control:</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">.Patear y Banear:{</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;kick 
+                  # $nick largo!</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;mode 
+                  # +b $address($nick,2)</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">}</font></b></td>
+              </tr>
+              <tr> 
+                <td><b><font face="Arial" size="2">saludar:{ me saluda a $$1 | 
+                  me no se olvida tampoco de saludar a todo el canal }</font></b></td>
+              </tr>
+            </table>
+            <p><font size="2" face="Arial">Realmente est&uacute;pida la modificaci&oacute;n 
+              del saludo, pero ilustrativa :-P, si te fijas el | se usa para usar 
+              varios comandos en una misma l&iacute;nea, no ha de ir necesariamente 
+              todo en una l&iacute;nea, aunque a veces puede ocupar menos espacio 
+              :-). Muchas veces podr&aacute; parecerte algo lioso el tener varios 
+              comandos en una misma l&iacute;nea porque a veces dificulta su lectura, 
+              pero cuando intentas hacer addons que ocupen un solo archivo el 
+              uso del | se vuelve indispensable</font>
+            <p><font size="2" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;No hay m&aacute;s 
+              por el momento, sigue adelante con la lecci&oacute;n de los aliases, 
+              si tienes alguna duda despu&eacute;s de leertelo por segunda vez, 
+              puedes preguntar siempre :-)</font>
+            <p align="right"><font size="2" face="Arial"><b>&lt;</b> <a href="scripting-cursillo-00-indice.html" target="_self">Volver 
+              al indice de contenidos</a> <b>||</b> Siguiente: <a href="scripting-cursillo-03-alias-prin.htm"> 
+              Creaci&oacute;n de aliases sencillos</a><b>&gt;</b></font> 
+            <p align="right"><font size="2" face="Arial"><b>!</b> Saltar a: Popups 
+              avanzados (din&aacute;micos, remotes...)</font>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish5fe13e77" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=5fe13e77&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

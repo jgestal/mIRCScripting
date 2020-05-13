@@ -1,0 +1,13 @@
+¿Cómo instalar el addOn?
+
+Sólo hay que copiar el fichero "antiban.mrc" al directorio de mIRC y
+escribir en cualquier ventana del mIRC el siguiente comando:
+
+/load -rs antiban.mrc
+
+y ya esta! x)
+
+Un Saludo, 
+		Jimmy_RAY
+
+Visita http://scripting.welt.es para tener la última versión o más addOns.

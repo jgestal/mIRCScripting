@@ -1,0 +1,39 @@
+flute.telstra.net.au 6667
+yoyo.cc.monash.edu.au 6667
+irc.usyd.edu.au 6667
+irc.openface.ca 6667
+irc.wu-wien.ac.at 6667
+irc.belnet.be 6667
+dinf.vub.ac.be 6667
+irc.felk.cvut.cz 6667
+irc.fu-berlin.de 6667
+irc.informatik.tu-muenchen.de 6667
+irc.rus.uni-stuttgart.de 6667
+irc.dknet.dk 6667
+luisvive.euiti.upv.es 6667
+irc.funet.fi 6667 6668
+irc.univ-lyon1.fr 6667
+irc.eurecom.fr 6667
+irc.enst.fr 6667
+sil.polytechnique.fr 6667
+irc.ibm.net.il 6667
+irc.tau.ac.il 6667
+irc.isnet.is 6667
+irc.ccii.unipi.it 6667
+irc.tin.it 6665 6667
+irc.nl.net 6667
+irc.xs4all.nl 6667
+irc2.sci.kun.nl 6667
+irc.ifi.uio.no 6667
+chat.bt.net 6664 6667
+ircnet.demon.co.uk 6667 6669
+irc.netcom.net.uk 6667
+irc.tokyo.wide.ad.jp 6667
+irc.silicon.net.my 6667 6668
+irc.mol.net.my 6667 6668
+ircnet.irc.aol.com 6667
+irc.ncal.verio.net 6667
+irc.anet-chi.com 6667
+irc.webbernet.net 6667
+irc.stealth.net 6667
+ircnet.sprynet.com 6667

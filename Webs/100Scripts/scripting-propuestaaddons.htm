@@ -1,0 +1,200 @@
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.defineSlot('/1040687/300x250-SLIDER', [300, 250], 'div-gpt-ad-1372347726325-2').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-LEFT', [728, 90], 'div-gpt-ad-1372347726325-3').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-BOTTOM-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-4').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-LEFT', [728, 90], 'div-gpt-ad-1372347726325-5').addService(googletag.pubads());
+googletag.defineSlot('/1040687/728x90-TOP-RIGHT', [728, 90], 'div-gpt-ad-1372347726325-6').addService(googletag.pubads());
+googletag.defineSlot('/1040687/POPUNDER', [1, 1], 'div-gpt-ad-1372347726325-7').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-7539432-9";
+</script>
+<style>
+#catfish24758a8b{PADDING: 0px;MARGIN: 0px 0px -90px;WIDTH: 100%;HEIGHT: 90px;BOTTOM: 0px;POSITION: fixed;}
+</style>
+<!--[if IE]>
+<style>
+#catfish24758a8b{ Z-INDEX: 1000; OVERFLOW: hidden; POSITION: absolute;}
+HTML,BODY {OVERFLOW: hidden;WIDTH: auto;HEIGHT: 100%;}
+DIV#zip24758a8b{PADDING: 0px;MARGIN: 0px;OVERFLOW: auto;WIDTH: 100%;HEIGHT: 100%;POSITION: relative;}
+</style>
+<![endif]-->
+<div id="topad24758a8b"></div>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_displayStatusMsg(msgStr) { //v2.0
+  status=msgStr;
+  document.MM_returnValue = true;
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3333FF" vlink="#003399">
+<table width="600" border="0">
+  <tr valign="top"> 
+    <td> 
+      <table width="90%" border="0" align="center">
+        <tr valign="top"> 
+          <td> 
+            <div align="left"> 
+              <h2><b><font face="Arial"><u>Scripting </u></font></b></h2>
+              <p><font face="Arial"><b>Propuesta general para identificar addons<br>
+                - Por Locorl</b></font></p>
+              <table width="75%" border="0">
+                <tr bgcolor="#006666"> 
+                  <td><font face="Arial" color="white"><b>Prop&oacute;sito</b></font></td>
+                </tr>
+              </table>
+              <p><font size="2" face="Arial">La idea es que cuantos m&aacute;s 
+                scripts utilicen este u otro m&eacute;todo concretado entre varios 
+                para identificar los addons mejor, yo propongo este porque me 
+                parece el m&aacute;s sencillo para poder identificar los addons. 
+                Este documento, es propenso a modificaciones... as&iacute; que 
+                alguna que otra vez leetelo</font></p>
+              <table width="75%" border="0">
+                <tr bgcolor="#006666"> 
+                  <td><font face="Arial" color="white"><b>Funcionamiento</b></font></td>
+                </tr>
+              </table>
+              <p><font face="Arial" size="2">Los addons que suelen distribuirse 
+                generalmente el primer archivo va con la extensi&oacute;n .mrc, 
+                aunque el sistema se usa para archivos de texto plano y de tipo 
+                ini, aunque ser&iacute;a v&aacute;lido igualmente para ambos, 
+                puesto que se inserta como un comentario, solo que en los inis 
+                hay que tener cuidado de no da&ntilde;ar ninguna secci&oacute;n.</font></p>
+              <p><font face="Arial" size="2">B&aacute;sicamente se trata de a&ntilde;adir 
+                un comentario en la pimera l&iacute;nea del addon con una serie 
+                de datos separados por un caracter poco frecuente (el resultante 
+                del $chr(127), que sale de la combinaci&oacute;n control-retroceso), 
+                el invento quedar&iacute;a as&iacute;:</font></p>
+              <p><b><font size="2" face="Arial">; Locorl  5.51  1.0b  http://dogscript.cjb.net/ 
+                 dscom.txt  dscomleeme.txt   2  Addon para conectarse a otros 
+                servidores sin necesidad de usar otro mIRC</font></b></p>
+              <p><font face="Arial" size="2">Uso el comentario que le tocar&iacute;a 
+                a mi addon DsCom!, tengo bastantes m&aacute;s, pero este es el 
+                que me ha motivado a hacer primero un m&eacute;todo que me siriviese 
+                en primera instancia a m&iacute; y luego para proponerlo como 
+                un m&eacute;todo generalizado. Una peque&ntilde;a aclaraci&oacute;n, 
+                <b>si en alg&uacute;n elemento no hace falta especificar algo 
+                se debe dejar un espacio en blanco</b>, ya que el mIRC no distingue 
+                muy bien eso de dos caracteres juntos....</font></p>
+            </div>
+            <ul>
+              <li> 
+                <div align="left"><font face="Arial" size="2"> Pimer elemento:nombre 
+                  del autor</font></div>
+              </li>
+              <li> 
+                <div align="left"><font face="Arial" size="2">Segundo: versi&oacute;n 
+                  del mIRC que requiere el addon</font></div>
+              </li>
+              <li> 
+                <div align="left"><font face="Arial" size="2">Tercero la versi&oacute;n 
+                  del addon, de mucha utilidad para el usuario que siempre quiere 
+                  tener lo ultimo :-)</font></div>
+              </li>
+              <li> 
+                <div align="left"><font face="Arial" size="2">Cuarto: es la direcci&oacute;n 
+                  de la web donde puede encontrarse</font></div>
+              </li>
+              <li> 
+                <div align="left"><font face="Arial" size="2"> El quinto se refiere 
+                  al archivo de ayuda, yo considero que deber&iacute;a ser una 
+                  obligaci&oacute;n por parte del autor incluir esto</font></div>
+              </li>
+              <li> 
+                <div align="left"><font face="Arial" size="2"> Sexto: es el leeme 
+                  donde se incluyen notas, aclaraciones...</font></div>
+              </li>
+              <li><font face="Arial" size="2">S&eacute;ptimo: aqu&iacute; se debe 
+                poner qu&eacute; archivos que se vayan a cargar dependen del addon</font></li>
+              <li><font face="Arial" size="2">Octavo: Determina si es un alias 
+                o un remote, el 1 significa alias, el 2 remote</font></li>
+              <li><font face="Arial" size="2">Noveno: La descripci&oacute;n del 
+                addon, demasiado larga como para aparecer en una l&iacute;nea, 
+                pero todav&iacute;a no se me ha ocurrido nada para separarlo, 
+                puesto que el retorno de carro no sirve para esto xP</font></li>
+              <li><font face="Arial" size="2">D&eacute;cimo y siguientes (si existen): 
+                en este lo dejo para tu imaginaci&oacute;n o necesidades, yo pondr&iacute;a 
+                en el d&eacute;cimo un comando para &quot;desinstalar&quot; el 
+                addon o para indicar las variables que usa (evitar&iacute;a muchos 
+                conflictos) </font></li>
+            </ul>
+            <p><font face="Arial" size="2">Solo tiene un inconveniente, si hacemos 
+              alguna utilidad para escribir el comentario, el comentario no se 
+              guardar&aacute; realmente si editamos el archivo con el editor del 
+              mIRC, se deber&iacute;a de recargar el addon y despues editarlo, 
+              as&iacute; nos evitar&iacute;amos &quot;inexplicables&quot; situaciones 
+              de que no se ha guardado el comentario :-)</font></p>
+            <table width="75%" border="0">
+              <tr bgcolor="#006666"> 
+                <td><font face="Arial" color="white"><b>Alternativas que se quedaron 
+                  atr&aacute;s </b></font></td>
+              </tr>
+            </table>
+            <p><font face="Arial" size="2">Bien, como siempre uno siempre da vueltas 
+              a un sistema, sopesa sus pros y contras y decide, yo eleg&iacute; 
+              este frente a otros sistemas porque me parec&iacute;a el m&aacute;s 
+              practico, aqu&iacute; los listo y opinad vosotros:</font></p>
+            <ul>
+              <li><font face="Arial" size="2"><i>Archivos separados</i>: con la 
+                descripcci&oacute;n del addon y dem&aacute;s... no es mal sistema, 
+                pero en el momento de la verdad me parece poco pr&aacute;ctico, 
+                sobre todo a la hora de generar el archivo de descripcci&oacute;n, 
+                puesto que este puede ser err&oacute;neo o no ser el que realmente 
+                deber&iacute;a ir con el addon</font></li>
+              <li><font face="Arial" size="2"><i>Archivo &uacute;nico con las 
+                descripciones seg&uacute;n el nombre de archivo</i>: muy bonito 
+                pero enseguida podemos tener serios conflictos si diferentes addons 
+                tienen archivos con el mismo nombre</font></li>
+            </ul>
+            <table width="75%" border="0">
+              <tr bgcolor="#006666"> 
+                <td><font face="Arial" color="white"><b>Dudas, sugerencias... 
+                  y dem&aacute;s</b></font></td>
+              </tr>
+            </table>
+            <p><font face="Arial" size="2">Bien, todos sabeis el mail del canal, 
+              si quereis hacer una consulta lo haceis via mail o me prenguntais 
+              en persona :-)</font><font face="Arial" size="2"></font></p>
+          </td>
+        </tr>
+      </table>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>
+</style></noframes></pre></xmp></noscript></noembed>
+
+<div id="catfish24758a8b" style="display:none"></div>
+<script src="http://ads.mmania.com/displaycf2.js.php?r=24758a8b&cc=es" type=text/javascript></script>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   try {
+      var pageTracker = _gat._getTracker("UA-7539432-9");
+      pageTracker._setDomainName("none");
+      pageTracker._setAllowLinker(true);
+      pageTracker._trackPageview();
+   } catch(err) {}
+</script>

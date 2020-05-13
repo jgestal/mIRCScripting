@@ -1,0 +1,27 @@
+montreal.qu.ca.undernet.org 6667
+toronto.on.ca.undernet.org 6667 6668
+vancouver.bc.ca.undernet.org 6666 6667
+regensburg.de.eu.undernet.org 6667
+espoo.fi.eu.undernet.org 6667 6668
+caen.fr.eu.undernet.org 6667 6668
+amsterdam.nl.eu.undernet.org 6667 6669
+diemen.nl.eu.undernet.org 6667 7000
+oslo.no.eu.undernet.org 6667 6668
+lulea.se.eu.undernet.org 6667 7777
+london.uk.eu.undernet.org 6666 6667
+auckland.nz.undernet.org 6667
+undernet.irc.aol.com 6665 6667
+phoenix.az.us.undernet.org 6667
+sandiego.ca.us.undernet.org 6667
+chicago.il.us.Undernet.org 6667 6669
+manhattan.ks.us.undernet.org 6667 7777
+lowell.ma.us.undernet.org 6667 6668
+springfield.mo.us.undernet.org 6667 6668
+stlouis.mo.us.undernet.org 6667 6669
+okc.ok.us.undernet.org 4400 6667
+pittsburgh.pa.us.undernet.org 6667 6668
+rockhill.sc.us.undernet.org 6667 7777
+dallas.tx.us.undernet.org 6667 6669
+saltlake.ut.us.undernet.org 6667
+blacksburg.va.us.undernet.org 6667
+washington.dc.us.undernet.org 6661 6667

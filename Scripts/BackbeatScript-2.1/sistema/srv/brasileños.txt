@@ -1,0 +1,12 @@
+irc.nway.com.br 6667 7000
+irc.persocom.com.br 6667 6668
+irc.netstage.com.br 6667 7002
+irc.elogica.com.br 6667 6669
+irc.ranet.com.br 6667
+irc2.kanopus.com.br 6667
+irc.ism.com.br 6667
+irc.iron.com.br 6667
+irc.americasnet.com.br 6667
+irc.pontocom.com.br 6667
+irc.cpunet.com.br 6667
+americasnet.usa.brasnet.org 6667

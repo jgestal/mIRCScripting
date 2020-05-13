@@ -1,0 +1,3 @@
+irc.globalchat.org 6666 6667
+irc.scytale.org 6666 6667
+irc.ncsa.es 6667

@@ -1,0 +1,10 @@
+tnx $nick :)
+gracias ;)
+:) tnx 
+asias $nick $+ !
+tnx $nick
+$nick tnx
+$nick :)
+$nick asias
+$nick asias :))
+$nick x)

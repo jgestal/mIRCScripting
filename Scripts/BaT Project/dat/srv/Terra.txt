@@ -1,0 +1,7 @@
+tpi5.anillo.adm 6667
+tpi6.anillo.adm 6667
+tpi1.anillo.adm 6667
+tpi2.anillo.adm 6667
+tpi3.anillo.adm 6667
+tpir.anillo.adm 6667
+tpi4.anillo.adm 6667

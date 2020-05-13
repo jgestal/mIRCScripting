@@ -1,0 +1,60 @@
+ ________________________
+|                        |
+| BaT SmS por Jimmy_RAY  |
+| email: jimmy@welt.es   |
+|                        |
+|________________________|
+
+ATENCIÓN: Para que los usuarios de Amena recivan el sms tienen que estar
+	dados de alta en www.amenapolis.com
+
+	Los usuarios de Movistar no tendrán ningún problema para recivir sms.
+
+___________________
+                   |
+ Características:  |
+___________________|
+
+	BaT SmS envía sms a moviles a través de correo electrónico que en muchas ocasiones es
+más cómodo y más rápido que enviarlos desde una página web.
+
+	Posibilidad de añadirle servidores SMTP.
+
+	Envía SmS a moviles tanto a moviles Movistar como a moviles Amena.
+
+	Es seguro: los mensajes llegan a su destino.
+
+	Es rápido: manda los mensajes en apenas tiempo.
+
+	Compatible 100% con el SmS Sender de hPm por lo tanto puedes tener los dos instalados
+a la vez en tu mIRC y elegir uno o otro según la ocasión.
+
+___________________
+                   |
+ Usando BaT SmS    |
+___________________|
+
+	El manejo es intuitivo. En la casilla email tienes que poner un email verdadero para que no
+sea rechazado el mensaje (por lo menos que exista el dominio, por ejemplo aunque no seas propietario 
+del email billgates@microsoft.com, microsoft.com existe).
+
+	El límite de caracteres está establecido en 160, para mandar más tendrás que hacerlo en varias
+tandas.
+
+	Servidores SMTP puedes añadir el que quieras, en el caso de que de error ya te avisará el programa.
+
+___________________
+                   |
+ Créditos          |
+___________________|
+
+	BaT SmS creado por Jimmy_RAY.
+	
+	Si quieres contactar conmigo escribeme un email: jimmy@welt.es
+
+	Agradecimientos a Fulg0re, hPm (SmS Sender) y Azrael-- (WiNSmS) por su gran ayuda y a los canales 
+#fiesta, #scripting, #100scripts y #ayuda_IRC.
+
+	No se permite la copia/plagio de ninguna parte del código. Si se quiere incluir en un script
+se tendrá que pedir permiso escribiendo a jimmy@welt.es y la propuesta será estudiada.
+		
