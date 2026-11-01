@@ -58,7 +58,7 @@ Small, self-contained addOns. Drop the `.mrc` file into your mIRC folder and loa
 
 | Script | Year | Notes |
 |--------|------|-------|
-| **BaT Project** | ~2000 | *BravoS AssAulT TeaM* script, made with Fulg0re. Themes (BaT, DarkBaT, BitchX), MDX dialogs, `porhacer.txt` todo list |
+| **BaT Project** | ~2000 | *BravoS AssAulT TeaM* script, made with Fulg0re. Themes (BaT, DarkBaT, BitchX) and MDX dialogs |
 | **BackbeatScript 2.1** | ~2000 | Ships with mIRC 5.81, optional help addOns, flood-bots, Spanish ID letter calculator |
 | **BackbeatScript 3.2** | 2001–2007 | The big one: themes, trivia bot (Pstrivial), anti-spam, anti-virus, away system, nick completion, SMTP mail, crypt DLL, custom `mOTFv.dll` (source included). Final release made it fully free |
 
@@ -133,7 +133,7 @@ AddOns pequeños y autocontenidos. Copia el `.mrc` a tu carpeta del mIRC y cárg
 
 | Script | Año | Notas |
 |--------|-----|-------|
-| **BaT Project** | ~2000 | Script del *BravoS AssAulT TeaM*, hecho con Fulg0re. Themes (BaT, DarkBaT, BitchX), diálogos MDX y lista de tareas en `porhacer.txt` |
+| **BaT Project** | ~2000 | Script del *BravoS AssAulT TeaM*, hecho con Fulg0re. Themes (BaT, DarkBaT, BitchX) y diálogos MDX |
 | **BackbeatScript 2.1** | ~2000 | Incluye mIRC 5.81, addOns de ayuda opcionales, flood-bots y calculadora de la letra del DNI |
 | **BackbeatScript 3.2** | 2001–2007 | El grande: themes, bot de trivial (Pstrivial), antispam, antivirus, sistema de away, nick completion, correo SMTP, DLL de cifrado y la `mOTFv.dll` propia (con fuente). La última versión lo hizo totalmente libre |
 
